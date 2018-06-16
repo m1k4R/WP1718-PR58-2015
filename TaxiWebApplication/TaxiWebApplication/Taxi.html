@@ -3,21 +3,65 @@
 <head>
     <meta charset="utf-8" />
     <link href="styles.css" rel="stylesheet" />
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script src="Scripts/taxi.js"></script>
     <title></title>
 </head>
 <body>
     <header class="header">
         <img class="imgTaxi" src="Images/s10.png" />
-        <button id="home">Home</button>
-        <button id="who">Who we are</button>
-        <button id="cars">Our cars</button>
-        <button id="services">Services</button>
-        <button id="contacts">Contacts</button>
-        <button class="myAcc" id="account">My account</button>
+        <button id="homeButton">Home</button>
+        <button id="whoWeAreButton">Who we are</button>
+        <button id="carsButton">Our cars</button>
+        <button id="servicesButton">Services</button>
+        <button id="contactsButton">Contacts</button>
+        <button class="myAccountButton" id="myAccountButton">My account</button>
+        <button class="loginButton" id="loginButton">Login</button>
     </header>
     <div class="homeText" id="homeText">
         <p class="yellowText">We will take you</p>
         <p class="whiteText">wherever you need</p>
+    </div>
+    <div class="loginPage" id="loginPage">
+        <div class="login" id="login">
+            <form>
+                <table class="loginTable">
+                    <tr>
+                        <td colspan="3"> <img class="imgX" id="imgX" src="Images/s33.png" /></td>
+                    </tr>
+                    <tr>
+                        <td>Username:</td>
+                        <td>&nbsp;&nbsp;&nbsp;</td>
+                        <td><input type="text" name="username" required autofocus /></td>
+                    </tr>
+                    <tr>
+                        <td>Password:</td>
+                        <td>&nbsp;&nbsp;&nbsp;</td>
+                        <td><input type="password" name="password" required /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><center><input class="loginClick" type="submit" value="Login" /></center></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><center><input class="registerClick" type="submit" value="Register" /></center></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <div id="userBox" class="userBox"></div>
+    <div class="dropdownMenu">
+        <img class="imgTriangle" id="imgTriangle" src="Images/s29.png" />
+        <div class="userMenu" id="userMenu">
+            <p>Profil</p>
+            <p>Voznje</p>
+            <p>Zakazi voznju</p>
+            <p>Placanje</p>
+          <!--  <img class="imgTriangleDown" id="imgTriangleDown" src="Images/s29.png" /> -->
+        </div>
     </div>
 </body>
 </html>

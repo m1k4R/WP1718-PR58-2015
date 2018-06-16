@@ -61,6 +61,7 @@ body {
     background-size: 100% 100%;
 }
 
+/*
 .divOpacity {
     background-color: #414141;
     opacity: 0.5;
@@ -70,11 +71,11 @@ body {
     bottom: 5%;
     right: 20%;
 }
-
+*/
 .homeText {
     text-align: right;
     width: 70vw;
-    height: 14vw;
+    height: 27vh;
     position: fixed;
     bottom: 0%;
     right: 17%;
@@ -107,7 +108,7 @@ body {
 .header button {
     width: 8vw;
     height: 8vh;
-    margin-right: 5%;
+    margin-right: 2%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.2vw;
     font-weight: bold;
@@ -127,6 +128,7 @@ body {
     background-color: #ffcc00;
     border-color: #ffcc00;
     color: black;
+    cursor: pointer;
 }
 
 .header button:focus {
@@ -144,6 +146,185 @@ body {
     margin-bottom: -2%;
 }
 
-.myAcc {
+.loginButton {
     float: right;
+}
+
+.myAccountButton {
+    margin-left: 10%;
+    display: none;
+}
+
+.userBox {
+    background-color: rgba(255, 204, 0, 0.9);
+    color: black;
+    text-align: center;
+    width: 24.9vw;
+    height: 30vh;
+    position: fixed;
+    top: 15%;
+    left: 2.2%;
+    border-bottom: solid 10px black;
+    display: none;
+}
+
+
+.dropdownMenu {
+    position: relative;
+    display: inline-block;
+}
+
+.userMenu {
+    display: none;
+    position: fixed;
+    text-align: left;
+    width: 24.9vw;
+    top: 46%;
+    left: 2.2%;
+}
+
+.userMenu p {
+    padding: 12px 16px;
+    display: block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    border-bottom: solid 1px black;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #ffcc00;
+}
+
+.userMenu p:hover {
+    background-color: rgba(255, 204, 0, 0.9);
+    color: black;
+            
+}
+/*
+.dropdownMenu:hover .userMenu {
+    display: block;
+}*/
+/*
+.userMenu {
+    display: none;
+    background-color: rgba(255, 204, 0, 0.9);
+    color: black;
+    text-align: left;
+    width: 24.9vw;
+    height: 30vh;
+    position: fixed;
+}
+*/
+.imgTriangle {
+    width: 25.5vw;
+    height: 12vh;
+    top: 46vh;
+    left: 2vw;
+    position: fixed;
+    display: none;
+    opacity: 0.9;
+}
+
+.imgTriangle:hover {
+    opacity: 10;
+    cursor: pointer;
+}
+
+.imgTriangleDown {
+    width: 25.5vw;
+    height: 12vh;
+    top: 73vh;
+    left: 2vw;
+    position: fixed;
+    opacity: 0.9;
+}
+
+.imgTriangleDown:hover {
+    opacity: 10;
+    cursor: pointer;
+}
+
+.loginPage {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+.login {
+    background-color: transparent;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    width: 22vw;
+    height: 40vh;
+    top: 20%;
+    left: 35%;
+    position: fixed;
+    padding: 2%;
+}
+
+.loginTable {
+    width: 22vw;
+    height: 40vh;
+    top: 20%;
+    left: 35%;
+    position: fixed;
+    border: solid 1px #ffcc00;
+    background-color: transparent;
+}
+
+table {
+    border-spacing: 5px 10px;
+}
+
+td {
+    padding: 10px;
+}
+
+.loginClick {
+    background-color: #ffcc00;
+    border-color: transparent;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    width: 14vw;
+    height: 6vh;
+}
+
+.loginClick:hover {
+    cursor: pointer;
+}
+
+.registerClick {
+    background-color: transparent;
+    border: solid 2px #ffcc00;
+    color: #ffcc00;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    width: 14vw;
+    height: 6vh;
+}
+
+.registerClick:hover {
+    cursor: pointer;
+    background-color: #ffcc00;
+    border-color: transparent;
+    color: black;
+}
+
+.imgX {
+    width: 15px;
+    height: 15px;
+    float: right;
+}
+
+.imgX:hover {
+    cursor: pointer;
 }
