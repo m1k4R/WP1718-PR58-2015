@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Customers>
+  <Customer>
+    <Id>1</Id>
+    <Username>mikaR</Username>
+    <Password>mmm</Password>
+    <Name>Milijana</Name>
+    <Surname>Radovic</Surname>
+    <Gender>Male</Gender>
+    <Jmbg>tnt</Jmbg>
+    <Phone>breb</Phone>
+    <Email>br</Email>
+    <Role>Customer</Role>
+  </Customer>
+</Customers>

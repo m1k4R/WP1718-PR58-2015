@@ -43,25 +43,86 @@
                         <td colspan="3">&nbsp;&nbsp;&nbsp;</td>
                     </tr>
                     <tr>
-                        <td colspan="3"><center><input class="loginClick" type="submit" value="Login" /></center></td>
+                        <td colspan="3"><center><input class="loginClick" id="logging" type="submit" value="Login" /></center></td>
                     </tr>
                     <tr>
-                        <td colspan="3"><center><input class="registerClick" type="submit" value="Register" /></center></td>
+                        <td colspan="3"><center><button class="registerClick" id="goRegister">Register</button></center></td>
                     </tr>
                 </table>
             </form>
         </div>
-    </div>
-    <div id="userBox" class="userBox"></div>
-    <div class="dropdownMenu">
-        <img class="imgTriangle" id="imgTriangle" src="Images/s29.png" />
-        <div class="userMenu" id="userMenu">
-            <p>Profil</p>
-            <p>Voznje</p>
-            <p>Zakazi voznju</p>
-            <p>Placanje</p>
-          <!--  <img class="imgTriangleDown" id="imgTriangleDown" src="Images/s29.png" /> -->
+
+        <div class="register" id="register">
+            <!-- <form accept-charset="utf-8" method="post" action="#"> -->
+            <table class="registerTable">
+                <tr>
+                    <td colspan="3"> <img class="imgX" id="imgXReg" src="Images/s33.png" /></td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="text" name="name" id="nameId" required /></td>
+                </tr>
+                <tr>
+                    <td>Surname:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="text" name="surname" id="surnameId" required /></td>
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="text" name="username" id="usernameId" required /></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="password" name="password" id="passwordId" required /></td>
+                </tr>
+                <tr>
+                    <td>Jmbg:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="text" name="jmbg" id="jmbgId" required /></td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        <input type="radio" name="gender" id="genderId" checked>Male
+                        <input type="radio" name="gender">Female
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="text" name="phone" id="phoneId" required /></td>
+                </tr>
+                <tr>
+                    <td>E-mail:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="email" name="email" id="emailId" required /></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
+                    <!-- <td colspan="3"><center><input class="loginClick" id="registration" type="submit" value="Register" /></center></td> -->
+                    <td colspan="3"><center><button class="loginClick" id="registration">Register</button></center></td>
+                </tr>
+            </table>
+            <!--   </form> -->
+            </div>
+
+
         </div>
-    </div>
-</body>
-</html>
+        <div id="userBox" class="userBox"></div>
+        <div class="dropdownMenu">
+            <img class="imgTriangle" id="imgTriangle" src="Images/s29.png" />
+            <div class="userMenu" id="userMenu">
+                <p>Profil</p>
+                <p>Voznje</p>
+                <p>Zakazi voznju</p>
+                <p>Placanje</p>
+            </div>
+        </div>
+    </body>
+    </html>

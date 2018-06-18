@@ -61,17 +61,6 @@ body {
     background-size: 100% 100%;
 }
 
-/*
-.divOpacity {
-    background-color: #414141;
-    opacity: 0.5;
-    width: 50%;
-    height: 50%;
-    position: fixed;
-    bottom: 5%;
-    right: 20%;
-}
-*/
 .homeText {
     text-align: right;
     width: 70vw;
@@ -199,21 +188,7 @@ body {
     color: black;
             
 }
-/*
-.dropdownMenu:hover .userMenu {
-    display: block;
-}*/
-/*
-.userMenu {
-    display: none;
-    background-color: rgba(255, 204, 0, 0.9);
-    color: black;
-    text-align: left;
-    width: 24.9vw;
-    height: 30vh;
-    position: fixed;
-}
-*/
+
 .imgTriangle {
     width: 25.5vw;
     height: 12vh;
@@ -314,9 +289,6 @@ td {
 
 .registerClick:hover {
     cursor: pointer;
-    background-color: #ffcc00;
-    border-color: transparent;
-    color: black;
 }
 
 .imgX {
@@ -327,4 +299,40 @@ td {
 
 .imgX:hover {
     cursor: pointer;
+}
+
+.xButton {
+    width: 15px;
+    height: 15px;
+    float: right;
+    z-index: 50;
+}
+
+.xButton:hover {
+    cursor: pointer;
+}
+
+.register {
+    background-color: transparent;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    width: 22vw;
+    height: 40vh;
+    top: 20%;
+    left: 35%;
+    position: fixed;
+    padding: 2%;
+    display: none;
+}
+
+.registerTable {
+    width: 22vw;
+    height: 40vh;
+    top: 20%;
+    left: 35%;
+    position: fixed;
+    border: solid 1px #ffcc00;
+    background-color: transparent;
 }

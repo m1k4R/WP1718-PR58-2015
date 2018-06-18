@@ -16,6 +16,11 @@
         $("#userBox").hide();
         $("#imgTriangle").hide();
         $("#homeText").show();
+        $("#userMenu").hide();
+        $("#imgTriangle").animate({
+            top: '46vh'
+        });
+        pos = 46;
     });
     var pos = 46;
     $("#imgTriangle").click(function () {
@@ -33,8 +38,35 @@
         }
         $("#userMenu").slideToggle();
     });
-    $("#imgTriangleDown").click(function () {
-        $("#userMenu").slideUp();
-        $("#imgTriangle").show();
+    $("#goRegister").click(function () {
+        $("#login").hide();
+        $("#register").show();
+    });
+    $("#imgXReg").click(function () {
+        $("#loginPage").hide();
+    });
+
+    $("#registration").click(function () {
+        $.ajax({
+            url: "/api/Register/RegisterUser",
+            method: "POST",
+            data: {
+                Name: $("#nameId").val(),
+                Surname: $("#surnameId").val(),
+                Username: $("#usernameId").val(),
+                Password: $("#passwordId").val(),
+                Jmbg: $("#jmbgId").val(),
+                Gender: $("#genderId").val(),
+                Phone: $("#phoneId").val(),
+                Email: $("#emailId").val(),
+            },
+            success: function () {
+                alert("Uspjesno ste se registrovali");
+                $("#loginPage").hide();
+            },
+            error: function (jqXHR) {
+                alert("Greska");
+            }
+        });
     });
 });
