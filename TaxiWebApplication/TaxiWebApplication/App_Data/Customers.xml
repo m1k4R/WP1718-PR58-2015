@@ -2,14 +2,38 @@
 <Customers>
   <Customer>
     <Id>1</Id>
-    <Username>mikaR</Username>
-    <Password>mmm</Password>
-    <Name>Milijana</Name>
+    <Username>ceca</Username>
+    <Password>ceca</Password>
+    <Name>Ceca</Name>
     <Surname>Radovic</Surname>
     <Gender>Male</Gender>
-    <Jmbg>tnt</Jmbg>
-    <Phone>breb</Phone>
-    <Email>br</Email>
+    <Jmbg>1234567890123</Jmbg>
+    <Phone>123</Phone>
+    <Email>necudakazem@aa.com</Email>
+    <Role>Customer</Role>
+  </Customer>
+  <Customer>
+    <Id>1</Id>
+    <Username>cccc</Username>
+    <Password>cccc</Password>
+    <Name>Milijana</Name>
+    <Surname>Radovic</Surname>
+    <Gender>Female</Gender>
+    <Jmbg>2505996123123</Jmbg>
+    <Phone>234</Phone>
+    <Email>necudakazem@aa.com</Email>
+    <Role>Customer</Role>
+  </Customer>
+  <Customer>
+    <Id>1</Id>
+    <Username>enaa</Username>
+    <Password>eeee</Password>
+    <Name>ena</Name>
+    <Surname>lena</Surname>
+    <Gender>Female</Gender>
+    <Jmbg>2505996123123</Jmbg>
+    <Phone>324</Phone>
+    <Email>necudakazem@aa.com</Email>
     <Role>Customer</Role>
   </Customer>
 </Customers>

@@ -57,5 +57,25 @@ namespace TaxiWebApplication.Models
                 catch { }
             }
         }
+
+        public bool CheckIfCustomerExsts(string username)
+        {
+            bool retVal = false;
+
+            if (File.Exists(fileName))
+            {
+                XDocument xmlDocument = XDocument.Load(fileName);
+
+                retVal = (from customer in xmlDocument.Root.Elements("Customer")
+                          where customer.Element("Username").Value.ToString().ToLower().Equals(username.ToLower())
+                          select customer).Any();
+
+                return retVal;
+            }
+            else
+            {
+                return retVal;
+            }
+        }
     }
 }

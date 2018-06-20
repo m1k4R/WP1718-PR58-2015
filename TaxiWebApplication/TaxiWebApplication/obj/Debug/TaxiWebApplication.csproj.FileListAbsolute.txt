@@ -95,3 +95,9 @@ d:\Milijana\Desktop\ProjekatWEB\TaxiWebApplication\TaxiWebApplication\obj\Debug\
 d:\Milijana\Desktop\ProjekatWEB\TaxiWebApplication\TaxiWebApplication\obj\Debug\TaxiWebApplication.csproj.CopyComplete
 d:\Milijana\Desktop\ProjekatWEB\TaxiWebApplication\TaxiWebApplication\obj\Debug\TaxiWebApplication.dll
 d:\Milijana\Desktop\ProjekatWEB\TaxiWebApplication\TaxiWebApplication\obj\Debug\TaxiWebApplication.pdb
+d:\Milijana\Desktop\ProjekatWEB\WP1718-PR58-2015\TaxiWebApplication\TaxiWebApplication\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+d:\Milijana\Desktop\ProjekatWEB\WP1718-PR58-2015\TaxiWebApplication\TaxiWebApplication\bin\roslyn\Microsoft.CodeAnalysis.dll
+d:\Milijana\Desktop\ProjekatWEB\WP1718-PR58-2015\TaxiWebApplication\TaxiWebApplication\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+d:\Milijana\Desktop\ProjekatWEB\WP1718-PR58-2015\TaxiWebApplication\TaxiWebApplication\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
+d:\Milijana\Desktop\ProjekatWEB\WP1718-PR58-2015\TaxiWebApplication\TaxiWebApplication\bin\roslyn\System.IO.Compression.dll
+d:\Milijana\Desktop\ProjekatWEB\WP1718-PR58-2015\TaxiWebApplication\TaxiWebApplication\bin\roslyn\VBCSCompiler.exe

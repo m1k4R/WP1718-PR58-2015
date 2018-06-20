@@ -13,11 +13,19 @@ namespace TaxiWebApplication.Controllers
         [HttpPost]
         public HttpResponseMessage RegisterUser([FromBody]Customer customer)
         {
-            customer.Id = 1;
-            customer.Role = Enums.Roles.Customer;
-            Data.customerData.AddCustomer(customer);
+            if (!Data.customerData.CheckIfCustomerExsts(customer.Username))
+            {
+                customer.Id = 1;
+                customer.Role = Enums.Roles.Customer;
+                Data.customerData.AddCustomer(customer);
 
-            return Request.CreateResponse(HttpStatusCode.Created, customer);
+                return Request.CreateResponse(HttpStatusCode.Created, customer);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+            
         }
     }
 }
