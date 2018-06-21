@@ -13,13 +13,37 @@ namespace TaxiWebApplication.Models
         public static DriveData driveData = new DriveData();
         public static CommentData commentData = new CommentData();
 
-        public static List<User> users = new List<User>();  // tu cu ucitavati iz fajla
-        public static List<Customer> customers = new List<Customer>();
-        public static List<Dispatcher> dispatchers = new List<Dispatcher>();
-        public static List<Driver> drivers = new List<Driver>();
-        public static List<Drive> drives = new List<Drive>();
+        public static IEnumerable<User> users = new List<User>();  // tu cu ucitavati iz fajla
+        public static IEnumerable<Customer> customers = customerData.RetriveAllCustomers();
+        public static IEnumerable<Dispatcher> dispatchers = dispatcherData.RetriveAllDispatchers();
+        public static IEnumerable<Driver> drivers = driverData.RetriveAllDrivers();
+        public static IEnumerable<Drive> drives = new List<Drive>();
 
-        public static int newId;
+        public static int NewId()
+        {
+            int customersCount = 0;
+            int dispatchersCount = 0;
+            int driversCount = 0;
+
+            customers = customerData.RetriveAllCustomers();
+            dispatchers = dispatcherData.RetriveAllDispatchers();
+            drivers = driverData.RetriveAllDrivers();
+
+            if (customers != null)
+            {
+                customersCount = Data.customers.Count();
+            }
+            if (dispatchers != null)
+            {
+                dispatchersCount = Data.dispatchers.Count();
+            }
+            if (drivers != null)
+            {
+                driversCount = Data.drivers.Count();
+            }
+
+            return customersCount + dispatchersCount + driversCount + 1;
+        }
 
     }
 }

@@ -1,39 +1,63 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Customers>
   <Customer>
-    <Id>1</Id>
-    <Username>ceca</Username>
-    <Password>ceca</Password>
-    <Name>Ceca</Name>
-    <Surname>Radovic</Surname>
-    <Gender>Male</Gender>
-    <Jmbg>1234567890123</Jmbg>
-    <Phone>123</Phone>
-    <Email>necudakazem@aa.com</Email>
-    <Role>Customer</Role>
-  </Customer>
-  <Customer>
-    <Id>1</Id>
-    <Username>cccc</Username>
-    <Password>cccc</Password>
+    <Id>2</Id>
+    <Username>mika</Username>
+    <Password>mika</Password>
     <Name>Milijana</Name>
     <Surname>Radovic</Surname>
     <Gender>Female</Gender>
-    <Jmbg>2505996123123</Jmbg>
-    <Phone>234</Phone>
-    <Email>necudakazem@aa.com</Email>
+    <Jmbg>2505996158952</Jmbg>
+    <Phone>064</Phone>
+    <Email>mika@gmail.com</Email>
     <Role>Customer</Role>
   </Customer>
   <Customer>
-    <Id>1</Id>
-    <Username>enaa</Username>
-    <Password>eeee</Password>
-    <Name>ena</Name>
-    <Surname>lena</Surname>
+    <Id>3</Id>
+    <Username>ceca</Username>
+    <Password>ceca</Password>
+    <Name>Svjetlana</Name>
+    <Surname>Radovic</Surname>
     <Gender>Female</Gender>
-    <Jmbg>2505996123123</Jmbg>
-    <Phone>324</Phone>
-    <Email>necudakazem@aa.com</Email>
+    <Jmbg>0109993123456</Jmbg>
+    <Phone>06451</Phone>
+    <Email>ceca@gmail.com</Email>
+    <Role>Customer</Role>
+  </Customer>
+  <Customer>
+    <Id>4</Id>
+    <Username>misko</Username>
+    <Password>misko</Password>
+    <Name>Miro</Name>
+    <Surname>Peric</Surname>
+    <Gender>Male</Gender>
+    <Jmbg>0408992784114</Jmbg>
+    <Phone>063456</Phone>
+    <Email>misko@gmail.com</Email>
+    <Role>Customer</Role>
+  </Customer>
+  <Customer>
+    <Id>5</Id>
+    <Username>dada</Username>
+    <Password>dadabat</Password>
+    <Name>Dajana</Name>
+    <Surname>Radovic</Surname>
+    <Gender>Female</Gender>
+    <Jmbg>2507001232212</Jmbg>
+    <Phone>602784</Phone>
+    <Email>dada@bat.com</Email>
+    <Role>Customer</Role>
+  </Customer>
+  <Customer>
+    <Id>6</Id>
+    <Username>tejo</Username>
+    <Password>tejo</Password>
+    <Name>Teo</Name>
+    <Surname>Eto</Surname>
+    <Gender>Male</Gender>
+    <Jmbg>1810996940003</Jmbg>
+    <Phone>2245</Phone>
+    <Email>teo@slon.com</Email>
     <Role>Customer</Role>
   </Customer>
 </Customers>

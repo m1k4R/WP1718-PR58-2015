@@ -13,9 +13,9 @@ namespace TaxiWebApplication.Controllers
         [HttpPost]
         public HttpResponseMessage RegisterUser([FromBody]Customer customer)
         {
-            if (!Data.customerData.CheckIfCustomerExsts(customer.Username))
+            if (!Data.customerData.CheckIfCustomerExists(customer.Username) && !Data.dispatcherData.CheckIfDispatcherExists(customer.Username) && !Data.driverData.CheckIfDriverExists(customer.Username))
             {
-                customer.Id = 1;
+                customer.Id = Data.NewId();
                 customer.Role = Enums.Roles.Customer;
                 Data.customerData.AddCustomer(customer);
 

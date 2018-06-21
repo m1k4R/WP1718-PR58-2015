@@ -139,6 +139,11 @@ body {
     float: right;
 }
 
+.logoutButton {
+    float: right;
+    display: none;
+}
+
 .myAccountButton {
     margin-left: 10%;
     display: none;
@@ -186,7 +191,7 @@ body {
 .userMenu p:hover {
     background-color: rgba(255, 204, 0, 0.9);
     color: black;
-            
+    cursor: pointer;         
 }
 
 .imgTriangle {
@@ -226,7 +231,7 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 5;
+    z-index: 10;
 }
 
 .login {
@@ -359,4 +364,76 @@ td {
 :-moz-placeholder { /* Firefox 4 - 18 */
     color: red;
     opacity: 1;
+}
+
+.customerDiv {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    width: 65vw;
+    height: 82vh;
+    float: right;
+    position: fixed;
+    top: 15%;
+    right: 2%;
+    z-index: 5;
+    display: none;
+}
+
+.dispatcherDiv {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    width: 65vw;
+    height: 82vh;
+    float: right;
+    position: fixed;
+    top: 15%;
+    right: 2%;
+    z-index: 5;
+    display: none;
+}
+
+#carIdDriver {
+    width: 12.6vw;
+}
+
+.addDriver {
+    background-color: transparent;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    text-align: left;
+    width: 57vw;
+    height: 65vh;
+    position: fixed;
+    top: 22%;
+    right: 4%;
+    padding: 2%;
+    display: none;
+}
+
+.addDriverTable {
+    width: 22vw;
+    height: 40vh;
+    top: 23%;
+    left: 36%;
+    position: fixed;
+    border: solid 1px #ffcc00;
+    background-color: transparent;
+}
+
+.driverDiv {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    width: 65vw;
+    height: 82vh;
+    float: right;
+    position: fixed;
+    top: 15%;
+    right: 2%;
+    z-index: 5;
+    display: none;
 }

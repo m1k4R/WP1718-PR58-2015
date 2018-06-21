@@ -18,6 +18,7 @@ namespace TaxiWebApplication.Models
         public string Jmbg { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
         public Enums.Roles Role { get; set; } 
         public List<Drive> Drives { get; set; }
 

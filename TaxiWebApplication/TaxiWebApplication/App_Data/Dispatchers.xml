@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Dispatchers>
+  <Dispatcher>
+    <Id>1</Id>
+    <Username>Admin</Username>
+    <Password>admin</Password>
+    <Name>Mark</Name>
+    <Surname>Markl</Surname>
+	<Gender>Male</Gender>
+    <Jmbg>1010993454784</Jmbg>
+    <Phone>1002003</Phone>
+    <Email>taxiadmin@gmail.com</Email>   
+    <Role>Dispatcher</Role>
+  </Dispatcher>
+</Dispatchers>

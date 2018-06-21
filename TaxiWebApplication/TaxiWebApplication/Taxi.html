@@ -17,6 +17,7 @@
         <button id="contactsButton">Contacts</button>
         <button class="myAccountButton" id="myAccountButton">My account</button>
         <button class="loginButton" id="loginButton">Login</button>
+        <button class="logoutButton" id="logoutButton">Logout</button>
     </header>
     <div class="homeText" id="homeText">
         <p class="yellowText">We will take you</p>
@@ -31,18 +32,18 @@
                     <tr>
                         <td>Username:</td>
                         <td>&nbsp;&nbsp;&nbsp;</td>
-                        <td><input type="text" name="username" required autofocus /></td>
+                        <td><input type="text" name="username" id="usernameIdLog" autofocus /></td>
                     </tr>
                     <tr>
                         <td>Password:</td>
                         <td>&nbsp;&nbsp;&nbsp;</td>
-                        <td><input type="password" name="password" required /></td>
+                        <td><input type="password" name="password" id="passwordIdLog" /></td>
                     </tr>
                     <tr>
                         <td colspan="3">&nbsp;&nbsp;&nbsp;</td>
                     </tr>
                     <tr>
-                        <td colspan="3"><center><input class="loginClick" id="logging" type="submit" value="Login" /></center></td>
+                        <td colspan="3"><center><button class="loginClick" id="logging">Login</button></center></td>
                     </tr>
                     <tr>
                         <td colspan="3"><center><button class="registerClick" id="goRegister">Register</button></center></td>
@@ -51,7 +52,6 @@
         </div>
 
         <div class="register" id="register">
-            <!-- <form accept-charset="utf-8" method="post" action="#"> -->
             <table class="registerTable">
                 <tr>
                     <td colspan="3"> <img class="imgX" id="imgXReg" src="Images/s33.png" /></td>
@@ -103,24 +103,118 @@
                     <td colspan="3">&nbsp;&nbsp;&nbsp;</td>
                 </tr>
                 <tr>
-                    <!-- <td colspan="3"><center><input class="loginClick" id="registration" type="submit" value="Register" /></center></td> -->
                     <td colspan="3"><center><button class="loginClick" id="registration">Register</button></center></td>
                 </tr>
             </table>
-            <!--   </form> -->
-            </div>
-
-
         </div>
-        <div id="userBox" class="userBox"></div>
-        <div class="dropdownMenu">
-            <img class="imgTriangle" id="imgTriangle" src="Images/s29.png" />
-            <div class="userMenu" id="userMenu">
-                <p>Profil</p>
-                <p>Voznje</p>
-                <p>Zakazi voznju</p>
-                <p>Placanje</p>
-            </div>
+    </div>
+    <div id="userBox" class="userBox"></div>
+    <div class="dropdownMenu">
+        <img class="imgTriangle" id="imgTriangle" src="Images/s29.png" />
+        <div class="userMenu" id="userMenu">
+            <p>View profile</p>
+            <p id="dispatcherActionAddDriver">Create a driver</p>
+            <p id="driverActionChangeLocation">Change location</p>
+            <p id="customerActionCreateDrive">Create a drive</p>
         </div>
-    </body>
-    </html>
+    </div>
+    <div class="dispatcherDiv" id="dispatcherDiv">
+        <div class="addDriver" id="addDriver">
+            <table class="addDriverTable">
+                <tr>
+                    <td colspan="7"> <img class="imgX" id="imgXAddDriver" src="Images/s33.png" /></td>
+                </tr>
+                <tr>
+                    <td>Name:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="text" name="name" id="nameIdDriver" required /></td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>Address:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="text" name="address" id="addressIdDriver" /></td>
+                </tr>
+                <tr>
+                    <td>Surname:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="text" name="surname" id="surnameIdDriver" required /></td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>X:</td>
+                    <td><input type="text" name="x" id="xIdDriver" /></td>
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="text" name="username" id="usernameIdDriver" /></td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Y:</td>
+                    <td><input type="text" name="y" id="yIdDriver" /></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="password" name="password" id="passwordIdDriver" /></td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>&nbsp; </td>
+                </tr>
+                <tr>
+                    <td>Jmbg:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="text" name="jmbg" id="jmbgIdDriver" required /></td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>Car:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        <select width="10px" name="car" id="carIdDriver">
+                            <option value="None" selected>None</option>
+                            <option value="Car">Car</option>
+                            <option value="Van">Van</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gender:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        <input type="radio" name="genderDriver" checked value="Male">Male
+                        <input type="radio" name="genderDriver" value="Female">Female
+                    </td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>ID:</td>
+                    <td><input type="text" name="id" id="idCarIdDriver" /></td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="text" name="phone" id="phoneIdDriver" required /></td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>Year:</td>
+                    <td><input type="text" name="year" id="carYearIdDriver" /></td>
+                </tr>
+                <tr>
+                    <td>E-mail:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="email" name="email" id="emailIdDriver" required /></td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td>RegNumber:</td>
+                    <td><input type="text" name="reg" id="regNumberIdDriver" /></td>
+                </tr>
+                <tr>
+                    <td colspan="7">&nbsp;&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="7"><center><button class="loginClick" id="buttonAddDriver">Add</button></center></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="customerDiv" id="customerDiv"></div>
+    <div class="driverDiv" id="driverDiv"></div>
+</body>
+</html>

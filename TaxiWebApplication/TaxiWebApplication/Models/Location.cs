@@ -9,6 +9,6 @@ namespace TaxiWebApplication.Models
     {
         public double X { get; set; }
         public double Y { get; set; }
-        public Address Address { get; set; }
+        public string Address { get; set; }
     }
 }
