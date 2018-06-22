@@ -6,7 +6,8 @@ using System.Web.Http;
 namespace TaxiWebApplication
 {
     public static class WebApiConfig
-    {
+    {      
+
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
@@ -20,5 +21,6 @@ namespace TaxiWebApplication
                 defaults: new { id = RouteParameter.Optional }
             );
         }
+
     }
 }

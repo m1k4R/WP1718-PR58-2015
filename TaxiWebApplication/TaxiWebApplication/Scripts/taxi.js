@@ -4,6 +4,7 @@
     }); 
     $("#logoutButton").click(function () {
         sessionStorage.removeItem("currentUser");
+        isUserActive = false;
         $("#logoutButton").hide();
         $("#loginButton").show();
         $("#homeText").show();
@@ -39,11 +40,57 @@
         $("#emailId").attr("placeholder", "").placeholder;
         $("#usernameIdLog").attr("placeholder", "").placeholder;
         $("#passwordIdLog").attr("placeholder", "").placeholder;
+
+        $("#accountDiv").hide();
     }); 
     $("#myAccountButton").click(function () {
         $("#userBox").show();
         $("#imgTriangle").show();
         $("#homeText").hide();
+        $("#dispatcherDiv").hide();
+        $("#customerDiv").hide();
+        $("#driverDiv").hide();
+
+        let user = JSON.parse(sessionStorage.getItem("currentUser"));
+        $("#nameChangeId").val(user.Name);
+        $("#surnameChangeId").val(user.Surname);
+        $("#usernameChangeId").val(user.Username);
+        $("#passwordTextChangeId").val(user.Password);
+        $("#jmbgChangeId").val(user.Jmbg);
+        $("#genderTextChangeId").val(user.Gender);
+        $("#phoneChangeId").val(user.Phone);
+        $("#emailChangeId").val(user.Email);
+        
+        $("input[name=genderChange][value=" + user.Gender + "]").prop('checked', true);
+        $("#passwordChangeId").val(user.Password);
+
+        $("input[name=genderChange]").hide();
+        $("input[name=genderChange]").siblings('label').hide();
+        $("#passwordChangeId").hide();
+
+        $("#changeAccountClick").hide();
+        $("#cancelAccountClick").hide();
+        $("#editProfile").show();
+        $("#passwordTextChangeId").show();
+        $("#genderTextChangeId").show();
+
+        $("#nameChangeId").addClass("accountInput");
+        $("#surnameChangeId").addClass("accountInput");
+        $("#usernameChangeId").addClass("accountInput");
+        $("#passwordChangeId").addClass("accountInput");
+        $("#jmbgChangeId").addClass("accountInput");
+        $("#phoneChangeId").addClass("accountInput");
+        $("#emailChangeId").addClass("accountInput");
+
+        $("#nameChangeId").prop("readonly", true);
+        $("#surnameChangeId").prop("readonly", true);
+        $("#usernameChangeId").prop("readonly", true);
+        $("#passwordChangeId").prop("readonly", true);
+        $("#jmbgChangeId").prop("readonly", true);
+        $("#phoneChangeId").prop("readonly", true);
+        $("#emailChangeId").prop("readonly", true);
+
+        $("#accountDiv").show();
     });
     $("#imgX").click(function () {
         $("#loginPage").hide();
@@ -67,15 +114,29 @@
         $("#usernameIdLog").attr("placeholder", "").placeholder;
         $("#passwordIdLog").attr("placeholder", "").placeholder;
     });
+    var isUserActive = false;
     $("#homeButton").click(function () {
-        $("#userBox").hide();
-        $("#imgTriangle").hide();
-        $("#homeText").show();
+        $("#accountDiv").hide();
+        $("#driverChangeLocationDiv").hide();
+      //  $("#homeText").hide();
         $("#userMenu").hide();
         $("#imgTriangle").animate({
             top: '46vh'
         });
         pos = 46;
+
+        if (isUserActive) {
+            let user = JSON.parse(sessionStorage.getItem("currentUser"));
+            if (user.Role == "Dispatcher") {
+                $("#dispatcherDiv").show();
+            }
+            else if (user.Role == "Customer") {
+                $("#customerDiv").show();
+            }
+            else if (user.Role == "Driver") {
+                $("#driverDiv").show();
+            }
+        }
     });
     var pos = 46;
     $("#imgTriangle").click(function () {
@@ -147,6 +208,7 @@
                     sessionStorage.setItem("currentUser", JSON.stringify(data));
                     let user = JSON.parse(sessionStorage.getItem("currentUser"));
                     alert("Uspjesno ste se registrovali");
+                    isUserActive = true;
                     $("#loginPage").hide();
                     $("#homeText").hide();
                     $("#myAccountButton").text(user.Username);
@@ -282,6 +344,7 @@
                     sessionStorage.setItem("currentUser", JSON.stringify(data));
                     let user = JSON.parse(sessionStorage.getItem("currentUser"));
                     alert("Uspjesno ste se ulogovali");
+                    isUserActive = true;
                     $("#loginPage").hide();
                     $("#homeText").hide();
                     $("#myAccountButton").text(user.Username);
@@ -345,6 +408,29 @@
     //Dispatcher.js create driver
 
     $("#dispatcherActionAddDriver").click(function () {
+        $("#nameIdDriver").val("");
+        $("#surnameIdDriver").val("");
+        $("#usernameIdDriver").val("");
+        $("#passwordIdDriver").val("");
+        $("#jmbgIdDriver").val("");
+        $("#phoneIdDriver").val("");
+        $("#emailIdDriver").val("");
+        $("#addressIdDriver").val("");
+        $("#xIdDriver").val("");
+        $("#yIdDriver").val("");
+        $("#idCarIdDriver").val("");
+        $("#carYearIdDriver").val("");
+        $("#regNumberIdDriver").val("");
+        $("select[name=car]").val("None"),
+
+        $("#nameIdDriver").attr("placeholder", "").placeholder;
+        $("#surnameIdDriver").attr("placeholder", "").placeholder;
+        $("#usernameIdDriver").attr("placeholder", "").placeholder;
+        $("#passwordIdDriver").attr("placeholder", "").placeholder;
+        $("#jmbgIdDriver").attr("placeholder", "").placeholder;
+        $("#phoneIdDriver").attr("placeholder", "").placeholder;
+        $("#emailIdDriver").attr("placeholder", "").placeholder;
+
         $("#addDriver").show();
     }); 
     $("#imgXAddDriver").click(function () {
@@ -357,7 +443,7 @@
         AddDriverValidate();
         if (isAddDriverValidate) {
             $.ajax({
-                url: "/api/Dispacher/AddDriver",
+                url: "/api/Dispatcher/AddDriver",
                 method: "POST",
                 dataType: "json",
                 data: {
@@ -369,13 +455,18 @@
                     Gender: $("input[name=genderDriver]").filter(":checked").val(),
                     Phone: $("#phoneIdDriver").val(),
                     Email: $("#emailIdDriver").val(),
-                    Address: $("#addressIdDriver").val(),
-                    X: $("#xIdDriver").val(),
-                    Y: $("#yIdDriver").val(),
-                    Type: $("select[name=car]").filter(":selected").val(),
-                    Id: $("#idCarIdDriver").val(),
-                    YearOfCar: $("#carYearIdDriver").val(),
-                    RegNumber: $("#regNumberIdDriver").val(),
+                    Location: {
+                        Address: $("#addressIdDriver").val(),
+                        X: $("#xIdDriver").val(),
+                        Y: $("#yIdDriver").val()
+                    },
+                    Car: {
+                        Type: $("select[name=car]").filter(":selected").val(),
+                        Id: $("#idCarIdDriver").val(),
+                        YearOfCar: $("#carYearIdDriver").val(),
+                        RegNumber: $("#regNumberIdDriver").val()
+                    }
+                    
                 },
                 success: function (data) {
                     alert("Uspjesno dodavanje vozaca");
@@ -483,5 +574,271 @@
         }
 
     }
+
+    // Change profile
+  
+    $("#editProfile").click(function () {
+        $("#changeAccountClick").show();
+        $("#cancelAccountClick").show();
+        $("#editProfile").hide();
+        $("#passwordTextChangeId").hide();
+        $("#passwordChangeId").show();
+        $("#genderTextChangeId").hide();
+        $("input[name=genderChange]").show();
+        $("input[name=genderChange]").siblings('label').show();
+
+        $("#nameChangeId").removeClass("accountInput");
+        $("#surnameChangeId").removeClass("accountInput");
+        $("#usernameChangeId").removeClass("accountInput");
+        $("#passwordChangeId").removeClass("accountInput");
+        $("#jmbgChangeId").removeClass("accountInput");
+        $("#phoneChangeId").removeClass("accountInput");
+        $("#emailChangeId").removeClass("accountInput");
+
+        $("#nameChangeId").removeProp("readonly");
+        $("#surnameChangeId").removeProp("readonly");
+        $("#usernameChangeId").removeProp("readonly");
+        $("#passwordChangeId").removeProp("readonly");
+        $("#jmbgChangeId").removeProp("readonly");
+        $("#phoneChangeId").removeProp("readonly");
+        $("#emailChangeId").removeProp("readonly");
+    });
+
+    $("#cancelAccountClick").click(function () {
+        $("#myAccountButton").click();
+    });
+
+    var isUpdateValidate = false;
+
+    $("#changeAccountClick").click(function () {
+        UpdateValidate();
+        if (isUpdateValidate) {
+            let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+            let urlForUpdate = "";
+            if (currentUser.Role == "Dispatcher") {
+                urlForUpdate = "/api/Update/UpdateDispatcher";
+            }
+            else if (currentUser.Role == "Driver") {
+                urlForUpdate = "/api/Update/UpdateDriver";
+            }
+            else if (currentUser.Role == "Customer") {
+                urlForUpdate = "/api/Update/UpdateCustomer";
+            }
+            $.ajax({
+                url: urlForUpdate,
+                method: "POST",
+                dataType: "json",
+                data: {
+                    Name: $("#nameChangeId").val(),
+                    Surname: $("#surnameChangeId").val(),
+                    Username: $("#usernameChangeId").val(),
+                    Password: $("#passwordChangeId").val(),
+                    Jmbg: $("#jmbgChangeId").val(),
+                    Gender: $("input[name=genderChange]").filter(":checked").val(),
+                    Phone: $("#phoneChangeId").val(),
+                    Email: $("#emailChangeId").val(),
+                    Id: currentUser.Id,
+                    Role: currentUser.Role
+                },
+                success: function (data) {
+                    sessionStorage.setItem("currentUser", JSON.stringify(data));
+                    let user = JSON.parse(sessionStorage.getItem("currentUser"));
+                    alert("Success update");
+                    $("#myAccountButton").text(user.Username);
+                    $("#myAccountButton").click();
+                },
+                error: function () {
+                    alert("Error update");
+                }
+            });
+        }
+    });
+
+    function UpdateValidate() {
+
+        if ($("#nameChangeId").val()) {
+            isUpdateValidate = true;
+        }
+        else {
+            $("#nameChangeId").attr("placeholder", "Enter your name").placeholder;
+            isUpdateValidate = false;
+        }
+        if ($("#surnameChangeId").val()) {
+            isUpdateValidate = true;
+        }
+        else {
+            $("#surnameChangeId").attr("placeholder", "Enter your surname").placeholder;
+            isUpdateValidate = false;
+        }
+        if ($("#usernameChangeId").val()) {
+            isUpdateValidate = true;
+            let username = $("#usernameChangeId").val();
+            if (username.length < 4) {
+                $("#usernameChangeId").val("");
+                $("#usernameChangeId").attr("placeholder", "4 characters at a minimum").placeholder;
+                isUpdateValidate = false;
+            }
+        }
+        else {
+            $("#usernameChangeId").attr("placeholder", "Enter your username").placeholder;
+            isUpdateValidate = false;
+        }
+        if ($("#passwordChangeId").val()) {
+            isUpdateValidate = true;
+            let password = $("#passwordChangeId").val();
+            if (password.length < 4) {
+                $("#passwordChangeId").val("");
+                $("#passwordChangeId").attr("placeholder", "4 characters at a minimum").placeholder;
+                isUpdateValidate = false;
+            }
+        }
+        else {
+            $("#passwordChangeId").attr("placeholder", "Enter your password").placeholder;
+            isUpdateValidate = false;
+        }
+        if ($("#jmbgChangeId").val()) {
+            isUpdateValidate = true;
+            let jmbg = $("#jmbgChangeId").val();
+            if (isNaN(jmbg)) {  // vraca true ako nije broj
+                $("#jmbgChangeId").val("");
+                $("#jmbgChangeId").attr("placeholder", "Must be numeric characters").placeholder;
+                isUpdateValidate = false;
+            }
+            else if (jmbg.length !== 13) {
+                $("#jmbgChangeId").val("");
+                $("#jmbgChangeId").attr("placeholder", "Must have 13 characters").placeholder;
+                isUpdateValidate = false;
+            }
+        }
+        else {
+            $("#jmbgChangeId").attr("placeholder", "Enter your jmbg").placeholder;
+            isUpdateValidate = false;
+        }
+        if ($("#phoneChangeId").val()) {
+            isUpdateValidate = true;
+            let phone = $("#phoneChangeId").val();
+            if (isNaN(phone)) {  // vraca true ako nije broj
+                $("#phoneChangeId").val("");
+                $("#phoneChangeId").attr("placeholder", "Must be numeric characters").placeholder;
+                isUpdateValidate = false;
+            }
+        }
+        else {
+            $("#phoneChangeId").attr("placeholder", "Enter your phone number").placeholder;
+            isUpdateValidate = false;
+        }
+        if ($("#emailChangeId").val()) {
+            isUpdateValidate = true;
+            let email = $("#emailChangeId").val();
+            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if (!email.match(re)) {
+                $("#emailChangeId").val("");
+                $("#emailChangeId").attr("placeholder", "Invalid e-mail").placeholder;
+                isUpdateValidate = false;
+            }
+        }
+        else {
+            $("#emailChangeId").attr("placeholder", "Enter your e-mail").placeholder;
+            isUpdateValidate = false;
+        }
+        if ($("#nameChangeId").val() && $("#surnameChangeId").val() && $("#usernameChangeId").val() && $("#passwordChangeId").val() && $("#jmbgChangeId").val() && $("#phoneChangeId").val() && $("#emailChangeId").val()) {
+            isUpdateValidate = true;
+        }
+        else {
+            isUpdateValidate = false;
+        }
+
+    }
+
+    // Driver.js - change location
+    
+    $("#driverActionChangeLocation").click(function () {
+        $("#driverChangeLocation").click();
+    });
+    $("#driverChangeLocation").click(function () {
+        $("#changeAddressIdDriver").val("");
+        $("#changeXIdDriver").val("");
+        $("#changeYIdDriver").val("");
+        $("#driverChangeLocationDiv").show(); 
+    });
+    $("#cancelLocationDriverClick").click(function () {
+        $("#driverChangeLocationDiv").hide(); 
+    });
+    $("#changeLocationDriverClick").click(function () {
+        let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+        $.ajax({
+            url: "/api/Driver/ChangeLocation",
+            method: "POST",
+            dataType: "json",
+            data: {
+                Name: currentUser.Name,
+                Surname: currentUser.Surname,
+                Username: currentUser.Username,
+                Password: currentUser.Password,
+                Jmbg: currentUser.Jmbg,
+                Gender: currentUser.Gender,
+                Phone: currentUser.Phone,
+                Email: currentUser.Email,
+                Id: currentUser.Id,
+                Role: currentUser.Role,
+                Location: {
+                    Address: $("#changeAddressIdDriver").val(),
+                    X: $("#changeXIdDriver").val(),
+                    Y: $("#changeYIdDriver").val()
+                }
+            },
+            success: function (data) {
+                sessionStorage.setItem("currentUser", JSON.stringify(data));
+                alert("Success");
+                $("#cancelLocationDriverClick").click();
+            },
+            error: function () {
+                alert("Error update location");
+            }
+        });
+    });
+
+    // Customer.js - create a drive
+
+    $("#customerActionCreateDrive").click(function () {
+        $("#customerCreateDrive").click();
+    });
+    $("#customerCreateDrive").click(function () {
+        $("#startAddressIdCustomer").val("");
+        $("#startAddressXIdCustomer").val("");
+        $("#startAddressYIdCustomer").val("");
+        $("#customerCreateDriveDiv").show();
+    });
+    $("#cancelCreateDriveCustomerClick").click(function () {
+        $("#customerCreateDriveDiv").hide();
+    });
+    $("#createDriveCustomerClick").click(function () {
+        let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+        $.ajax({
+            url: "/api/Customer/CreateDrive",
+            method: "POST",
+            dataType: "json",
+            data: {
+                Customer: {
+                    Id: currentUser.Id
+                },
+                StartLocation: {
+                    Address: $("#startAddressIdCustomer").val(),
+                    X: $("#startAddressXIdCustomer").val(),
+                    Y: $("#startAddressYIdCustomer").val()
+                },
+                Car: {
+                    Type: $("select[name=carCustomer]").filter(":selected").val()
+                }
+            },
+            success: function (data) {
+                alert("Success");
+                $("#cancelCreateDriveCustomerClick").click();
+            },
+            error: function () {
+                alert("Error add drive");
+            }
+        });
+    });
 
 });

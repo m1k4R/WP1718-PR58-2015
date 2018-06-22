@@ -25,30 +25,30 @@
     </div>
     <div class="loginPage" id="loginPage">
         <div class="login" id="login">
-                <table class="loginTable">
-                    <tr>
-                        <td colspan="3"> <img class="imgX" id="imgX" src="Images/s33.png" /></td>
-                    </tr>
-                    <tr>
-                        <td>Username:</td>
-                        <td>&nbsp;&nbsp;&nbsp;</td>
-                        <td><input type="text" name="username" id="usernameIdLog" autofocus /></td>
-                    </tr>
-                    <tr>
-                        <td>Password:</td>
-                        <td>&nbsp;&nbsp;&nbsp;</td>
-                        <td><input type="password" name="password" id="passwordIdLog" /></td>
-                    </tr>
-                    <tr>
-                        <td colspan="3">&nbsp;&nbsp;&nbsp;</td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><center><button class="loginClick" id="logging">Login</button></center></td>
-                    </tr>
-                    <tr>
-                        <td colspan="3"><center><button class="registerClick" id="goRegister">Register</button></center></td>
-                    </tr>
-                </table>
+            <table class="loginTable">
+                <tr>
+                    <td colspan="3"> <img class="imgX" id="imgX" src="Images/s33.png" /></td>
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="text" name="username" id="usernameIdLog" autofocus /></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="password" name="password" id="passwordIdLog" /></td>
+                </tr>
+                <tr>
+                    <td colspan="3">&nbsp;&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
+                    <td colspan="3"><center><button class="loginClick" id="logging">Login</button></center></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><center><button class="registerClick" id="goRegister">Register</button></center></td>
+                </tr>
+            </table>
         </div>
 
         <div class="register" id="register">
@@ -214,7 +214,141 @@
             </table>
         </div>
     </div>
-    <div class="customerDiv" id="customerDiv"></div>
-    <div class="driverDiv" id="driverDiv"></div>
-</body>
-</html>
+    <div class="customerDiv" id="customerDiv">
+        <p class="customerCreateDrive" id="customerCreateDrive">Create a drive</p>
+        <div class="customerCreateDriveDiv" id="customerCreateDriveDiv">
+            <table class="customerCreateDriveTable">
+                <tr>
+                    <td>Your location:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="text" name="address" id="startAddressIdCustomer" /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>X:</td>
+                    <td><input type="text" name="x" id="startAddressXIdCustomer" /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>Y:</td>
+                    <td><input type="text" name="y" id="startAddressYIdCustomer" /></td>
+                </tr>
+                <tr>
+                    <td>Car:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        <select width="10px" name="carCustomer" id="carIdCustomer">
+                            <option value="None" selected>None</option>
+                            <option value="Car">Car</option>
+                            <option value="Van">Van</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3"><center><button class="createDriveCustomerClick" id="createDriveCustomerClick">Create</button>&nbsp;&nbsp;<button class="cancelCreateDriveCustomerClick" id="cancelCreateDriveCustomerClick">Cancel</button></center></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="driverDiv" id="driverDiv">
+        <p class="driverChangeLocation" id="driverChangeLocation">Change location</p>
+        <div class="driverChangeLocationDiv" id="driverChangeLocationDiv">
+            <table class="driverChangeLocationTable">
+                <tr>
+                    <td>Address:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="text" name="address" id="changeAddressIdDriver" /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>X:</td>
+                    <td><input type="text" name="x" id="changeXIdDriver" /></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>Y:</td>
+                    <td><input type="text" name="y" id="changeYIdDriver" /></td>
+                </tr>
+                <tr>
+                    <td colspan="3"><center><button class="changeLocationDriverClick" id="changeLocationDriverClick">Confirm</button>&nbsp;&nbsp;<button class="cancelLocationDriverClick" id="cancelLocationDriverClick">Cancel</button></center></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="accountDiv" id="accountDiv">
+        <table class="changeAccountTable">
+            <tr>
+                <td>Name:</td>
+                <td>&nbsp;&nbsp;&nbsp;</td>
+                <td><input  class="accountInput" type="text" name="name" id="nameChangeId" readonly /></td>
+            </tr>
+            <tr>
+                <td>Surname:</td>
+                <td>&nbsp;&nbsp;&nbsp;</td>
+                <td><input  class="accountInput" type="text" name="surname" id="surnameChangeId" readonly /></td>
+            </tr>
+            <tr>
+                <td>Username:</td>
+                <td>&nbsp;&nbsp;&nbsp;</td>
+                <td><input  class="accountInput" type="text" name="username" id="usernameChangeId" readonly /></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td>&nbsp;&nbsp;&nbsp;</td>
+                <td><input  class="accountInput" type="text" name="password" id="passwordTextChangeId" readonly /><input  class="accountInput" type="password" name="password" id="passwordChangeId" /></td>
+            </tr>
+            <tr>
+                <td>Jmbg:</td>
+                <td>&nbsp;&nbsp;&nbsp;</td>
+                <td><input  class="accountInput" type="text" name="jmbg" id="jmbgChangeId" readonly /></td>
+            </tr>
+            <tr>
+                <td>Gender:</td>
+                <td>&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <input class="accountInput" type="text" name="gender" id="genderTextChangeId" readonly />
+                    <input type="radio" name="genderChange" checked value="Male"><label>Male</label>
+                    <input type="radio" name="genderChange" value="Female"><label>Female</label>
+                </td>
+            </tr>
+            <tr>
+                <td>Phone:</td>
+                <td>&nbsp;&nbsp;&nbsp;</td>
+                <td><input  class="accountInput" type="text" name="phone" id="phoneChangeId" readonly /></td>
+            </tr>
+            <tr>
+                <td>E-mail:</td>
+                <td>&nbsp;&nbsp;&nbsp;</td>
+                <td><input  class="accountInput" type="email" name="email" id="emailChangeId" readonly /></td>
+            </tr>
+        </table>
+        <div class="userAccountBox">
+            <img class="imgAccount" id="imgAccount" src="Images/s39.ico" />
+        </div>
+        <p class="editProfile" id="editProfile">Edit profile</p>
+        <p class="changePassword" id="changePassword">Change password</p>
+        <div class="changePasswordDiv" id="changePasswordDiv">
+            <table class="changePasswordTable">
+                <tr>
+                    <td>Password:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="password" name="password" id="passwordChangeId2" /></td>
+                </tr>
+                <tr>
+                    <td>New password:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="password" name="password" id="newPasswordChangeId" /></td>
+                </tr>
+                <tr>
+                    <td>Repeat new password:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input type="password" name="password" id="newPasswordChangeId2" /></td>
+                </tr>
+            </table>
+        </div>
+        <button class="changeAccountClick" id="changeAccountClick">Save changes</button>
+        <button class="cancelAccountClick" id="cancelAccountClick">Cancel</button>
+    </div>
+    </body>
+    </html>

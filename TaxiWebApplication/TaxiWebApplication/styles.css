@@ -366,17 +366,145 @@ td {
     opacity: 1;
 }
 
-.customerDiv {
-    background-color: rgba(0, 0, 0, 0.8);
+.accountDiv {
+    background-color: rgba(0, 0, 0, 0.8);  /*transparent*/
     color: white;
-    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    text-align: left;
     width: 65vw;
     height: 82vh;
     float: right;
     position: fixed;
     top: 15%;
     right: 2%;
-    z-index: 5;
+    z-index: 10;
+    display: none;
+}
+
+.accountDiv table {
+    border-spacing: 5px 10px;
+}
+
+.accountDiv td {
+    padding: 10px;
+    padding-bottom: 20px;
+}
+
+.changeAccountTable {
+    width: 22vw;
+    height: 40vh;
+    top: 20%;
+    left: 36%;
+    position: fixed;
+  /*  border: solid 1px #ffcc00; */
+    background-color: transparent;
+}
+
+.accountInput {
+    background-color: transparent;
+    border-color: transparent;
+    cursor: default;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: normal;
+}
+
+.userAccountBox {
+    background-color: transparent;
+    border: solid 1px #ffcc00;
+    color: white;
+    text-align: center;
+    width: 20vw;
+    height: 30vh;
+    position: fixed;
+    float: right;
+    top: 20%;
+    right: 5%;
+}
+
+.imgAccount {
+    width: 15vw;
+    height: 30vh;
+}
+
+.editProfile {
+    color: #ffcc00;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    width: 10vw;
+    position: fixed;
+    float: right;
+    top: 52%;
+    right: 8%;
+}
+
+.editProfile:hover {
+    cursor: pointer;
+}
+
+.changePassword {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: normal;
+    width: 10vw;
+    position: fixed;
+    float: right;
+    top: 57%;
+    right: 9%;
+    display: none;
+}
+
+.changePassword:hover {
+    cursor: pointer;
+}
+
+.changePasswordDiv {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    width: 10vw;
+    position: fixed;
+    float: right;
+    top: 60%;
+    right: 16%;
+    display: none;
+}
+
+.changeAccountClick {
+    background-color: #ffcc00;
+    border-color: transparent;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    width: 14vw;
+    height: 6vh;
+    cursor: pointer;
+    position: fixed;
+    top: 87%;
+    left: 50%;
+    display: none;
+}
+
+.cancelAccountClick {
+    background-color: transparent;
+    border-color: #ffcc00;
+    color: #ffcc00;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    width: 14vw;
+    height: 6vh;
+    cursor: pointer;
+    position: fixed;
+    top: 87%;
+    left: 67%;
     display: none;
 }
 
@@ -436,4 +564,142 @@ td {
     right: 2%;
     z-index: 5;
     display: none;
+}
+
+.driverChangeLocation {
+    color: #ffcc00;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    width: 10vw;
+    position: fixed;
+    float: right;
+    top: 20%;
+    right: 5%;
+    cursor: pointer;
+}
+
+.driverChangeLocationDiv {
+    background-color: transparent;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    text-align: center;
+    width: 25vw;
+    height: 30vh;
+    position: fixed;
+    float: right;
+    top: 25%;
+    right: 7%;
+    display: none;
+}
+
+.driverChangeLocationTable {
+    background-color: transparent;
+    border: solid 1px #ffcc00;
+    position: fixed;
+    float: right;
+    top: 25%;
+    right: 5%;
+}
+
+.changeLocationDriverClick {
+    background-color: #ffcc00;
+    border-color: transparent;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    width: 10vw;
+    height: 6vh;
+    cursor: pointer;
+}
+
+.cancelLocationDriverClick {
+    background-color: transparent;
+    border-color: #ffcc00;
+    color: #ffcc00;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    width: 10vw;
+    height: 6vh;
+    cursor: pointer;
+}
+
+.customerDiv {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    text-align: center;
+    width: 65vw;
+    height: 82vh;
+    float: right;
+    position: fixed;
+    top: 15%;
+    right: 2%;
+    z-index: 5;
+    display: none;
+}
+
+.customerCreateDrive {
+    color: #ffcc00;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    width: 10vw;
+    position: fixed;
+    float: right;
+    top: 20%;
+    right: 5%;
+    cursor: pointer;
+}
+
+.customerCreateDriveDiv {
+    background-color: transparent;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    text-align: center;
+    width: 25vw;
+    height: 35vh;
+    position: fixed;
+    float: right;
+    top: 25%;
+    right: 7%;
+    display: none;
+}
+
+.customerCreateDriveTable {
+    background-color: transparent;
+    border: solid 1px #ffcc00;
+    position: fixed;
+    float: right;
+    top: 25%;
+    right: 5%;
+}
+
+.createDriveCustomerClick {
+    background-color: #ffcc00;
+    border-color: transparent;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    width: 10vw;
+    height: 6vh;
+    cursor: pointer;
+}
+
+.cancelCreateDriveCustomerClick {
+    background-color: transparent;
+    border-color: #ffcc00;
+    color: #ffcc00;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    width: 10vw;
+    height: 6vh;
+    cursor: pointer;
 }

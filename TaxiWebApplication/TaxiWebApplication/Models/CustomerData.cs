@@ -158,5 +158,40 @@ namespace TaxiWebApplication.Models
                 return null;
             }
         }
+
+        public void EditCustomer(Customer customer)
+        {
+            if (File.Exists(fileName))
+            {
+                XDocument xmlDocument = XDocument.Load(fileName);
+
+                xmlDocument.Element("Customers").Elements("Customer")
+                                                .Where(x => x.Element("Id").Value == customer.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Username", customer.Username);
+                xmlDocument.Element("Customers").Elements("Customer")
+                                                .Where(x => x.Element("Id").Value == customer.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Password", customer.Password);
+                xmlDocument.Element("Customers").Elements("Customer")
+                                                .Where(x => x.Element("Id").Value == customer.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Name", customer.Name);
+                xmlDocument.Element("Customers").Elements("Customer")
+                                                .Where(x => x.Element("Id").Value == customer.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Surname", customer.Surname);
+                xmlDocument.Element("Customers").Elements("Customer")
+                                                .Where(x => x.Element("Id").Value == customer.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Gender", customer.Gender);
+                xmlDocument.Element("Customers").Elements("Customer")
+                                                .Where(x => x.Element("Id").Value == customer.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Jmbg", customer.Jmbg);
+                xmlDocument.Element("Customers").Elements("Customer")
+                                                .Where(x => x.Element("Id").Value == customer.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Phone", customer.Phone);
+                xmlDocument.Element("Customers").Elements("Customer")
+                                                .Where(x => x.Element("Id").Value == customer.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Email", customer.Email);
+
+                xmlDocument.Save(fileName);
+            }
+        }
     }
 }

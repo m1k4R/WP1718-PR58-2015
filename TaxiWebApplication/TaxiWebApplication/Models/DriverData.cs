@@ -198,5 +198,60 @@ namespace TaxiWebApplication.Models
                 return null;
             }
         }
+
+        public void EditDriver(Driver driver)
+        {
+            if (File.Exists(fileName))
+            {
+                XDocument xmlDocument = XDocument.Load(fileName);
+
+                xmlDocument.Element("Drivers").Elements("Driver")
+                                                .Where(x => x.Element("Id").Value == driver.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Username", driver.Username);
+                xmlDocument.Element("Drivers").Elements("Driver")
+                                                .Where(x => x.Element("Id").Value == driver.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Password", driver.Password);
+                xmlDocument.Element("Drivers").Elements("Driver")
+                                                .Where(x => x.Element("Id").Value == driver.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Name", driver.Name);
+                xmlDocument.Element("Drivers").Elements("Driver")
+                                                .Where(x => x.Element("Id").Value == driver.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Surname", driver.Surname);
+                xmlDocument.Element("Drivers").Elements("Driver")
+                                                .Where(x => x.Element("Id").Value == driver.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Gender", driver.Gender);
+                xmlDocument.Element("Drivers").Elements("Driver")
+                                                .Where(x => x.Element("Id").Value == driver.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Jmbg", driver.Jmbg);
+                xmlDocument.Element("Drivers").Elements("Driver")
+                                                .Where(x => x.Element("Id").Value == driver.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Phone", driver.Phone);
+                xmlDocument.Element("Drivers").Elements("Driver")
+                                                .Where(x => x.Element("Id").Value == driver.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Email", driver.Email);
+
+                xmlDocument.Save(fileName);
+            }
+        }
+
+        public void ChangeDriverLocation(Driver driver)
+        {
+            if (File.Exists(fileName))
+            {
+                XDocument xmlDocument = XDocument.Load(fileName);
+
+                xmlDocument.Element("Drivers").Elements("Driver")
+                                                .Where(x => x.Element("Id").Value == driver.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Address", driver.Location.Address);
+                xmlDocument.Element("Drivers").Elements("Driver")
+                                                .Where(x => x.Element("Id").Value == driver.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("X", driver.Location.X);
+                xmlDocument.Element("Drivers").Elements("Driver")
+                                                .Where(x => x.Element("Id").Value == driver.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Y", driver.Location.Y);
+
+                xmlDocument.Save(fileName);
+            }
+        }
     }
 }

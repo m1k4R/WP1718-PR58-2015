@@ -111,5 +111,40 @@ namespace TaxiWebApplication.Models
                 return null;
             }
         }
+
+        public void EditDispatcher(Dispatcher dispatcher)
+        {
+            if (File.Exists(fileName))
+            {
+                XDocument xmlDocument = XDocument.Load(fileName);
+
+                xmlDocument.Element("Dispatchers").Elements("Dispatcher")
+                                                .Where(x => x.Element("Id").Value == dispatcher.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Username", dispatcher.Username);
+                xmlDocument.Element("Dispatchers").Elements("Dispatcher")
+                                                .Where(x => x.Element("Id").Value == dispatcher.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Password", dispatcher.Password);
+                xmlDocument.Element("Dispatchers").Elements("Dispatcher")
+                                                .Where(x => x.Element("Id").Value == dispatcher.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Name", dispatcher.Name);
+                xmlDocument.Element("Dispatchers").Elements("Dispatcher")
+                                                .Where(x => x.Element("Id").Value == dispatcher.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Surname", dispatcher.Surname);
+                xmlDocument.Element("Dispatchers").Elements("Dispatcher")
+                                                .Where(x => x.Element("Id").Value == dispatcher.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Gender", dispatcher.Gender);
+                xmlDocument.Element("Dispatchers").Elements("Dispatcher")
+                                                .Where(x => x.Element("Id").Value == dispatcher.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Jmbg", dispatcher.Jmbg);
+                xmlDocument.Element("Dispatchers").Elements("Dispatcher")
+                                                .Where(x => x.Element("Id").Value == dispatcher.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Phone", dispatcher.Phone);
+                xmlDocument.Element("Dispatchers").Elements("Dispatcher")
+                                                .Where(x => x.Element("Id").Value == dispatcher.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Email", dispatcher.Email);
+
+                xmlDocument.Save(fileName);
+            }
+        }
     }
 }

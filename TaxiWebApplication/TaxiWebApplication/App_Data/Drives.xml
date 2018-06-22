@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Drives>
+  <Drive>
+    <Id>1234</Id>
+    <DateTime>0001-01-01T00:00:00</DateTime>
+    <StartLocation>BulevarKraljaPetra1</StartLocation>
+    <StartLocationX>51</StartLocationX>
+    <StartLocationY>26</StartLocationY>
+    <Destination>None</Destination>
+    <DestinationX>0</DestinationX>
+    <DestinationY>0</DestinationY>
+    <CustomerId>3</Customer>
+    <DispatcherId>0000</Dispatcher>
+    <DriverId>0000</Driver>
+    <Car>None</Car>
+    <Price>0</Price>
+    <CommentId>0000</Comment>
+    <State>Created</State>
+  </Drive>
+</Drives>

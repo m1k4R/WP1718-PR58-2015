@@ -6,10 +6,10 @@
     <Password>admin</Password>
     <Name>Mark</Name>
     <Surname>Markl</Surname>
-	<Gender>Male</Gender>
+    <Gender>Male</Gender>
     <Jmbg>1010993454784</Jmbg>
-    <Phone>1002003</Phone>
-    <Email>taxiadmin@gmail.com</Email>   
+    <Phone>10020012</Phone>
+    <Email>taxiadmin@gmail.com</Email>
     <Role>Dispatcher</Role>
   </Dispatcher>
 </Dispatchers>

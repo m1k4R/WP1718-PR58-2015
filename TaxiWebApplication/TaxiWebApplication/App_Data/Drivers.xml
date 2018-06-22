@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Drivers>
+  <Driver>
+    <Id>7</Id>
+    <Username>viktor</Username>
+    <Password>vvvv</Password>
+    <Name>Viktror</Name>
+    <Surname>Vil</Surname>
+    <Gender>Male</Gender>
+    <Jmbg>1708991445154</Jmbg>
+    <Phone>063174471</Phone>
+    <Email>vill@gmail.com</Email>
+    <Role>Driver</Role>
+    <Address>Bulevar Oslobodjenja</Address>
+    <X>23</X>
+    <Y>14</Y>
+    <CarId>0</CarId>
+    <YearOfCar>0</YearOfCar>
+    <RegNumber />
+    <CarType>None</CarType>
+  </Driver>
+</Drivers>
