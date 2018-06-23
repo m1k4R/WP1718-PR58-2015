@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <Drives>
   <Drive>
-    <Id>1234</Id>
+    <Id>1000</Id>
     <DateTime>0001-01-01T00:00:00</DateTime>
     <StartLocation>BulevarKraljaPetra1</StartLocation>
     <StartLocationX>51</StartLocationX>
@@ -9,12 +9,46 @@
     <Destination>None</Destination>
     <DestinationX>0</DestinationX>
     <DestinationY>0</DestinationY>
-    <CustomerId>3</Customer>
-    <DispatcherId>0000</Dispatcher>
-    <DriverId>0000</Driver>
+    <CustomerId>3</CustomerId>
+    <DispatcherId>0000</DispatcherId>
+    <DriverId>0000</DriverId>
     <Car>None</Car>
     <Price>0</Price>
-    <CommentId>0000</Comment>
+    <CommentId>0000</CommentId>
+    <State>Created</State>
+  </Drive>
+  <Drive>
+    <Id>1001</Id>
+    <DateTime>0001-01-01T00:00:00</DateTime>
+    <StartLocation>Zeljeznicka 58</StartLocation>
+    <StartLocationX>26</StartLocationX>
+    <StartLocationY>47</StartLocationY>
+    <Destination>None</Destination>
+    <DestinationX>0</DestinationX>
+    <DestinationY>0</DestinationY>
+    <CustomerId>6</CustomerId>
+    <DispatcherId>0</DispatcherId>
+    <DriverId>0</DriverId>
+    <Car>None</Car>
+    <Price>0</Price>
+    <CommentId>0</CommentId>
+    <State>Created</State>
+  </Drive>
+  <Drive>
+    <Id>1002</Id>
+    <DateTime>0001-01-01T00:00:00</DateTime>
+    <StartLocation>Bulevar Oslobodjenja </StartLocation>
+    <StartLocationX>17</StartLocationX>
+    <StartLocationY>3</StartLocationY>
+    <Destination>None</Destination>
+    <DestinationX>0</DestinationX>
+    <DestinationY>0</DestinationY>
+    <CustomerId>2</CustomerId>
+    <DispatcherId>0</DispatcherId>
+    <DriverId>0</DriverId>
+    <Car>None</Car>
+    <Price>0</Price>
+    <CommentId>0</CommentId>
     <State>Created</State>
   </Drive>
 </Drives>

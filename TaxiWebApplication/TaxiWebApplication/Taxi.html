@@ -4,6 +4,12 @@
     <meta charset="utf-8" />
     <link href="styles.css" rel="stylesheet" />
     <script src="Scripts/jquery-1.10.2.js"></script>
+    <script src="Scripts/taxiRegistration.js"></script>
+    <script src="Scripts/taxiLogin.js"></script>
+    <script src="Scripts/taxiDispatcher.js"></script>
+    <script src="Scripts/taxiEditProfile.js"></script>
+    <script src="Scripts/taxiDriver.js"></script>
+    <script src="Scripts/taxiCustomer.js"></script>
     <script src="Scripts/taxi.js"></script>
     <title></title>
 </head>
@@ -32,12 +38,12 @@
                 <tr>
                     <td>Username:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="text" name="username" id="usernameIdLog" autofocus /></td>
+                    <td><input  class="registerInput" type="text" name="username" id="usernameIdLog" autofocus /></td>
                 </tr>
                 <tr>
                     <td>Password:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="password" name="password" id="passwordIdLog" /></td>
+                    <td><input  class="registerInput" type="password" name="password" id="passwordIdLog" /></td>
                 </tr>
                 <tr>
                     <td colspan="3">&nbsp;&nbsp;&nbsp;</td>
@@ -59,27 +65,27 @@
                 <tr>
                     <td>Name:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="text" name="name" id="nameId" required /></td>
+                    <td><input class="registerInput" type="text" name="name" id="nameId" required /></td>
                 </tr>
                 <tr>
                     <td>Surname:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="text" name="surname" id="surnameId" required /></td>
+                    <td><input  class="registerInput" type="text" name="surname" id="surnameId" required /></td>
                 </tr>
                 <tr>
                     <td>Username:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="text" name="username" id="usernameId" /></td>
+                    <td><input  class="registerInput" type="text" name="username" id="usernameId" /></td>
                 </tr>
                 <tr>
                     <td>Password:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="password" name="password" id="passwordId" /></td>
+                    <td><input  class="registerInput" type="password" name="password" id="passwordId" /></td>
                 </tr>
                 <tr>
                     <td>Jmbg:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="text" name="jmbg" id="jmbgId" required /></td>
+                    <td><input  class="registerInput" type="text" name="jmbg" id="jmbgId" required /></td>
                 </tr>
                 <tr>
                     <td>Gender:</td>
@@ -92,12 +98,12 @@
                 <tr>
                     <td>Phone:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="text" name="phone" id="phoneId" required /></td>
+                    <td><input  class="registerInput" type="text" name="phone" id="phoneId" required /></td>
                 </tr>
                 <tr>
                     <td>E-mail:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="email" name="email" id="emailId" required /></td>
+                    <td><input  class="registerInput" type="email" name="email" id="emailId" required /></td>
                 </tr>
                 <tr>
                     <td colspan="3">&nbsp;&nbsp;&nbsp;</td>
@@ -127,34 +133,34 @@
                 <tr>
                     <td>Name:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="text" name="name" id="nameIdDriver" required /></td>
+                    <td><input  class="registerInput" type="text" name="name" id="nameIdDriver" required /></td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>Address:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="text" name="address" id="addressIdDriver" /></td>
+                    <td><input  class="registerInput" type="text" name="address" id="addressIdDriver" /></td>
                 </tr>
                 <tr>
                     <td>Surname:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="text" name="surname" id="surnameIdDriver" required /></td>
+                    <td><input  class="registerInput" type="text" name="surname" id="surnameIdDriver" required /></td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>X:</td>
-                    <td><input type="text" name="x" id="xIdDriver" /></td>
+                    <td><input  class="registerInput" type="text" name="x" id="xIdDriver" /></td>
                 </tr>
                 <tr>
                     <td>Username:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="text" name="username" id="usernameIdDriver" /></td>
+                    <td><input  class="registerInput" type="text" name="username" id="usernameIdDriver" /></td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>Y:</td>
-                    <td><input type="text" name="y" id="yIdDriver" /></td>
+                    <td><input  class="registerInput" type="text" name="y" id="yIdDriver" /></td>
                 </tr>
                 <tr>
                     <td>Password:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="password" name="password" id="passwordIdDriver" /></td>
+                    <td><input  class="registerInput" type="password" name="password" id="passwordIdDriver" /></td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
@@ -163,7 +169,7 @@
                 <tr>
                     <td>Jmbg:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="text" name="jmbg" id="jmbgIdDriver" required /></td>
+                    <td><input  class="registerInput" type="text" name="jmbg" id="jmbgIdDriver" required /></td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>Car:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
@@ -185,25 +191,25 @@
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>ID:</td>
-                    <td><input type="text" name="id" id="idCarIdDriver" /></td>
+                    <td><input  class="registerInput" type="text" name="id" id="idCarIdDriver" /></td>
                 </tr>
                 <tr>
                     <td>Phone:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="text" name="phone" id="phoneIdDriver" required /></td>
+                    <td><input  class="registerInput" type="text" name="phone" id="phoneIdDriver" required /></td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>Year:</td>
-                    <td><input type="text" name="year" id="carYearIdDriver" /></td>
+                    <td><input  class="registerInput" type="text" name="year" id="carYearIdDriver" /></td>
                 </tr>
                 <tr>
                     <td>E-mail:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="email" name="email" id="emailIdDriver" required /></td>
+                    <td><input  class="registerInput" type="email" name="email" id="emailIdDriver" required /></td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>RegNumber:</td>
-                    <td><input type="text" name="reg" id="regNumberIdDriver" /></td>
+                    <td><input  class="registerInput" type="text" name="reg" id="regNumberIdDriver" /></td>
                 </tr>
                 <tr>
                     <td colspan="7">&nbsp;&nbsp;&nbsp;</td>
@@ -249,6 +255,29 @@
                 </tr>
             </table>
         </div>
+        <div class="customerCurrentDriveDiv" id="customerCurrentDriveDiv">
+            <p>Start location:&nbsp;&nbsp;<small id="customerCurrentDriveDivStartLocation">Bulevar kralja petra I</small>&nbsp;<small id="customerCurrentDriveDivStartLocationX"></small>&nbsp;<small id="customerCurrentDriveDivStartLocationY"></small></p>
+            <p>Destination:&nbsp;&nbsp;<small id="customerCurrentDriveDivDestination">Undefined</small></p>
+        </div>
+        <div class="customerDriverDiv" id="customerDriverDiv">
+            <img src="Images/s44.png" class="customerDriverDivImgDriver" />
+            <img src="Images/s10.png" class="customerDriverDivImgCar" />
+            <div class="customerDriverDivText">
+                <p>&nbsp;</p>
+                <p id="customerDriverDivName">John Smit</p>
+                <p id="customerDriverDivPhone">063547811</p>
+                <p>&nbsp;</p>
+                <p id="customerDriverDivCar">BMW 1003</p>
+            </div>
+        </div> 
+        <div class="customerAllDrivesDiv" id="customerAllDrivesDiv">
+            <div class="customerSingleDriveDiv">
+                <p>Drive1023</p>
+                <p>23/06/2018 15:20</p>
+                <p>Success</p>
+            </div>
+        </div>
+        <div class="customerMapsDriveDiv" id="customerMapsDriveDiv"></div>
     </div>
     <div class="driverDiv" id="driverDiv">
         <p class="driverChangeLocation" id="driverChangeLocation">Change location</p>
@@ -281,27 +310,27 @@
             <tr>
                 <td>Name:</td>
                 <td>&nbsp;&nbsp;&nbsp;</td>
-                <td><input  class="accountInput" type="text" name="name" id="nameChangeId" readonly /></td>
+                <td><input  class="accountInput registerInput" type="text" name="name" id="nameChangeId" readonly /></td>
             </tr>
             <tr>
                 <td>Surname:</td>
                 <td>&nbsp;&nbsp;&nbsp;</td>
-                <td><input  class="accountInput" type="text" name="surname" id="surnameChangeId" readonly /></td>
+                <td><input class="accountInput registerInput" type="text" name="surname" id="surnameChangeId" readonly /></td>
             </tr>
             <tr>
                 <td>Username:</td>
                 <td>&nbsp;&nbsp;&nbsp;</td>
-                <td><input  class="accountInput" type="text" name="username" id="usernameChangeId" readonly /></td>
+                <td><input  class="accountInput registerInput" type="text" name="username" id="usernameChangeId" readonly /></td>
             </tr>
             <tr>
                 <td>Password:</td>
                 <td>&nbsp;&nbsp;&nbsp;</td>
-                <td><input  class="accountInput" type="text" name="password" id="passwordTextChangeId" readonly /><input  class="accountInput" type="password" name="password" id="passwordChangeId" /></td>
+                <td><input  class="accountInput" type="text" name="password" id="passwordTextChangeId" readonly /><input  class="accountInput registerInput" type="password" name="password" id="passwordChangeId" /></td>
             </tr>
             <tr>
                 <td>Jmbg:</td>
                 <td>&nbsp;&nbsp;&nbsp;</td>
-                <td><input  class="accountInput" type="text" name="jmbg" id="jmbgChangeId" readonly /></td>
+                <td><input  class="accountInput registerInput" type="text" name="jmbg" id="jmbgChangeId" readonly /></td>
             </tr>
             <tr>
                 <td>Gender:</td>
@@ -315,12 +344,12 @@
             <tr>
                 <td>Phone:</td>
                 <td>&nbsp;&nbsp;&nbsp;</td>
-                <td><input  class="accountInput" type="text" name="phone" id="phoneChangeId" readonly /></td>
+                <td><input  class="accountInput registerInput" type="text" name="phone" id="phoneChangeId" readonly /></td>
             </tr>
             <tr>
                 <td>E-mail:</td>
                 <td>&nbsp;&nbsp;&nbsp;</td>
-                <td><input  class="accountInput" type="email" name="email" id="emailChangeId" readonly /></td>
+                <td><input  class="accountInput registerInput" type="email" name="email" id="emailChangeId" readonly /></td>
             </tr>
         </table>
         <div class="userAccountBox">
@@ -333,17 +362,17 @@
                 <tr>
                     <td>Password:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="password" name="password" id="passwordChangeId2" /></td>
+                    <td><input class="registerInput" type="password" name="password" id="passwordChangeId2" /></td>
                 </tr>
                 <tr>
                     <td>New password:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="password" name="password" id="newPasswordChangeId" /></td>
+                    <td><input class="registerInput" type="password" name="password" id="newPasswordChangeId" /></td>
                 </tr>
                 <tr>
                     <td>Repeat new password:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="password" name="password" id="newPasswordChangeId2" /></td>
+                    <td><input class="registerInput" type="password" name="password" id="newPasswordChangeId2" /></td>
                 </tr>
             </table>
         </div>

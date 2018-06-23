@@ -223,6 +223,11 @@
     <Content Include="Images\s32.png" />
     <Content Include="Images\s33.png" />
     <Content Include="Images\s39.ico" />
+    <Content Include="Images\s40.png" />
+    <Content Include="Images\s41.png" />
+    <Content Include="Images\s42.png" />
+    <Content Include="Images\s43.png" />
+    <Content Include="Images\s44.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
@@ -254,6 +259,12 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\taxi.js" />
+    <Content Include="Scripts\taxiCustomer.js" />
+    <Content Include="Scripts\taxiDispatcher.js" />
+    <Content Include="Scripts\taxiDriver.js" />
+    <Content Include="Scripts\taxiEditProfile.js" />
+    <Content Include="Scripts\taxiLogin.js" />
+    <Content Include="Scripts\taxiRegistration.js" />
     <Content Include="styles.css" />
     <Content Include="taxi.html" />
     <Content Include="Web.config" />

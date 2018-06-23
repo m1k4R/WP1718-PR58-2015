@@ -13,11 +13,11 @@ namespace TaxiWebApplication.Models
         public static DriveData driveData = new DriveData();
         public static CommentData commentData = new CommentData();
 
-        public static IEnumerable<User> users = new List<User>();  // tu cu ucitavati iz fajla
+        public static IEnumerable<User> users = new List<User>();
         public static IEnumerable<Customer> customers = customerData.RetriveAllCustomers();
         public static IEnumerable<Dispatcher> dispatchers = dispatcherData.RetriveAllDispatchers();
         public static IEnumerable<Driver> drivers = driverData.RetriveAllDrivers();
-        public static IEnumerable<Drive> drives = new List<Drive>();
+        public static IEnumerable<Drive> drives = driveData.RetriveAllDrives();
 
         public static int NewId()
         {
@@ -43,6 +43,20 @@ namespace TaxiWebApplication.Models
             }
 
             return customersCount + dispatchersCount + driversCount + 1;
+        }
+
+        public static int NewDriveId()
+        {
+            int drivesCount = 0;
+
+            drives = driveData.RetriveAllDrives();
+
+            if (drives != null)
+            {
+                drivesCount = drives.Count();
+            }
+
+            return drivesCount + 1000;
         }
 
     }
