@@ -11,12 +11,12 @@
     <Phone>063174471</Phone>
     <Email>vill@gmail.com</Email>
     <Role>Driver</Role>
-    <Address>Bulevar Oslobodjenja</Address>
-    <X>23</X>
-    <Y>14</Y>
+    <Address>None</Address>
+    <X>0</X>
+    <Y>0</Y>
     <CarId>0</CarId>
     <YearOfCar>0</YearOfCar>
-    <RegNumber />
+    <RegNumber>4000</RegNumber>
     <CarType>None</CarType>
   </Driver>
 </Drivers>

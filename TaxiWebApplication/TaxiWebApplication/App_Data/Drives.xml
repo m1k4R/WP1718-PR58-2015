@@ -2,7 +2,7 @@
 <Drives>
   <Drive>
     <Id>1000</Id>
-    <DateTime>0001-01-01T00:00:00</DateTime>
+    <DateTime>22-06-2018 00:00:00</DateTime>
     <StartLocation>BulevarKraljaPetra1</StartLocation>
     <StartLocationX>51</StartLocationX>
     <StartLocationY>26</StartLocationY>
@@ -15,11 +15,11 @@
     <Car>None</Car>
     <Price>0</Price>
     <CommentId>0000</CommentId>
-    <State>Created</State>
+    <State>Successful</State>
   </Drive>
   <Drive>
     <Id>1001</Id>
-    <DateTime>0001-01-01T00:00:00</DateTime>
+    <DateTime>22-06-2018 14:00:00</DateTime>
     <StartLocation>Zeljeznicka 58</StartLocation>
     <StartLocationX>26</StartLocationX>
     <StartLocationY>47</StartLocationY>
@@ -36,7 +36,7 @@
   </Drive>
   <Drive>
     <Id>1002</Id>
-    <DateTime>0001-01-01T00:00:00</DateTime>
+    <DateTime>22-06-2018 19:35:15</DateTime>
     <StartLocation>Bulevar Oslobodjenja </StartLocation>
     <StartLocationX>17</StartLocationX>
     <StartLocationY>3</StartLocationY>
@@ -50,5 +50,90 @@
     <Price>0</Price>
     <CommentId>0</CommentId>
     <State>Created</State>
+  </Drive>
+  <Drive>
+    <Id>1003</Id>
+    <DateTime>23-06-2018 12:30:15</DateTime>
+    <StartLocation>MyLocation</StartLocation>
+    <StartLocationX>13</StartLocationX>
+    <StartLocationY>23</StartLocationY>
+    <Destination>None</Destination>
+    <DestinationX>0</DestinationX>
+    <DestinationY>0</DestinationY>
+    <CustomerId>3</CustomerId>
+    <DispatcherId>0</DispatcherId>
+    <DriverId>0</DriverId>
+    <Car>None</Car>
+    <Price>0</Price>
+    <CommentId>0</CommentId>
+    <State>Successful</State>
+  </Drive>
+  <Drive>
+    <Id>1004</Id>
+    <DateTime>24-06-2018 02:34:35</DateTime>
+    <StartLocation>Nevesinje</StartLocation>
+    <StartLocationX>33</StartLocationX>
+    <StartLocationY>12</StartLocationY>
+    <Destination>None</Destination>
+    <DestinationX>0</DestinationX>
+    <DestinationY>0</DestinationY>
+    <CustomerId>5</CustomerId>
+    <DispatcherId>0</DispatcherId>
+    <DriverId>0</DriverId>
+    <Car>None</Car>
+    <Price>0</Price>
+    <CommentId>0</CommentId>
+    <State>Created</State>
+  </Drive>
+  <Drive>
+    <Id>1005</Id>
+    <DateTime>22-06-2018 00:00:00</DateTime>
+    <StartLocation>Zeljeznicka 3</StartLocation>
+    <StartLocationX>51</StartLocationX>
+    <StartLocationY>26</StartLocationY>
+    <Destination>None</Destination>
+    <DestinationX>0</DestinationX>
+    <DestinationY>0</DestinationY>
+    <CustomerId>3</CustomerId>
+    <DispatcherId>0000</DispatcherId>
+    <DriverId>0000</DriverId>
+    <Car>None</Car>
+    <Price>0</Price>
+    <CommentId>0000</CommentId>
+    <State>Accepted</State>
+  </Drive>
+  <Drive>
+    <Id>1006</Id>
+    <DateTime>22-06-2018 00:00:00</DateTime>
+    <StartLocation>BulevarKraljaPetra1</StartLocation>
+    <StartLocationX>51</StartLocationX>
+    <StartLocationY>26</StartLocationY>
+    <Destination>None</Destination>
+    <DestinationX>0</DestinationX>
+    <DestinationY>0</DestinationY>
+    <CustomerId>3</CustomerId>
+    <DispatcherId>0000</DispatcherId>
+    <DriverId>0000</DriverId>
+    <Car>None</Car>
+    <Price>0</Price>
+    <CommentId>0000</CommentId>
+    <State>Canceled</State>
+  </Drive>
+  <Drive>
+    <Id>1007</Id>
+    <DateTime>22-06-2018 00:00:00</DateTime>
+    <StartLocation>BulevarKraljaPetra1</StartLocation>
+    <StartLocationX>51</StartLocationX>
+    <StartLocationY>26</StartLocationY>
+    <Destination>None</Destination>
+    <DestinationX>0</DestinationX>
+    <DestinationY>0</DestinationY>
+    <CustomerId>3</CustomerId>
+    <DispatcherId>0000</DispatcherId>
+    <DriverId>0000</DriverId>
+    <Car>None</Car>
+    <Price>0</Price>
+    <CommentId>0000</CommentId>
+    <State>Unsuccessful</State>
   </Drive>
 </Drives>

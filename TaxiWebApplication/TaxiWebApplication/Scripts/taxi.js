@@ -20,7 +20,20 @@
         $("#customerDiv").hide();
         $("#dispatcherDiv").hide();
         $("#driverDiv").hide();
+
         $("#customerCreateDriveDiv").hide();
+        $("#customerCurrentDriveDiv").hide();
+        $("#customerDriverDiv").hide();
+        $("#customerMapsDriveDiv").hide();
+        $("#customerMapsDriveDivBlack").hide();
+        $("#customerCurrentDriveDivStartLocation").text("");
+        $("#customerCurrentDriveDivStartLocationX").text("");
+        $("#customerCurrentDriveDivStartLocationY").text("");
+        $("#customerCurrentDriveDivDestination").text("");
+        $("#customerDriverDivName").text("");
+        $("#customerDriverDivPhone").text("");
+        $("#customerDriverDivCar").text("");
+        $("#customerAllDrivesDiv").html("");
 
         $("#nameId").val("");
         $("#surnameId").val("");
@@ -76,6 +89,11 @@
         $("#accountDiv").hide();
         $("#driverChangeLocationDiv").hide();
         $("#customerCreateDriveDiv").hide();
+        $("#customerCurrentDriveDiv").hide();
+        $("#customerDriverDiv").hide();
+        $("#customerMapsDriveDiv").hide();
+        $("#customerMapsDriveDivBlack").hide();
+        $("#customerCreateDrive").show();
         $("#userMenu").hide();
         $("#imgTriangle").animate({
             top: '46vh'

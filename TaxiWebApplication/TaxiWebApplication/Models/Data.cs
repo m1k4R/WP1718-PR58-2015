@@ -14,10 +14,10 @@ namespace TaxiWebApplication.Models
         public static CommentData commentData = new CommentData();
 
         public static IEnumerable<User> users = new List<User>();
-        public static IEnumerable<Customer> customers = customerData.RetriveAllCustomers();
-        public static IEnumerable<Dispatcher> dispatchers = dispatcherData.RetriveAllDispatchers();
-        public static IEnumerable<Driver> drivers = driverData.RetriveAllDrivers();
-        public static IEnumerable<Drive> drives = driveData.RetriveAllDrives();
+        public static IEnumerable<Customer> customers = new List<Customer>();//customerData.RetriveAllCustomers();
+        public static IEnumerable<Dispatcher> dispatchers = new List<Dispatcher>();//dispatcherData.RetriveAllDispatchers();
+        public static IEnumerable<Driver> drivers = new List<Driver>();//driverData.RetriveAllDrivers();
+        public static IEnumerable<Drive> drives = new List<Drive>();//driveData.RetriveAllDrives();
 
         public static int NewId()
         {

@@ -203,6 +203,7 @@
     <Compile Include="Models\DriverData.cs" />
     <Compile Include="Models\Enums.cs" />
     <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -215,19 +216,21 @@
     <Content Include="Global.asax" />
     <Content Include="Images\s10.png" />
     <Content Include="Images\s15.jpg" />
-    <Content Include="Images\s16.jpg" />
-    <Content Include="Images\s17.jpg" />
-    <Content Include="Images\s19.jpg" />
     <Content Include="Images\s23.jpg" />
     <Content Include="Images\s29.png" />
-    <Content Include="Images\s32.png" />
     <Content Include="Images\s33.png" />
     <Content Include="Images\s39.ico" />
     <Content Include="Images\s40.png" />
-    <Content Include="Images\s41.png" />
-    <Content Include="Images\s42.png" />
     <Content Include="Images\s43.png" />
     <Content Include="Images\s44.png" />
+    <Content Include="Images\s51.gif" />
+    <Content Include="Images\s52.gif" />
+    <Content Include="Images\s57.gif" />
+    <Content Include="Images\s60.png" />
+    <Content Include="Images\s61.png" />
+    <Content Include="Images\s63.png" />
+    <Content Include="Images\s67.png" />
+    <Content Include="Images\s68.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />

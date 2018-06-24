@@ -78,7 +78,7 @@ namespace TaxiWebApplication.Models
                 IEnumerable<Drive> drives = xmlDocument.Root.Elements("Drive").Select(drive => new Drive
                 {
                     Id = int.Parse(drive.Element("Id").Value),
-                    DateTime = DateTime.Parse(drive.Element("DateTime").Value),
+                    DateTime = drive.Element("DateTime").Value,
                     StartLocation = new Location
                     {
                         Address = drive.Element("StartLocation").Value,
@@ -129,7 +129,7 @@ namespace TaxiWebApplication.Models
                 IEnumerable<Drive> drives = xmlDocument.Root.Elements("Drive").Where(x => x.Element("Id").Value == id.ToString()).Select(driveFound => new Drive
                 {
                     Id = int.Parse(driveFound.Element("Id").Value),
-                    DateTime = DateTime.Parse(driveFound.Element("DateTime").Value),
+                    DateTime = driveFound.Element("DateTime").Value,
                     StartLocation = new Location
                     {
                         Address = driveFound.Element("StartLocation").Value,
@@ -174,16 +174,16 @@ namespace TaxiWebApplication.Models
             }
         }
 
-        public IEnumerable<Drive> GetDrivesForCustomer(int customerId) 
+        public List<Drive> GetDrivesForCustomer(int customerId) 
         {
             if (File.Exists(fileName))
             {
                 FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
                 XDocument xmlDocument = XDocument.Load(stream);
-                IEnumerable<Drive> drives = xmlDocument.Root.Elements("Drive").Where(x => x.Element("CustomerId").Value == customerId.ToString()).Select(driveFound => new Drive
+                List<Drive> drives = xmlDocument.Root.Elements("Drive").Where(x => x.Element("CustomerId").Value == customerId.ToString()).Select(driveFound => new Drive
                 {
                     Id = int.Parse(driveFound.Element("Id").Value),
-                    DateTime = DateTime.Parse(driveFound.Element("DateTime").Value),
+                    DateTime = driveFound.Element("DateTime").Value,
                     StartLocation = new Location
                     {
                         Address = driveFound.Element("StartLocation").Value,
@@ -235,7 +235,7 @@ namespace TaxiWebApplication.Models
                 IEnumerable<Drive> drives = xmlDocument.Root.Elements("Drive").Where(x => x.Element("DispatcherId").Value == dispatcherId.ToString()).Select(driveFound => new Drive
                 {
                     Id = int.Parse(driveFound.Element("Id").Value),
-                    DateTime = DateTime.Parse(driveFound.Element("DateTime").Value),
+                    DateTime = driveFound.Element("DateTime").Value,
                     StartLocation = new Location
                     {
                         Address = driveFound.Element("StartLocation").Value,
@@ -287,7 +287,7 @@ namespace TaxiWebApplication.Models
                 IEnumerable<Drive> drives = xmlDocument.Root.Elements("Drive").Where(x => x.Element("DriverId").Value == driverId.ToString()).Select(driveFound => new Drive
                 {
                     Id = int.Parse(driveFound.Element("Id").Value),
-                    DateTime = DateTime.Parse(driveFound.Element("DateTime").Value),
+                    DateTime = driveFound.Element("DateTime").Value,
                     StartLocation = new Location
                     {
                         Address = driveFound.Element("StartLocation").Value,

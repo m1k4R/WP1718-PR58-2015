@@ -8,9 +8,6 @@
         $("#jmbgIdDriver").val("");
         $("#phoneIdDriver").val("");
         $("#emailIdDriver").val("");
-        $("#addressIdDriver").val("");
-        $("#xIdDriver").val("");
-        $("#yIdDriver").val("");
         $("#idCarIdDriver").val("");
         $("#carYearIdDriver").val("");
         $("#regNumberIdDriver").val("");
@@ -49,13 +46,12 @@
                     Phone: $("#phoneIdDriver").val(),
                     Email: $("#emailIdDriver").val(),
                     Location: {
-                        Address: $("#addressIdDriver").val(),
-                        X: $("#xIdDriver").val(),
-                        Y: $("#yIdDriver").val()
+                        Address: "undefined",
+                        X: 0,
+                        Y: 0
                     },
                     Car: {
                         Type: $("select[name=car]").filter(":selected").val(),
-                        Id: $("#idCarIdDriver").val(),
                         YearOfCar: $("#carYearIdDriver").val(),
                         RegNumber: $("#regNumberIdDriver").val()
                     }
@@ -78,14 +74,14 @@
             isAddDriverValidate = true;
         }
         else {
-            $("#nameIdDriver").attr("placeholder", "Enter your name").placeholder;
+            $("#nameIdDriver").attr("placeholder", "Enter driver name").placeholder;
             isAddDriverValidate = false;
         }
         if ($("#surnameIdDriver").val()) {
             isAddDriverValidate = true;
         }
         else {
-            $("#surnameIdDriver").attr("placeholder", "Enter your surname").placeholder;
+            $("#surnameIdDriver").attr("placeholder", "Enter driver surname").placeholder;
             isAddDriverValidate = false;
         }
         if ($("#usernameIdDriver").val()) {
@@ -98,7 +94,7 @@
             }
         }
         else {
-            $("#usernameIdDriver").attr("placeholder", "Enter your username").placeholder;
+            $("#usernameIdDriver").attr("placeholder", "Enter driver username").placeholder;
             isAddDriverValidate = false;
         }
         if ($("#passwordIdDriver").val()) {
@@ -111,7 +107,7 @@
             }
         }
         else {
-            $("#passwordIdDriver").attr("placeholder", "Enter your password").placeholder;
+            $("#passwordIdDriver").attr("placeholder", "Enter driver password").placeholder;
             isAddDriverValidate = false;
         }
         if ($("#jmbgIdDriver").val()) {
@@ -129,7 +125,7 @@
             }
         }
         else {
-            $("#jmbgIdDriver").attr("placeholder", "Enter your jmbg").placeholder;
+            $("#jmbgIdDriver").attr("placeholder", "Enter driver jmbg").placeholder;
             isAddDriverValidate = false;
         }
         if ($("#phoneIdDriver").val()) {
@@ -142,7 +138,7 @@
             }
         }
         else {
-            $("#phoneIdDriver").attr("placeholder", "Enter your phone number").placeholder;
+            $("#phoneIdDriver").attr("placeholder", "Enter driver phone number").placeholder;
             isAddDriverValidate = false;
         }
         if ($("#emailIdDriver").val()) {
@@ -156,10 +152,36 @@
             }
         }
         else {
-            $("#emailIdDriver").attr("placeholder", "Enter your e-mail").placeholder;
+            $("#emailIdDriver").attr("placeholder", "Enter driver e-mail").placeholder;
             isAddDriverValidate = false;
         }
-        if ($("#nameIdDriver").val() && $("#surnameIdDriver").val() && $("#usernameIdDriver").val() && $("#passwordIdDriver").val() && $("#jmbgIdDriver").val() && $("#phoneIdDriver").val() && $("#emailIdDriver").val()) {
+        if ($("#carYearIdDriver").val()) {
+            isAddDriverValidate = true;
+            let carYear = $("#carYearIdDriver").val();
+            if (isNaN(carYear)) {  // vraca true ako nije broj
+                $("#carYearIdDriver").val("");
+                $("#carYearIdDriver").attr("placeholder", "Must be a number").placeholder;
+                isAddDriverValidate = false;
+            }
+        }
+        else {
+            $("#carYearIdDriver").attr("placeholder", "Enter car year").placeholder;
+            isAddDriverValidate = false;
+        }
+        if ($("#regNumberIdDriver").val()) {
+            isAddDriverValidate = true;
+            let reg = $("#regNumberIdDriver").val();
+            if (isNaN(reg)) {  // vraca true ako nije broj
+                $("#regNumberIdDriver").val("");
+                $("#regNumberIdDriver").attr("placeholder", "Must be numeric characters").placeholder;
+                isAddDriverValidate = false;
+            }
+        }
+        else {
+            $("#regNumberIdDriver").attr("placeholder", "Enter registration number").placeholder;
+            isAddDriverValidate = false;
+        }
+        if ($("#nameIdDriver").val() && $("#surnameIdDriver").val() && $("#usernameIdDriver").val() && $("#passwordIdDriver").val() && $("#jmbgIdDriver").val() && $("#phoneIdDriver").val() && $("#emailIdDriver").val() && $("#carYearIdDriver").val() && $("#regNumberIdDriver").val()) {
             isAddDriverValidate = true;
         }
         else {

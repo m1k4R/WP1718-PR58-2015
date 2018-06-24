@@ -199,6 +199,50 @@ namespace TaxiWebApplication.Models
             }
         }
 
+        public Driver GetDriverById(int id)
+        {
+            if (File.Exists(fileName))
+            {
+                FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                XDocument xmlDocument = XDocument.Load(stream);
+                IEnumerable<Driver> drivers = xmlDocument.Root.Elements("Driver").Where(x => x.Element("Id").Value == id.ToString()).Select(driverFind => new Driver
+                {
+                    Id = int.Parse(driverFind.Element("Id").Value),
+                    Username = driverFind.Element("Username").Value,
+                    Password = driverFind.Element("Password").Value,
+                    Name = driverFind.Element("Name").Value,
+                    Surname = driverFind.Element("Surname").Value,
+                    Gender = (Genders)Enum.Parse(typeof(Genders), driverFind.Element("Gender").Value),
+                    Jmbg = driverFind.Element("Jmbg").Value,
+                    Phone = driverFind.Element("Phone").Value,
+                    Email = driverFind.Element("Email").Value,
+                    Role = (Roles)Enum.Parse(typeof(Roles), driverFind.Element("Role").Value),
+                    Location = new Location
+                    {
+                        Address = driverFind.Element("Address").Value,
+                        X = Double.Parse(driverFind.Element("X").Value),
+                        Y = Double.Parse(driverFind.Element("Y").Value)
+                    },
+                    Car = new Car
+                    {
+                        Id = int.Parse(driverFind.Element("CarId").Value),
+                        YearOfCar = int.Parse(driverFind.Element("YearOfCar").Value),
+                        RegNumber = driverFind.Element("RegNumber").Value,
+                        Type = (Cars)Enum.Parse(typeof(Cars), driverFind.Element("CarType").Value)
+                    }
+
+                }).ToList();
+
+                Driver driver = drivers.First(x => x.Id == id);
+
+                return driver;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public void EditDriver(Driver driver)
         {
             if (File.Exists(fileName))

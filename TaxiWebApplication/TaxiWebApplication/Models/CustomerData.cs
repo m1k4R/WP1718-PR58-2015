@@ -159,6 +159,37 @@ namespace TaxiWebApplication.Models
             }
         }
 
+        public Customer GetCustomerById(int id)
+        {
+            if (File.Exists(fileName))
+            {
+                FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                XDocument xmlDocument = XDocument.Load(stream);
+                IEnumerable<Customer> customers = xmlDocument.Root.Elements("Customer").Where(x => x.Element("Id").Value == id.ToString()).Select(customerFind => new Customer
+                {
+                    Id = int.Parse(customerFind.Element("Id").Value),
+                    Username = customerFind.Element("Username").Value,
+                    Password = customerFind.Element("Password").Value,
+                    Name = customerFind.Element("Name").Value,
+                    Surname = customerFind.Element("Surname").Value,
+                    Gender = (Genders)Enum.Parse(typeof(Genders), customerFind.Element("Gender").Value),
+                    Jmbg = customerFind.Element("Jmbg").Value,
+                    Phone = customerFind.Element("Phone").Value,
+                    Email = customerFind.Element("Email").Value,
+                    Role = (Roles)Enum.Parse(typeof(Roles), customerFind.Element("Role").Value)
+
+                }).ToList();
+
+                Customer customer = customers.First(x => x.Id == id);
+
+                return customer;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public void EditCustomer(Customer customer)
         {
             if (File.Exists(fileName))

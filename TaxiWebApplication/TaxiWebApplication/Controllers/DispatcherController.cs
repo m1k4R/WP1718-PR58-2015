@@ -18,6 +18,8 @@ namespace TaxiWebApplication.Controllers
             {
                 driver.Id = Data.NewId();
                 driver.Role = Enums.Roles.Driver;
+                driver.Car = new Car { Id = Data.NewDriveId() + 4000 };
+
                 Data.driverData.AddDriver(driver);
 
                 Driver driverFind = Data.driverData.GetDriverByUsername(driver.Username);

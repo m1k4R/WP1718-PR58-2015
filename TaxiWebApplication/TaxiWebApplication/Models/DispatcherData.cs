@@ -112,6 +112,37 @@ namespace TaxiWebApplication.Models
             }
         }
 
+        public Dispatcher GetDispatcherById(int id)
+        {
+            if (File.Exists(fileName))
+            {
+                FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                XDocument xmlDocument = XDocument.Load(stream);
+                IEnumerable<Dispatcher> dispatchers = xmlDocument.Root.Elements("Dispatcher").Where(x => x.Element("Id").Value == id.ToString()).Select(dispatcherFind => new Dispatcher
+                {
+                    Id = int.Parse(dispatcherFind.Element("Id").Value),
+                    Username = dispatcherFind.Element("Username").Value,
+                    Password = dispatcherFind.Element("Password").Value,
+                    Name = dispatcherFind.Element("Name").Value,
+                    Surname = dispatcherFind.Element("Surname").Value,
+                    Gender = (Genders)Enum.Parse(typeof(Genders), dispatcherFind.Element("Gender").Value),
+                    Jmbg = dispatcherFind.Element("Jmbg").Value,
+                    Phone = dispatcherFind.Element("Phone").Value,
+                    Email = dispatcherFind.Element("Email").Value,
+                    Role = (Roles)Enum.Parse(typeof(Roles), dispatcherFind.Element("Role").Value)
+
+                }).ToList();
+
+                Dispatcher dispatcher = dispatchers.First(x => x.Id == id);
+
+                return dispatcher;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         public void EditDispatcher(Dispatcher dispatcher)
         {
             if (File.Exists(fileName))
