@@ -11,6 +11,7 @@ namespace TaxiWebApplication.Models
     {
         public string DateTime { get; set; }
         public Location StartLocation { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
         public Enums.Cars Car { get; set; }
         public Customer Customer { get; set; }
         public Location Destination { get; set; }

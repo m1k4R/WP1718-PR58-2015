@@ -12,6 +12,10 @@
         $("#customerDriverDiv").hide();
         $("#customerMapsDriveDiv").show();
         $("#customerMapsDriveDivBlack").hide();
+        $("#saveChangesDriveCustomerClick").hide();
+        $("#cancelChangesDriveCustomerClick").hide();
+        $("#createDriveCustomerClick").show();
+        $("#cancelCreateDriveCustomerClick").show();
 
         $("#startAddressIdCustomer").val("");
         $("#startAddressXIdCustomer").val("");
@@ -24,7 +28,8 @@
     $("#cancelCreateDriveCustomerClick").click(function () {
         $("#customerCreateDriveDiv").hide();
         $("#customerCreateDrive").show();
-        $("#customerMapsDriveDivBlack").show();
+        $("#customerMapsDriveDiv").hide();
+        $("#customerMapsDriveDivBlack").hide();
     });
 
     var isCustomerLocationValidate = false;
@@ -46,14 +51,15 @@
                         X: $("#startAddressXIdCustomer").val(),
                         Y: $("#startAddressYIdCustomer").val()
                     },
-                    Car: {
-                        Type: $("select[name=carCustomer]").filter(":selected").val()
-                    }
+                    Car: $( "#carIdCustomer option:selected" ).text() 
+                    //$("select[name=carCustomer]").filter(":selected").val()
+                    
                 },
                 success: function (data) {
                     //sessionStorage.setItem("currentDrive", JSON.stringify(data));   
                     //let drive = JSON.parse(sessionStorage.getItem("currentDrive"));
                     let drive = JSON.parse(JSON.stringify(data));
+                    displayDrive = drive.Id;
                     alert("Success");
                     $("#cancelCreateDriveCustomerClick").click();
                     $("#customerCurrentDriveDivStartLocation").text(drive.StartLocation.Address);
@@ -69,6 +75,10 @@
                     $("#customerMapsDriveDivBlack").show();
                     $("#customerCreateDrive").hide();
                     $("#pleaseWaitImg").show();
+                    $("#successfulImg").hide();
+                    $("#unsuccessfulImg").hide();
+                    $("#acceptedImg").hide();
+                    $("#canceledImg").hide();
                     $("#customerMessage").text("Please wait . . .");
                     $("#customerMessage").show();
                     $("#customerStateMessage").text(drive.State);
@@ -185,6 +195,8 @@
 
     function ShowChanges(drive) {
 
+        $("#customerCreateDrive").hide();
+        $("#customerCreateDriveDiv").hide();
         $("#customerCurrentDriveDivStartLocation").text(drive.StartLocation.Address);
         $("#customerCurrentDriveDivStartLocationX").text(drive.StartLocation.X);
         $("#customerCurrentDriveDivStartLocationY").text(drive.StartLocation.Y);
@@ -196,15 +208,23 @@
         $("#customerDriverDiv").show();
         $("#customerMapsDriveDiv").show();
         $("#customerMapsDriveDivBlack").show();
+
         if (drive.State == "Created") {
             $("#successfulImg").hide();
             $("#unsuccessfulImg").hide();
             $("#acceptedImg").hide();
             $("#canceledImg").hide();
             $("#pleaseWaitImg").show();
+            $("#customerEditDriveImg").show();
             $("#customerMessage").text("Please wait . . .");
             $("#customerMessage").show();
             $("#customerStateMessage").css('color', '#ffcc00');
+            if (drive.Dispatcher.Id == 0) {
+                $("#customerCancelDrive").show();
+            }
+            else {
+                $("#customerCancelDrive").hide();
+            }
         }
         else if (drive.State == "Successful") {
             $("#customerStateMessage").css('color', '#009933');
@@ -215,6 +235,8 @@
             $("#successfulImg").show();
             $("#customerMessage").text("");
             $("#customerMessage").hide();
+            $("#customerEditDriveImg").hide();
+            $("#customerCancelDrive").hide();
         }
         else if (drive.State == "Unsuccessful") {
             $("#customerStateMessage").css('color', '#cc0000');
@@ -225,6 +247,8 @@
             $("#unsuccessfulImg").show();
             $("#customerMessage").text("");
             $("#customerMessage").hide();
+            $("#customerEditDriveImg").hide();
+            $("#customerCancelDrive").hide();
         }
         else if (drive.State == "Accepted") {
             $("#customerStateMessage").css('color', '#009933');
@@ -235,6 +259,8 @@
             $("#acceptedImg").show();
             $("#customerMessage").text("");
             $("#customerMessage").hide();
+            $("#customerEditDriveImg").hide();
+            $("#customerCancelDrive").hide();
         }
         else if (drive.State == "Canceled") {
             $("#customerStateMessage").css('color', '#cc0000');
@@ -245,6 +271,8 @@
             $("#canceledImg").show();
             $("#customerMessage").text("");
             $("#customerMessage").hide();
+            $("#customerEditDriveImg").hide();
+            $("#customerCancelDrive").hide();
         }
         else {
             $("#successfulImg").hide();
@@ -254,9 +282,163 @@
             $("#pleaseWaitImg").hide();
             $("#customerMessage").text("");
             $("#customerMessage").hide();
+            $("#customerEditDriveImg").hide();
+            $("#customerCancelDrive").hide();
         }
         $("#customerStateMessage").text(drive.State);
         $("#customerStateMessage").show();
     }
 
+    $("#customerEditDriveImg").click(function () {
+
+        $.ajax({
+            url: "/api/Customer/GetDriveById",
+            method: "GET",
+            dataType: "json",
+            data: {
+                Id: displayDrive
+            },
+            success: function (data) {
+                let drive = JSON.parse(JSON.stringify(data));
+
+                if (drive.State == "Created") {
+                    $("#customerCreateDrive").click();
+                    $("#startAddressIdCustomer").val(drive.StartLocation.Address);
+                    $("#startAddressXIdCustomer").val(drive.StartLocation.X);
+                    $("#startAddressYIdCustomer").val(drive.StartLocation.Y);
+                    $("select[name=carCustomer]").filter(":selected").val(drive.Car);
+                    $("#createDriveCustomerClick").hide();
+                    $("#cancelCreateDriveCustomerClick").hide();
+                    $("#saveChangesDriveCustomerClick").show();
+                    $("#cancelChangesDriveCustomerClick").show();
+                }
+                else {
+                    ShowChanges(drive);
+                }
+            },
+            error: function () {
+                alert("Error drive found");
+            }
+        });
+    });
+
+    // na klik save changes opet saljem zahtjev da vidim dal je i dalje u stanju sreated ako jeste onda saljem .ajax da edituje, implementirati u driveData
+    $("#saveChangesDriveCustomerClick").click(function () {
+
+        CustomerLocationValidate();
+        if (isCustomerLocationValidate) {
+            $.ajax({
+                url: "/api/Customer/GetDriveById",
+                method: "GET",
+                dataType: "json",
+                data: {
+                    Id: displayDrive
+                },
+                success: function (data) {
+                    let drive = JSON.parse(JSON.stringify(data));
+
+                    if (drive.State == "Created") {
+                        $.ajax({
+                            url: "/api/Customer/EditDrive",
+                            method: "POST",
+                            dataType: "json",
+                            data: {
+                                Id: drive.Id,
+                                StartLocation: {
+                                    Address: $("#startAddressIdCustomer").val(),
+                                    X: $("#startAddressXIdCustomer").val(),
+                                    Y: $("#startAddressYIdCustomer").val()
+                                },
+                                Car: $("#carIdCustomer option:selected").text() 
+                            },
+                            success: function (data) {
+                                let driveEdit = JSON.parse(JSON.stringify(data));
+
+                                ShowChanges(driveEdit);
+                            },
+                            error: function () {
+                                alert("Error edit drive");
+                            }
+                        });
+                    }
+                    else {
+                        ShowChanges(drive);
+                    }
+                },
+                error: function () {
+                    alert("Error drive found");
+                }
+            });
+        }
+    });
+
+    $("#cancelChangesDriveCustomerClick").click(function () {
+        $.ajax({
+            url: "/api/Customer/GetDriveById",
+            method: "GET",
+            dataType: "json",
+            data: {
+                Id: displayDrive
+            },
+            success: function (data) {
+                let drive = JSON.parse(JSON.stringify(data));
+                ShowChanges(drive);
+            },
+            error: function () {
+                alert("Error drive found");
+            }
+        });
+    });
+
+    $("#customerCancelDrive").click(function () {
+
+        $.ajax({
+            url: "/api/Customer/CancelDrive",
+            method: "POST",
+            dataType: "json",
+            data: {
+                Id: displayDrive
+            },
+            success: function (data) {
+                let driveCancel = JSON.parse(JSON.stringify(data));
+                ShowChanges(driveCancel);
+                $("#commentDivBlack").show();
+            },
+            error: function () {
+                alert("Error cancel drive");
+            }
+        });
+       
+    });
+
+    $("#customerSendComment").click(function () {
+
+        let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+        $.ajax({
+            url: "/api/Customer/CreateComment",
+            method: "POST",
+            dataType: "json",
+            data: {
+                Description: $("#enterComment").val(),
+                Grade: $("#gradeComment").val(),
+                User: {
+                    Id: currentUser.Id
+                },
+                Drive: {
+                    Id: displayDrive
+                }
+            },
+            success: function (data) {
+                let comment = JSON.parse(JSON.stringify(data));
+                $("#commentDivBlack").hide();
+                $("#customerMessage").text("Comment: " + comment.Description);
+                $("#customerMessage").show();
+                $("#customerCreateDrive").show();
+            },
+            error: function () {
+                alert("Error comment");
+            }
+        });
+
+    });
 });

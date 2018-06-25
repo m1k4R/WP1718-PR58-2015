@@ -3,19 +3,19 @@
   <Drive>
     <Id>1000</Id>
     <DateTime>22-06-2018 00:00:00</DateTime>
-    <StartLocation>BulevarKraljaPetra1</StartLocation>
-    <StartLocationX>51</StartLocationX>
-    <StartLocationY>26</StartLocationY>
+    <StartLocation>Ulica cara Lazara</StartLocation>
+    <StartLocationX>50</StartLocationX>
+    <StartLocationY>18</StartLocationY>
     <Destination>None</Destination>
     <DestinationX>0</DestinationX>
     <DestinationY>0</DestinationY>
     <CustomerId>3</CustomerId>
-    <DispatcherId>0000</DispatcherId>
-    <DriverId>0000</DriverId>
-    <Car>None</Car>
+    <DispatcherId>0</DispatcherId>
+    <DriverId>0</DriverId>
+    <Car>Car</Car>
     <Price>0</Price>
-    <CommentId>0000</CommentId>
-    <State>Successful</State>
+    <CommentId>0</CommentId>
+    <State>Canceled</State>
   </Drive>
   <Drive>
     <Id>1001</Id>
@@ -95,11 +95,11 @@
     <DestinationX>0</DestinationX>
     <DestinationY>0</DestinationY>
     <CustomerId>3</CustomerId>
-    <DispatcherId>0000</DispatcherId>
-    <DriverId>0000</DriverId>
+    <DispatcherId>0</DispatcherId>
+    <DriverId>0</DriverId>
     <Car>None</Car>
     <Price>0</Price>
-    <CommentId>0000</CommentId>
+    <CommentId>0</CommentId>
     <State>Accepted</State>
   </Drive>
   <Drive>
@@ -112,11 +112,11 @@
     <DestinationX>0</DestinationX>
     <DestinationY>0</DestinationY>
     <CustomerId>3</CustomerId>
-    <DispatcherId>0000</DispatcherId>
-    <DriverId>0000</DriverId>
+    <DispatcherId>0</DispatcherId>
+    <DriverId>0</DriverId>
     <Car>None</Car>
     <Price>0</Price>
-    <CommentId>0000</CommentId>
+    <CommentId>0</CommentId>
     <State>Canceled</State>
   </Drive>
   <Drive>
@@ -129,11 +129,96 @@
     <DestinationX>0</DestinationX>
     <DestinationY>0</DestinationY>
     <CustomerId>3</CustomerId>
-    <DispatcherId>0000</DispatcherId>
-    <DriverId>0000</DriverId>
+    <DispatcherId>0</DispatcherId>
+    <DriverId>0</DriverId>
     <Car>None</Car>
     <Price>0</Price>
-    <CommentId>0000</CommentId>
+    <CommentId>0</CommentId>
     <State>Unsuccessful</State>
+  </Drive>
+  <Drive>
+    <Id>1008</Id>
+    <DateTime>25-06-2018 01:26:28</DateTime>
+    <StartLocation>Strazilovska</StartLocation>
+    <StartLocationX>18</StartLocationX>
+    <StartLocationY>93</StartLocationY>
+    <Destination>None</Destination>
+    <DestinationX>0</DestinationX>
+    <DestinationY>0</DestinationY>
+    <CustomerId>0</CustomerId>
+    <DispatcherId>1</DispatcherId>
+    <DriverId>0</DriverId>
+    <Car>Car</Car>
+    <Price>0</Price>
+    <CommentId>0</CommentId>
+    <State>Formated</State>
+  </Drive>
+  <Drive>
+    <Id>1009</Id>
+    <DateTime>25-06-2018 02:05:59</DateTime>
+    <StartLocation>Ftn</StartLocation>
+    <StartLocationX>23</StartLocationX>
+    <StartLocationY>22</StartLocationY>
+    <Destination>None</Destination>
+    <DestinationX>0</DestinationX>
+    <DestinationY>0</DestinationY>
+    <CustomerId>5</CustomerId>
+    <DispatcherId>0</DispatcherId>
+    <DriverId>0</DriverId>
+    <Car>None</Car>
+    <Price>0</Price>
+    <CommentId>0</CommentId>
+    <State>Created</State>
+  </Drive>
+  <Drive>
+    <Id>1010</Id>
+    <DateTime>25-06-2018 02:06:29</DateTime>
+    <StartLocation>ftn</StartLocation>
+    <StartLocationX>23</StartLocationX>
+    <StartLocationY>22</StartLocationY>
+    <Destination>None</Destination>
+    <DestinationX>0</DestinationX>
+    <DestinationY>0</DestinationY>
+    <CustomerId>5</CustomerId>
+    <DispatcherId>0</DispatcherId>
+    <DriverId>0</DriverId>
+    <Car>None</Car>
+    <Price>0</Price>
+    <CommentId>0</CommentId>
+    <State>Created</State>
+  </Drive>
+  <Drive>
+    <Id>1011</Id>
+    <DateTime>25-06-2018 02:09:21</DateTime>
+    <StartLocation>Futoska</StartLocation>
+    <StartLocationX>18</StartLocationX>
+    <StartLocationY>7</StartLocationY>
+    <Destination>None</Destination>
+    <DestinationX>0</DestinationX>
+    <DestinationY>0</DestinationY>
+    <CustomerId>2</CustomerId>
+    <DispatcherId>0</DispatcherId>
+    <DriverId>0</DriverId>
+    <Car>None</Car>
+    <Price>0</Price>
+    <CommentId>0</CommentId>
+    <State>Created</State>
+  </Drive>
+  <Drive>
+    <Id>1012</Id>
+    <DateTime>25-06-2018 02:09:55</DateTime>
+    <StartLocation>Futoska</StartLocation>
+    <StartLocationX>18</StartLocationX>
+    <StartLocationY>3</StartLocationY>
+    <Destination>None</Destination>
+    <DestinationX>0</DestinationX>
+    <DestinationY>0</DestinationY>
+    <CustomerId>2</CustomerId>
+    <DispatcherId>0</DispatcherId>
+    <DriverId>0</DriverId>
+    <Car>Car</Car>
+    <Price>0</Price>
+    <CommentId>0</CommentId>
+    <State>Created</State>
   </Drive>
 </Drives>

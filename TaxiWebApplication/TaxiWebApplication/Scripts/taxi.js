@@ -87,13 +87,27 @@
 
     $("#homeButton").click(function () {
         $("#accountDiv").hide();
+
         $("#driverChangeLocationDiv").hide();
+
         $("#customerCreateDriveDiv").hide();
         $("#customerCurrentDriveDiv").hide();
         $("#customerDriverDiv").hide();
         $("#customerMapsDriveDiv").hide();
         $("#customerMapsDriveDivBlack").hide();
         $("#customerCreateDrive").show();
+        $("#customerAllDrivesDiv").show();
+
+        $("#addDriver").hide();
+        $("#dispatcherCurrentDriveDiv").hide();
+        $("#dispatcherDriverDiv").hide();
+        $("#dispatcherMapsDriveDiv").hide();
+        $("#dispatcherMapsDriveDivBlack").hide();
+        $("#dispatcherCreateDriveDiv").hide();
+        $("#dispatcherCreateDrive").show();
+        $("#dispatcherAllDrivesDiv").show();
+        $("#onHoldDrivesDispacher").show();
+
         $("#userMenu").hide();
         $("#imgTriangle").animate({
             top: '46vh'
@@ -191,6 +205,7 @@
                     $("#loginButton").hide();
                     $("#logoutButton").show();
                     $("#dispatcherActionAddDriver").hide();
+                    $("#dispatcherActionCreateDrive").hide();
                     $("#driverActionChangeLocation").hide();
                     $("#customerActionCreateDrive").show();
                     $("#userBox").show();
@@ -328,18 +343,21 @@
                     $("#logoutButton").show();
                     if (user.Role == "Customer") {
                         $("#dispatcherActionAddDriver").hide();
+                        $("#dispatcherActionCreateDrive").hide();
                         $("#driverActionChangeLocation").hide();
                         $("#customerActionCreateDrive").show();
                         $("#customerDiv").show();
                     }
                     else if (user.Role == "Dispatcher") {
                         $("#dispatcherActionAddDriver").show();
+                        $("#dispatcherActionCreateDrive").show();
                         $("#driverActionChangeLocation").hide();
                         $("#customerActionCreateDrive").hide();
                         $("#dispatcherDiv").show();
                     }
                     else if (user.Role == "Driver") {
                         $("#dispatcherActionAddDriver").hide();
+                        $("#dispatcherActionCreateDrive").hide();
                         $("#driverActionChangeLocation").show();
                         $("#customerActionCreateDrive").hide();
                         $("#driverDiv").show();

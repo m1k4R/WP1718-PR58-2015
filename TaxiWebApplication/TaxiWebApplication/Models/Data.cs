@@ -18,6 +18,7 @@ namespace TaxiWebApplication.Models
         public static IEnumerable<Dispatcher> dispatchers = new List<Dispatcher>();//dispatcherData.RetriveAllDispatchers();
         public static IEnumerable<Driver> drivers = new List<Driver>();//driverData.RetriveAllDrivers();
         public static IEnumerable<Drive> drives = new List<Drive>();//driveData.RetriveAllDrives();
+        public static IEnumerable<Comment> comments = new List<Comment>();
 
         public static int NewId()
         {
@@ -57,6 +58,20 @@ namespace TaxiWebApplication.Models
             }
 
             return drivesCount + 1000;
+        }
+
+        public static int NewCommentId()
+        {
+            int commentsCount = 0;
+
+            comments = commentData.RetriveAllComments();
+
+            if (comments != null)
+            {
+                commentsCount = comments.Count();
+            }
+
+            return commentsCount + 10000;
         }
 
     }

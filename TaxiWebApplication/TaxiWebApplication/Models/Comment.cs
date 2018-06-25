@@ -8,8 +8,8 @@ namespace TaxiWebApplication.Models
     public class Comment
     {
         public string Description { get; set; }
-        public DateTime CreatedDateTime { get; set; }
-        public User User { get; set; }
+        public string CreatedDateTime { get; set; }
+        public Customer User { get; set; }
         public Drive Drive { get; set; }
         public int Grade { get; set; }
 

@@ -226,13 +226,13 @@ namespace TaxiWebApplication.Models
             }
         }
 
-        public IEnumerable<Drive> GetDrivesForDispatcher(int dispatcherId)
+        public List<Drive> GetDrivesForDispatcher(int dispatcherId)
         {
             if (File.Exists(fileName))
             {
                 FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
                 XDocument xmlDocument = XDocument.Load(stream);
-                IEnumerable<Drive> drives = xmlDocument.Root.Elements("Drive").Where(x => x.Element("DispatcherId").Value == dispatcherId.ToString()).Select(driveFound => new Drive
+                List<Drive> drives = xmlDocument.Root.Elements("Drive").Where(x => x.Element("DispatcherId").Value == dispatcherId.ToString()).Select(driveFound => new Drive
                 {
                     Id = int.Parse(driveFound.Element("Id").Value),
                     DateTime = driveFound.Element("DateTime").Value,
@@ -278,13 +278,13 @@ namespace TaxiWebApplication.Models
             }
         }
 
-        public IEnumerable<Drive> GetDrivesForDriver(int driverId)
+        public List<Drive> GetDrivesForDriver(int driverId)
         {
             if (File.Exists(fileName))
             {
                 FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
                 XDocument xmlDocument = XDocument.Load(stream);
-                IEnumerable<Drive> drives = xmlDocument.Root.Elements("Drive").Where(x => x.Element("DriverId").Value == driverId.ToString()).Select(driveFound => new Drive
+                List<Drive> drives = xmlDocument.Root.Elements("Drive").Where(x => x.Element("DriverId").Value == driverId.ToString()).Select(driveFound => new Drive
                 {
                     Id = int.Parse(driveFound.Element("Id").Value),
                     DateTime = driveFound.Element("DateTime").Value,
@@ -327,6 +327,109 @@ namespace TaxiWebApplication.Models
             else
             {
                 return null;
+            }
+        }
+
+        public List<Drive> GetOnHoldDrives()
+        {
+            if (File.Exists(fileName))
+            {
+                FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                XDocument xmlDocument = XDocument.Load(stream);
+                List<Drive> drives = xmlDocument.Root.Elements("Drive").Where(x => x.Element("State").Value == "Created").Select(driveFound => new Drive
+                {
+                    Id = int.Parse(driveFound.Element("Id").Value),
+                    DateTime = driveFound.Element("DateTime").Value,
+                    StartLocation = new Location
+                    {
+                        Address = driveFound.Element("StartLocation").Value,
+                        X = Double.Parse(driveFound.Element("StartLocationX").Value),
+                        Y = Double.Parse(driveFound.Element("StartLocationY").Value),
+                    },
+                    Destination = new Location
+                    {
+                        Address = driveFound.Element("Destination").Value,
+                        X = Double.Parse(driveFound.Element("DestinationX").Value),
+                        Y = Double.Parse(driveFound.Element("DestinationY").Value),
+                    },
+                    Customer = new Customer
+                    {
+                        Id = int.Parse(driveFound.Element("CustomerId").Value),
+                    },
+                    Dispatcher = new Dispatcher
+                    {
+                        Id = int.Parse(driveFound.Element("DispatcherId").Value),
+                    },
+                    Driver = new Driver
+                    {
+                        Id = int.Parse(driveFound.Element("DriverId").Value),
+                    },
+                    Car = (Cars)Enum.Parse(typeof(Cars), driveFound.Element("Car").Value),
+                    Price = Double.Parse(driveFound.Element("Price").Value),
+                    Comment = new Comment
+                    {
+                        Id = int.Parse(driveFound.Element("CommentId").Value),
+                    },
+                    State = (State)Enum.Parse(typeof(State), driveFound.Element("State").Value)
+
+                }).ToList();
+
+                return drives;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public void CustomerEditDrive(Drive drive)
+        {
+            if (File.Exists(fileName))
+            {
+                XDocument xmlDocument = XDocument.Load(fileName);
+
+                xmlDocument.Element("Drives").Elements("Drive")
+                                                .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("StartLocation", drive.StartLocation.Address);
+                xmlDocument.Element("Drives").Elements("Drive")
+                                                .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("StartLocationX", drive.StartLocation.X);
+                xmlDocument.Element("Drives").Elements("Drive")
+                                                .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("StartLocationY", drive.StartLocation.Y);
+                xmlDocument.Element("Drives").Elements("Drive")
+                                                .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Car", drive.Car);
+
+                xmlDocument.Save(fileName);
+            }
+        }
+
+        public void CustomerCancelDrive(Drive drive)
+        {
+            if (File.Exists(fileName))
+            {
+                XDocument xmlDocument = XDocument.Load(fileName);
+
+                xmlDocument.Element("Drives").Elements("Drive")
+                                                .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("State", drive.State);
+
+                xmlDocument.Save(fileName);
+            }
+        }
+
+        public void CustomerCommentDrive(Drive drive)
+        {
+            if (File.Exists(fileName))
+            {
+                XDocument xmlDocument = XDocument.Load(fileName);
+
+                xmlDocument.Element("Drives").Elements("Drive")
+                                                .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("CommentId", drive.Comment.Id);
+
+                xmlDocument.Save(fileName);
             }
         }
     }

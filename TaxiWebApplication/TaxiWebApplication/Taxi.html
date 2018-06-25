@@ -120,10 +120,14 @@
         <div class="userMenu" id="userMenu">
             <p>View profile</p>
             <p id="dispatcherActionAddDriver">Create a driver</p>
+            <p id="dispatcherActionCreateDrive">Create a drive</p>
             <p id="driverActionChangeLocation">Change location</p>
             <p id="customerActionCreateDrive">Create a drive</p>
         </div>
     </div>
+
+    <!--**********************Dispatcher*******************-->
+
     <div class="dispatcherDiv" id="dispatcherDiv">
         <div class="addDriver" id="addDriver">
             <table class="addDriverTable">
@@ -205,7 +209,7 @@
                 <tr>
                     <td>E-mail:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input  class="registerInput" type="email" name="email" id="emailIdDriver" required /></td>
+                    <td><input class="registerInput" type="email" name="email" id="emailIdDriver" required /></td>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
@@ -219,28 +223,28 @@
                 </tr>
             </table>
         </div>
-    </div>
-    <div class="customerDiv" id="customerDiv">
-        <p class="customerCreateDrive" id="customerCreateDrive">Create a drive</p><button id="customerDivRefresh">Refresh</button>
-        <div class="customerCreateDriveDiv" id="customerCreateDriveDiv">
-            <table class="customerCreateDriveTable">
+
+        <!--**********************Dispatcher - New*******************-->
+        <p class="customerCreateDrive" id="dispatcherCreateDrive">Create a drive</p><button id="dispatcherDivRefresh">Refresh</button>
+        <div class="customerCreateDriveDiv" id="dispatcherCreateDriveDiv">
+            <table class="dispatcherCreateDriveTable">
                 <tr>
                     <td>Your location:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="text" name="address" id="startAddressIdCustomer" /></td>
+                    <td><input type="text" name="address" id="startAddressIdDispatcher" /></td>
                     <td rowspan="2"><img src="Images/s10.png" class="customerCreateDriveDivImg" /></td>
                 </tr>
                 <tr>
                     <td>X:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="text" name="x" id="startAddressXIdCustomer" /></td>
+                    <td><input type="text" name="x" id="startAddressXIdDispatcher" /></td>
                 </tr>
                 <tr>
                     <td>Y:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="text" name="y" id="startAddressYIdCustomer" /></td>
+                    <td><input type="text" name="y" id="startAddressYIdDispatcher" /></td>
                     <td>
-                        <select width="10px" name="carCustomer" id="carIdCustomer">
+                        <select width="10px" name="carCustomer" id="carIdDispatcher">
                             <option value="None" selected>None</option>
                             <option value="Car">Car</option>
                             <option value="Van">Van</option>
@@ -248,136 +252,230 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="4"><center><button class="createDriveCustomerClick" id="createDriveCustomerClick">Create</button>&nbsp;&nbsp;<button class="cancelCreateDriveCustomerClick" id="cancelCreateDriveCustomerClick">Cancel</button></center></td>
+                    <td colspan="4">
+                        <center>
+                            <button class="createDriveCustomerClick" id="createDriveDispatcherClick">Create</button>&nbsp;&nbsp;
+                            <button class="cancelCreateDriveCustomerClick" id="cancelCreateDriveDispatcherClick">Cancel</button>
+                            <button class="createDriveCustomerClick" id="saveChangesDriveDispatcherClick">Save</button>
+                            <button class="cancelCreateDriveCustomerClick" id="cancelChangesDriveDispatcherClick">Cancel</button>
+                        </center>
+                    </td>
                 </tr>
             </table>
         </div>
-        <div class="customerCurrentDriveDiv" id="customerCurrentDriveDiv">
-            <p>Start location:&nbsp;&nbsp;<small id="customerCurrentDriveDivStartLocation"></small>&nbsp;<small id="customerCurrentDriveDivStartLocationX"></small>&nbsp;<small id="customerCurrentDriveDivStartLocationY"></small></p>
-            <p>Destination:&nbsp;&nbsp;<small id="customerCurrentDriveDivDestination"></small></p>
+        <div class="customerCurrentDriveDiv" id="dispatcherCurrentDriveDiv">
+            <p>Start location:&nbsp;&nbsp;<small id="dispatcherCurrentDriveDivStartLocation"></small>&nbsp;<small id="dispatcherCurrentDriveDivStartLocationX"></small>&nbsp;<small id="dispatcherCurrentDriveDivStartLocationY"></small></p>
+            <p>Destination:&nbsp;&nbsp;<small id="dispatcherCurrentDriveDivDestination"></small></p>
         </div>
-        <div class="customerDriverDiv" id="customerDriverDiv">
+        <div class="customerDriverDiv" id="dispatcherDriverDiv">
             <img src="Images/s44.png" class="customerDriverDivImgDriver" />
             <img src="Images/s10.png" class="customerDriverDivImgCar" />
             <div class="customerDriverDivText">
                 <p>&nbsp;</p>
-                <p id="customerDriverDivName"></p>
-                <p id="customerDriverDivPhone"></p>
+                <p id="dispatcherDriverDivName"></p>
+                <p id="dispatcherDriverDivPhone"></p>
                 <p>&nbsp;</p>
-                <p id="customerDriverDivCar"></p>
+                <p id="dispatcherDriverDivCar"></p>
             </div>
-        </div> 
-        <div class="customerAllDrivesDiv" id="customerAllDrivesDiv"></div>
-        <div class="customerMapsDriveDiv" id="customerMapsDriveDiv"></div>
-        <div class="customerMapsDriveDivBlack" id="customerMapsDriveDivBlack">
-            <img class="pleaseWaitImg" id="pleaseWaitImg" src="Images/s57.gif" />
-            <img class="pleaseWaitImg" id="successfulImg" src="Images/s61.png" />
-            <img class="pleaseWaitImg" id="unsuccessfulImg" src="Images/s63.png" />
-            <img class="pleaseWaitImg" id="acceptedImg" src="Images/s67.png" />
-            <img class="pleaseWaitImg" id="canceledImg" src="Images/s68.png" />
-            <p class="message" id="customerMessage"></p>
-            <p class="state">State:&nbsp;<label class="messageState" id="customerStateMessage">Created - On hold</label></p>
         </div>
-    </div>
-    <div class="driverDiv" id="driverDiv">
-        <p class="driverChangeLocation" id="driverChangeLocation">Change location</p>
-        <div class="driverChangeLocationDiv" id="driverChangeLocationDiv">
-            <table class="driverChangeLocationTable">
-                <tr>
-                    <td>Address:</td>
-                    <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input type="text" name="address" id="changeAddressIdDriver" /></td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>X:</td>
-                    <td><input type="text" name="x" id="changeXIdDriver" /></td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>Y:</td>
-                    <td><input type="text" name="y" id="changeYIdDriver" /></td>
-                </tr>
-                <tr>
-                    <td colspan="3"><center><button class="changeLocationDriverClick" id="changeLocationDriverClick">Confirm</button>&nbsp;&nbsp;<button class="cancelLocationDriverClick" id="cancelLocationDriverClick">Cancel</button></center></td>
-                </tr>
-            </table>
+        <div class="customerAllDrivesDiv" id="dispatcherAllDrivesDiv"></div>
+        <div class="customerMapsDriveDiv" id="dispatcherMapsDriveDiv"></div>
+        <div class="customerMapsDriveDivBlack" id="dispatcherMapsDriveDivBlack">
+            <img class="customerEditDriveImg" id="dispatcherEditDriveImg" src="Images/s40.png" />
+            <img class="pleaseWaitImg" id="pleaseWaitImgDispatcher" src="Images/s57.gif" />
+            <img class="pleaseWaitImg" id="successfulImgDispatcher" src="Images/s61.png" />
+            <img class="pleaseWaitImg" id="unsuccessfulImgDispatcher" src="Images/s63.png" />
+            <img class="pleaseWaitImg" id="acceptedImgDispatcher" src="Images/s67.png" />
+            <img class="pleaseWaitImg" id="canceledImgDispatcher" src="Images/s68.png" />
+            <p class="message" id="dispatcherMessage"></p>
+            <p class="state">State:&nbsp;<label class="messageState" id="dispatcherStateMessage">Created - On hold</label></p>
+            <button class="customerCancelDrive" id="dispatcherCancelDrive">Cancel</button>
         </div>
+        <div class="onHoldDrivesDispacher" id="onHoldDrivesDispacher"></div>
+
+        <!--**********************Dispatcher - End*******************-->
     </div>
 
-    <div class="accountDiv" id="accountDiv">
-        <table class="changeAccountTable">
-            <tr>
-                <td>Name:</td>
-                <td>&nbsp;&nbsp;&nbsp;</td>
-                <td><input  class="accountInput registerInput" type="text" name="name" id="nameChangeId" readonly /></td>
-            </tr>
-            <tr>
-                <td>Surname:</td>
-                <td>&nbsp;&nbsp;&nbsp;</td>
-                <td><input class="accountInput registerInput" type="text" name="surname" id="surnameChangeId" readonly /></td>
-            </tr>
-            <tr>
-                <td>Username:</td>
-                <td>&nbsp;&nbsp;&nbsp;</td>
-                <td><input  class="accountInput registerInput" type="text" name="username" id="usernameChangeId" readonly /></td>
-            </tr>
-            <tr>
-                <td>Password:</td>
-                <td>&nbsp;&nbsp;&nbsp;</td>
-                <td><input  class="accountInput" type="text" name="password" id="passwordTextChangeId" readonly /><input  class="accountInput registerInput" type="password" name="password" id="passwordChangeId" /></td>
-            </tr>
-            <tr>
-                <td>Jmbg:</td>
-                <td>&nbsp;&nbsp;&nbsp;</td>
-                <td><input  class="accountInput registerInput" type="text" name="jmbg" id="jmbgChangeId" readonly /></td>
-            </tr>
-            <tr>
-                <td>Gender:</td>
-                <td>&nbsp;&nbsp;&nbsp;</td>
-                <td>
-                    <input class="accountInput" type="text" name="gender" id="genderTextChangeId" readonly />
-                    <input type="radio" name="genderChange" checked value="Male"><label>Male</label>
-                    <input type="radio" name="genderChange" value="Female"><label>Female</label>
-                </td>
-            </tr>
-            <tr>
-                <td>Phone:</td>
-                <td>&nbsp;&nbsp;&nbsp;</td>
-                <td><input  class="accountInput registerInput" type="text" name="phone" id="phoneChangeId" readonly /></td>
-            </tr>
-            <tr>
-                <td>E-mail:</td>
-                <td>&nbsp;&nbsp;&nbsp;</td>
-                <td><input  class="accountInput registerInput" type="email" name="email" id="emailChangeId" readonly /></td>
-            </tr>
-        </table>
-        <div class="userAccountBox">
-            <img class="imgAccount" id="imgAccount" src="Images/s39.ico" />
+        <!--***************Customer******************-->
+
+        <div class="customerDiv" id="customerDiv">
+            <p class="customerCreateDrive" id="customerCreateDrive">Create a drive</p><button id="customerDivRefresh">Refresh</button>
+            <div class="customerCreateDriveDiv" id="customerCreateDriveDiv">
+                <table class="customerCreateDriveTable">
+                    <tr>
+                        <td>Your location:</td>
+                        <td>&nbsp;&nbsp;&nbsp;</td>
+                        <td><input type="text" name="address" id="startAddressIdCustomer" /></td>
+                        <td rowspan="2"><img src="Images/s10.png" class="customerCreateDriveDivImg" /></td>
+                    </tr>
+                    <tr>
+                        <td>X:</td>
+                        <td>&nbsp;&nbsp;&nbsp;</td>
+                        <td><input type="text" name="x" id="startAddressXIdCustomer" /></td>
+                    </tr>
+                    <tr>
+                        <td>Y:</td>
+                        <td>&nbsp;&nbsp;&nbsp;</td>
+                        <td><input type="text" name="y" id="startAddressYIdCustomer" /></td>
+                        <td>
+                            <select width="10px" name="carCustomer" id="carIdCustomer">
+                                <option value="None" selected>None</option>
+                                <option value="Car">Car</option>
+                                <option value="Van">Van</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4">
+                            <center>
+                                <button class="createDriveCustomerClick" id="createDriveCustomerClick">Create</button>&nbsp;&nbsp;
+                                <button class="cancelCreateDriveCustomerClick" id="cancelCreateDriveCustomerClick">Cancel</button>
+                                <button class="createDriveCustomerClick" id="saveChangesDriveCustomerClick">Save</button>
+                                <button class="cancelCreateDriveCustomerClick" id="cancelChangesDriveCustomerClick">Cancel</button>
+                            </center>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="customerCurrentDriveDiv" id="customerCurrentDriveDiv">
+                <p>Start location:&nbsp;&nbsp;<small id="customerCurrentDriveDivStartLocation"></small>&nbsp;<small id="customerCurrentDriveDivStartLocationX"></small>&nbsp;<small id="customerCurrentDriveDivStartLocationY"></small></p>
+                <p>Destination:&nbsp;&nbsp;<small id="customerCurrentDriveDivDestination"></small></p>
+            </div>
+            <div class="customerDriverDiv" id="customerDriverDiv">
+                <img src="Images/s44.png" class="customerDriverDivImgDriver" />
+                <img src="Images/s10.png" class="customerDriverDivImgCar" />
+                <div class="customerDriverDivText">
+                    <p>&nbsp;</p>
+                    <p id="customerDriverDivName"></p>
+                    <p id="customerDriverDivPhone"></p>
+                    <p>&nbsp;</p>
+                    <p id="customerDriverDivCar"></p>
+                </div>
+            </div>
+            <div class="customerAllDrivesDiv" id="customerAllDrivesDiv"></div>
+            <div class="customerMapsDriveDiv" id="customerMapsDriveDiv"></div>
+            <div class="customerMapsDriveDivBlack" id="customerMapsDriveDivBlack">
+                <img class="customerEditDriveImg" id="customerEditDriveImg" src="Images/s40.png" />
+                <img class="pleaseWaitImg" id="pleaseWaitImg" src="Images/s57.gif" />
+                <img class="pleaseWaitImg" id="successfulImg" src="Images/s61.png" />
+                <img class="pleaseWaitImg" id="unsuccessfulImg" src="Images/s63.png" />
+                <img class="pleaseWaitImg" id="acceptedImg" src="Images/s67.png" />
+                <img class="pleaseWaitImg" id="canceledImg" src="Images/s68.png" />
+                <p class="message" id="customerMessage"></p>
+                <p class="state">State:&nbsp;<label class="messageState" id="customerStateMessage">Created - On hold</label></p>
+                <button class="customerCancelDrive" id="customerCancelDrive">Cancel</button>
+            </div>
         </div>
-        <p class="editProfile" id="editProfile">Edit profile</p>
-        <p class="changePassword" id="changePassword">Change password</p>
-        <div class="changePasswordDiv" id="changePasswordDiv">
-            <table class="changePasswordTable">
+        <div class="commentDivBlack" id="commentDivBlack">
+            <div class="commentDiv" id="commentDiv">
+                <p class="comment">Comment</p>
+                <textarea class="enterComment" id="enterComment">Enter your comment here . . .</textarea>
+                <input type="text" class="gradeComment" id="gradeComment" />
+                <button class="loginClick" id="customerSendComment">Send</button>
+            </div>
+        </div>
+
+        <!--*************************Driver***************************-->
+
+        <div class="driverDiv" id="driverDiv">
+            <p class="driverChangeLocation" id="driverChangeLocation">Change location</p>
+            <div class="driverChangeLocationDiv" id="driverChangeLocationDiv">
+                <table class="driverChangeLocationTable">
+                    <tr>
+                        <td>Address:</td>
+                        <td>&nbsp;&nbsp;&nbsp;</td>
+                        <td><input type="text" name="address" id="changeAddressIdDriver" /></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>X:</td>
+                        <td><input type="text" name="x" id="changeXIdDriver" /></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>Y:</td>
+                        <td><input type="text" name="y" id="changeYIdDriver" /></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><center><button class="changeLocationDriverClick" id="changeLocationDriverClick">Confirm</button>&nbsp;&nbsp;<button class="cancelLocationDriverClick" id="cancelLocationDriverClick">Cancel</button></center></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="accountDiv" id="accountDiv">
+            <table class="changeAccountTable">
+                <tr>
+                    <td>Name:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input class="accountInput registerInput" type="text" name="name" id="nameChangeId" readonly /></td>
+                </tr>
+                <tr>
+                    <td>Surname:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input class="accountInput registerInput" type="text" name="surname" id="surnameChangeId" readonly /></td>
+                </tr>
+                <tr>
+                    <td>Username:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input class="accountInput registerInput" type="text" name="username" id="usernameChangeId" readonly /></td>
+                </tr>
                 <tr>
                     <td>Password:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input class="registerInput" type="password" name="password" id="passwordChangeId2" /></td>
+                    <td><input class="accountInput" type="text" name="password" id="passwordTextChangeId" readonly /><input class="accountInput registerInput" type="password" name="password" id="passwordChangeId" /></td>
                 </tr>
                 <tr>
-                    <td>New password:</td>
+                    <td>Jmbg:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input class="registerInput" type="password" name="password" id="newPasswordChangeId" /></td>
+                    <td><input class="accountInput registerInput" type="text" name="jmbg" id="jmbgChangeId" readonly /></td>
                 </tr>
                 <tr>
-                    <td>Repeat new password:</td>
+                    <td>Gender:</td>
                     <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input class="registerInput" type="password" name="password" id="newPasswordChangeId2" /></td>
+                    <td>
+                        <input class="accountInput" type="text" name="gender" id="genderTextChangeId" readonly />
+                        <input type="radio" name="genderChange" checked value="Male"><label>Male</label>
+                        <input type="radio" name="genderChange" value="Female"><label>Female</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input class="accountInput registerInput" type="text" name="phone" id="phoneChangeId" readonly /></td>
+                </tr>
+                <tr>
+                    <td>E-mail:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input class="accountInput registerInput" type="email" name="email" id="emailChangeId" readonly /></td>
                 </tr>
             </table>
+            <div class="userAccountBox">
+                <img class="imgAccount" id="imgAccount" src="Images/s39.ico" />
+            </div>
+            <p class="editProfile" id="editProfile">Edit profile</p>
+            <p class="changePassword" id="changePassword">Change password</p>
+            <div class="changePasswordDiv" id="changePasswordDiv">
+                <table class="changePasswordTable">
+                    <tr>
+                        <td>Password:</td>
+                        <td>&nbsp;&nbsp;&nbsp;</td>
+                        <td><input class="registerInput" type="password" name="password" id="passwordChangeId2" /></td>
+                    </tr>
+                    <tr>
+                        <td>New password:</td>
+                        <td>&nbsp;&nbsp;&nbsp;</td>
+                        <td><input class="registerInput" type="password" name="password" id="newPasswordChangeId" /></td>
+                    </tr>
+                    <tr>
+                        <td>Repeat new password:</td>
+                        <td>&nbsp;&nbsp;&nbsp;</td>
+                        <td><input class="registerInput" type="password" name="password" id="newPasswordChangeId2" /></td>
+                    </tr>
+                </table>
+            </div>
+            <button class="changeAccountClick" id="changeAccountClick">Save changes</button>
+            <button class="cancelAccountClick" id="cancelAccountClick">Cancel</button>
         </div>
-        <button class="changeAccountClick" id="changeAccountClick">Save changes</button>
-        <button class="cancelAccountClick" id="cancelAccountClick">Cancel</button>
-    </div>
-    </body>
+</body>
     </html>

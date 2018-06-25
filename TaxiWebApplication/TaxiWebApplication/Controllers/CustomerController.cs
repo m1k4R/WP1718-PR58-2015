@@ -90,8 +90,43 @@ namespace TaxiWebApplication.Controllers
             {
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
+        }
 
+        [HttpPost]
+        [Route("api/Customer/EditDrive")]
+        public HttpResponseMessage EditDrive([FromBody]Drive drive)
+        {
+            Data.driveData.CustomerEditDrive(drive);
 
+            Drive driveFound = Data.driveData.GetDriveById(drive.Id);
+
+            return Request.CreateResponse(HttpStatusCode.Created, driveFound);
+        }
+
+        [HttpPost]
+        [Route("api/Customer/CancelDrive")]
+        public HttpResponseMessage CancelDrive([FromBody]Drive drive)
+        {
+            drive.State = Enums.State.Canceled;
+            Data.driveData.CustomerCancelDrive(drive);
+
+            Drive driveFound = Data.driveData.GetDriveById(drive.Id);
+
+            return Request.CreateResponse(HttpStatusCode.Created, driveFound);
+        }
+
+        [HttpPost]
+        [Route("api/Customer/CreateComment")]
+        public HttpResponseMessage CreateComment([FromBody]Comment comment)
+        {
+            comment.Id = Data.NewCommentId();
+            comment.CreatedDateTime = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss");
+
+            Data.commentData.AddComment(comment);
+
+            Comment commentFound = Data.commentData.GetCommentById(comment.Id);
+
+            return Request.CreateResponse(HttpStatusCode.Created, commentFound);
         }
     }
 }
