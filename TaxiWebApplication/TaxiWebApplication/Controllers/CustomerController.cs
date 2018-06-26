@@ -43,6 +43,30 @@ namespace TaxiWebApplication.Controllers
 
             if (drives != null)
             {
+                foreach (Drive d in drives)
+                {
+                    if (d.Customer.Id != 0)
+                    {
+                        Customer c = Data.customerData.GetCustomerById(d.Customer.Id);
+                        d.Customer = c;
+                    }
+                    if (d.Dispatcher.Id != 0)
+                    {
+                        Dispatcher dispatcher = Data.dispatcherData.GetDispatcherById(d.Dispatcher.Id);
+                        d.Dispatcher = dispatcher;
+                    }
+                    if (d.Driver.Id != 0)
+                    {
+                        Driver driver = Data.driverData.GetDriverById(d.Driver.Id);
+                        d.Driver = driver;
+                    }
+                    if (d.Comment.Id != 0)
+                    {
+                        Comment comment = Data.commentData.GetCommentById(d.Comment.Id);
+                        d.Comment = comment;
+                    }
+                }
+
                 return Request.CreateResponse(HttpStatusCode.OK, drives);
             }
             else
@@ -104,12 +128,29 @@ namespace TaxiWebApplication.Controllers
 
         [HttpPost]
         [Route("api/Customer/CancelDrive")]
-        public HttpResponseMessage CancelDrive([FromBody]Drive drive)
+        public HttpResponseMessage CancelDrive([FromBody]Comment comment)
         {
-            drive.State = Enums.State.Canceled;
-            Data.driveData.CustomerCancelDrive(drive);
+            comment.Id = Data.NewCommentId();
+            comment.CreatedDateTime = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss");
 
-            Drive driveFound = Data.driveData.GetDriveById(drive.Id);
+            Data.commentData.AddComment(comment);
+
+            Drive commentedDrive = Data.driveData.GetDriveById(comment.Drive.Id);
+
+            commentedDrive.Comment = new Comment
+            {
+                Id = comment.Id
+            };
+            commentedDrive.State = Enums.State.Canceled;
+            Data.driveData.CustomerCancelDrive(commentedDrive);
+
+            Drive driveFound = Data.driveData.GetDriveById(commentedDrive.Id);
+            driveFound.Comment = comment;
+            if (driveFound.Customer.Id != 0)
+            {
+                Customer customer = Data.customerData.GetCustomerById(driveFound.Customer.Id);
+                driveFound.Customer = customer;
+            }
 
             return Request.CreateResponse(HttpStatusCode.Created, driveFound);
         }
@@ -129,7 +170,7 @@ namespace TaxiWebApplication.Controllers
             {
                 Id = comment.Id
             };
-            Data.driveData.CustomerCommentDrive(commentedDrive);
+            Data.driveData.CommentDrive(commentedDrive);
 
             Comment commentFound = Data.commentData.GetCommentById(comment.Id);
 

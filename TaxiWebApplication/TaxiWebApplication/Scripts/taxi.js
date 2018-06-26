@@ -44,6 +44,12 @@
     $("#homeButton").click(function () {
 
         ClearDisplay();
+
+        $("#driverMapsDriveDiv").show();
+        $("#driverMapsDriveDivBlack").show();
+        $("#driverChangeLocation").show();
+        $("#driverAllDrivesDiv").show();
+        $("#onHoldDrivesDriver").show();
         
         $("#customerCreateDrive").show();
         $("#customerAllDrivesDiv").show();
@@ -149,21 +155,23 @@
 
     function Validate() {
 
-        if ($("#nameId").val()) {
+        if ($("#nameId").val().trim() != "") {
             isValidate = true;
         }
         else {
+            $("#nameId").val("");
             $("#nameId").attr("placeholder", "Enter your name").placeholder;
             isValidate = false;
         }
-        if ($("#surnameId").val()) {
+        if ($("#surnameId").val().trim() != "") {
             isValidate = true;
         }
         else {
+            $("#surnameId").val("");
             $("#surnameId").attr("placeholder", "Enter your surname").placeholder;
             isValidate = false;
         }
-        if ($("#usernameId").val()) {
+        if ($("#usernameId").val().trim() != "") {
             isValidate = true;
             let username = $("#usernameId").val();
             if (username.length < 4) {
@@ -173,10 +181,11 @@
             }
         }
         else {
+            $("#usernameId").val("");
             $("#usernameId").attr("placeholder", "Enter your username").placeholder;
             isValidate = false;
         }
-        if ($("#passwordId").val()) {
+        if ($("#passwordId").val().trim() != "") {
             isValidate = true;
             let password = $("#passwordId").val();
             if (password.length < 4) {
@@ -186,10 +195,11 @@
             }
         }
         else {
+            $("#passwordId").val("");
             $("#passwordId").attr("placeholder", "Enter your password").placeholder;
             isValidate = false;
         }
-        if ($("#jmbgId").val()) {
+        if ($("#jmbgId").val().trim() != "") {
             isValidate = true;
             let jmbg = $("#jmbgId").val();
             if (isNaN(jmbg)) {  // vraca true ako nije broj
@@ -204,10 +214,11 @@
             }
         }
         else {
+            $("#jmbgId").val("");
             $("#jmbgId").attr("placeholder", "Enter your jmbg").placeholder;
             isValidate = false;
         }
-        if ($("#phoneId").val()) {
+        if ($("#phoneId").val().trim() != "") {
             isValidate = true;
             let phone = $("#phoneId").val();
             if (isNaN(phone)) {  // vraca true ako nije broj
@@ -217,10 +228,11 @@
             }
         }
         else {
+            $("#phoneId").val("");
             $("#phoneId").attr("placeholder", "Enter your phone number").placeholder;
             isValidate = false;
         }
-        if ($("#emailId").val()) {
+        if ($("#emailId").val().trim() != "") {
             isValidate = true;
             let email = $("#emailId").val();
             var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -231,6 +243,7 @@
             }
         }
         else {
+            $("#emailId").val("");
             $("#emailId").attr("placeholder", "Enter your e-mail").placeholder;
             isValidate = false;
         }
@@ -306,17 +319,19 @@
 
     function LoginValidate() {
 
-        if ($("#usernameIdLog").val()) {
+        if ($("#usernameIdLog").val().trim() != "") {
             isLoginValidate = true;
         }
         else {
+            $("#usernameIdLog").val("");
             $("#usernameIdLog").attr("placeholder", "Enter your username").placeholder;
             isLoginValidate = false;
         }
-        if ($("#passwordIdLog").val()) {
+        if ($("#passwordIdLog").val().trim() != "") {
             isLoginValidate = true;
         }
         else {
+            $("#passwordIdLog").val("");
             $("#passwordIdLog").attr("placeholder", "Enter your password").placeholder;
             isLoginValidate = false;
         }
@@ -355,6 +370,21 @@
         $("#accountDiv").hide();
 
         $("#driverChangeLocationDiv").hide();
+        $("#driverCurrentDriveDiv").hide();
+        $("#driverCustomerDiv").hide();
+        $("#successfulImgDriver").hide();
+        $("#unsuccessfulImgDriver").hide();
+        $("#acceptedImgDriver").hide();
+        $("#canceledImgDriver").hide();
+        $("#pleaseWaitImgDriver").hide();
+        $("#processImgDriver").hide();
+        $("#driverEditDriveImg").hide();
+        $("#driverState").hide();
+        $("#driverStateMessage").hide();
+        $("#driverAcceptDrive").hide();
+        $("#driverYesDrive").hide();
+        $("#driverNoDrive").hide();
+        $("#driverMessage").hide();
 
         $("#customerCreateDriveDiv").hide();
         $("#customerCurrentDriveDiv").hide();

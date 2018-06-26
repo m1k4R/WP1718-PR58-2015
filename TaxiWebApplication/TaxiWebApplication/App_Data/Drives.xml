@@ -32,7 +32,7 @@
     <Car>None</Car>
     <Price>0</Price>
     <CommentId>0</CommentId>
-    <State>Processed</State>
+    <State>Unsuccessful</State>
   </Drive>
   <Drive>
     <Id>1002</Id>
@@ -40,16 +40,16 @@
     <StartLocation>Bulevar Oslobodjenja </StartLocation>
     <StartLocationX>17</StartLocationX>
     <StartLocationY>3</StartLocationY>
-    <Destination>None</Destination>
-    <DestinationX>0</DestinationX>
-    <DestinationY>0</DestinationY>
+    <Destination>Ftn</Destination>
+    <DestinationX>33</DestinationX>
+    <DestinationY>23</DestinationY>
     <CustomerId>2</CustomerId>
     <DispatcherId>0</DispatcherId>
-    <DriverId>0</DriverId>
+    <DriverId>7</DriverId>
     <Car>None</Car>
-    <Price>0</Price>
+    <Price>350</Price>
     <CommentId>0</CommentId>
-    <State>Created</State>
+    <State>Successful</State>
   </Drive>
   <Drive>
     <Id>1003</Id>
@@ -62,7 +62,7 @@
     <DestinationY>0</DestinationY>
     <CustomerId>3</CustomerId>
     <DispatcherId>0</DispatcherId>
-    <DriverId>0</DriverId>
+    <DriverId>7</DriverId>
     <Car>None</Car>
     <Price>0</Price>
     <CommentId>0</CommentId>
@@ -82,8 +82,8 @@
     <DriverId>7</DriverId>
     <Car>None</Car>
     <Price>0</Price>
-    <CommentId>0</CommentId>
-    <State>Processed</State>
+    <CommentId>10003</CommentId>
+    <State>Unsuccessful</State>
   </Drive>
   <Drive>
     <Id>1005</Id>
@@ -96,11 +96,11 @@
     <DestinationY>0</DestinationY>
     <CustomerId>3</CustomerId>
     <DispatcherId>0</DispatcherId>
-    <DriverId>0</DriverId>
+    <DriverId>7</DriverId>
     <Car>None</Car>
     <Price>0</Price>
-    <CommentId>0</CommentId>
-    <State>Accepted</State>
+    <CommentId>10004</CommentId>
+    <State>Unsuccessful</State>
   </Drive>
   <Drive>
     <Id>1006</Id>
@@ -113,7 +113,7 @@
     <DestinationY>0</DestinationY>
     <CustomerId>3</CustomerId>
     <DispatcherId>0</DispatcherId>
-    <DriverId>0</DriverId>
+    <DriverId>7</DriverId>
     <Car>None</Car>
     <Price>0</Price>
     <CommentId>0</CommentId>
@@ -130,7 +130,7 @@
     <DestinationY>0</DestinationY>
     <CustomerId>3</CustomerId>
     <DispatcherId>0</DispatcherId>
-    <DriverId>0</DriverId>
+    <DriverId>7</DriverId>
     <Car>None</Car>
     <Price>0</Price>
     <CommentId>0</CommentId>
@@ -164,11 +164,11 @@
     <DestinationY>0</DestinationY>
     <CustomerId>5</CustomerId>
     <DispatcherId>0</DispatcherId>
-    <DriverId>0</DriverId>
+    <DriverId>7</DriverId>
     <Car>None</Car>
     <Price>0</Price>
-    <CommentId>0</CommentId>
-    <State>Created</State>
+    <CommentId>10005</CommentId>
+    <State>Unsuccessful</State>
   </Drive>
   <Drive>
     <Id>1010</Id>
@@ -181,11 +181,11 @@
     <DestinationY>0</DestinationY>
     <CustomerId>5</CustomerId>
     <DispatcherId>0</DispatcherId>
-    <DriverId>0</DriverId>
+    <DriverId>7</DriverId>
     <Car>None</Car>
     <Price>0</Price>
-    <CommentId>0</CommentId>
-    <State>Created</State>
+    <CommentId>10006</CommentId>
+    <State>Unsuccessful</State>
   </Drive>
   <Drive>
     <Id>1011</Id>
@@ -193,16 +193,16 @@
     <StartLocation>Futoska</StartLocation>
     <StartLocationX>18</StartLocationX>
     <StartLocationY>7</StartLocationY>
-    <Destination>None</Destination>
-    <DestinationX>0</DestinationX>
-    <DestinationY>0</DestinationY>
+    <Destination>Nepoznata</Destination>
+    <DestinationX>5</DestinationX>
+    <DestinationY>5</DestinationY>
     <CustomerId>2</CustomerId>
-    <DispatcherId>0</DispatcherId>
-    <DriverId>0</DriverId>
+    <DispatcherId>1</DispatcherId>
+    <DriverId>7</DriverId>
     <Car>None</Car>
-    <Price>0</Price>
+    <Price>150</Price>
     <CommentId>0</CommentId>
-    <State>Created</State>
+    <State>Successful</State>
   </Drive>
   <Drive>
     <Id>1012</Id>
@@ -232,10 +232,44 @@
     <DestinationY>0</DestinationY>
     <CustomerId>3</CustomerId>
     <DispatcherId>0</DispatcherId>
-    <DriverId>0</DriverId>
+    <DriverId>7</DriverId>
     <Car>Car</Car>
     <Price>0</Price>
-    <CommentId>0</CommentId>
-    <State>Created</State>
+    <CommentId>10007</CommentId>
+    <State>Unsuccessful</State>
+  </Drive>
+  <Drive>
+    <Id>1014</Id>
+    <DateTime>26-06-2018 19:41:26</DateTime>
+    <StartLocation>Strazilovska</StartLocation>
+    <StartLocationX>15</StartLocationX>
+    <StartLocationY>15</StartLocationY>
+    <Destination>Bulevar Kralja Petra 1</Destination>
+    <DestinationX>51</DestinationX>
+    <DestinationY>50</DestinationY>
+    <CustomerId>3</CustomerId>
+    <DispatcherId>0</DispatcherId>
+    <DriverId>7</DriverId>
+    <Car>Car</Car>
+    <Price>250</Price>
+    <CommentId>10008</CommentId>
+    <State>Successful</State>
+  </Drive>
+  <Drive>
+    <Id>1015</Id>
+    <DateTime>26-06-2018 19:47:21</DateTime>
+    <StartLocation>Ulica bb</StartLocation>
+    <StartLocationX>13</StartLocationX>
+    <StartLocationY>22</StartLocationY>
+    <Destination>Bulevar Oslobodjenja</Destination>
+    <DestinationX>13</DestinationX>
+    <DestinationY>22</DestinationY>
+    <CustomerId>5</CustomerId>
+    <DispatcherId>0</DispatcherId>
+    <DriverId>7</DriverId>
+    <Car>None</Car>
+    <Price>500</Price>
+    <CommentId>10009</CommentId>
+    <State>Successful</State>
   </Drive>
 </Drives>

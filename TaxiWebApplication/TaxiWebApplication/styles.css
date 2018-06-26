@@ -785,9 +785,11 @@ td {
     font-weight: bold;
     width: 10vw;
     position: fixed;
-    float: right;
-    top: 20%;
-    right: 5%;
+    float: left;
+    top: 14.5%;
+    right: 38%;
+    left: 52%;
+    bottom: 85.5%;
     cursor: pointer;
 }
 
@@ -838,6 +840,113 @@ td {
     width: 10vw;
     height: 6vh;
     cursor: pointer;
+}
+
+.driverSingleDriveDiv {
+    background-color: transparent;
+    border: solid 1px #ffcc00;
+    height: 10%;
+    padding: 3%;
+    padding-top: 4%;
+}
+
+.driverSingleDriveDiv p {
+    padding: 1%;
+}
+
+.driverSingleDriveDiv:hover {
+    background-color: rgba(255, 204, 0, 0.5);
+    cursor: pointer;
+}
+
+.driverYesDrive {
+    background-color: #009933;
+    border-color: #009933;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    width: 10vw;
+    height: 6vh;
+    cursor: pointer;
+    position: fixed;
+    top: 86%;
+    right: 46%;
+    left: 44%;
+    bottom: 8%;
+}
+
+.driverNoDrive {
+    background-color: #cc0000;
+    border-color: #cc0000;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    width: 10vw;
+    height: 6vh;
+    cursor: pointer;
+    position: fixed;
+    top: 86%;
+    right: 34%;
+    left: 56%;
+    bottom: 8%;
+}
+
+.driverMessage {
+    position: fixed;
+    top: 73%;
+    left: 50%;
+}
+
+.driverCustomerDivImgCustomer {
+    height: 8%;
+    width: 4%;
+    float: left;
+    position: fixed;
+    top: 20%;
+    right: 35%;
+    left: 59%;
+    bottom: 73%;
+}
+
+.onHoldSingleDriveDriver {
+    display: inline-block;
+    height: 55%;
+    padding: 5%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.onHoldSingleDriveDriver:hover {
+    color: #ffcc00;
+    cursor: pointer;
+}
+
+.onHoldSingleDriveDriver p {
+    padding: 1%;
+}
+
+#driverSendComment {
+    position: fixed;
+    top: 64%;
+    left: 42%;
+}
+
+#driverSendDestinationPrice {
+    position: fixed;
+    top: 64%;
+    left: 42%;
+}
+
+.chooseDestinationDriveTable {
+    background-color: transparent;
+   /* border: solid 1px #ffcc00;*/
+   border-color: transparent;
+    position: fixed;
+    float: right;
+    top: 35%;
+    left: 32%;
 }
 
 .customerDiv {
@@ -1150,7 +1259,9 @@ td {
 .message {
     position: fixed;
     top: 73%;
-    left: 52%;
+    right: 23.2%;
+    left: 34%;
+    text-align: center;
 }
 
 .state {
@@ -1232,7 +1343,7 @@ td {
     font-weight: bold;
     position: fixed;
     top: 27%;
-    left: 42%;
+    left: 44%;
 }
 
 .enterComment {
@@ -1258,6 +1369,12 @@ td {
 }
 
 #customerSendComment {
+    position: fixed;
+    top: 64%;
+    left: 42%;
+}
+
+#customerSendCommentSuccess {
     position: fixed;
     top: 64%;
     left: 42%;

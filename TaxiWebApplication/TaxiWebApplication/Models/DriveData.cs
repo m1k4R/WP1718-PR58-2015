@@ -414,12 +414,15 @@ namespace TaxiWebApplication.Models
                 xmlDocument.Element("Drives").Elements("Drive")
                                                 .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
                                                 .SetElementValue("State", drive.State);
+                xmlDocument.Element("Drives").Elements("Drive")
+                                                .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("CommentId", drive.Comment.Id);
 
                 xmlDocument.Save(fileName);
             }
         }
 
-        public void CustomerCommentDrive(Drive drive)
+        public void CommentDrive(Drive drive) 
         {
             if (File.Exists(fileName))
             {
@@ -448,6 +451,66 @@ namespace TaxiWebApplication.Models
                 xmlDocument.Element("Drives").Elements("Drive")
                                                 .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
                                                 .SetElementValue("State", drive.State);
+
+                xmlDocument.Save(fileName);
+            }
+        }
+
+        public void DriverAcceptedDrive(Drive drive) 
+        {
+            if (File.Exists(fileName))
+            {
+                XDocument xmlDocument = XDocument.Load(fileName);
+
+                xmlDocument.Element("Drives").Elements("Drive")
+                                                .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("DriverId", drive.Driver.Id);
+                xmlDocument.Element("Drives").Elements("Drive")
+                                                .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("State", drive.State);
+
+                xmlDocument.Save(fileName);
+            }
+        }
+
+        public void UnsuccessfulDrive(Drive drive)
+        {
+            if (File.Exists(fileName))
+            {
+                XDocument xmlDocument = XDocument.Load(fileName);
+
+                xmlDocument.Element("Drives").Elements("Drive")
+                                                .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("State", drive.State);
+                xmlDocument.Element("Drives").Elements("Drive")
+                                                .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("CommentId", drive.Comment.Id);
+
+                xmlDocument.Save(fileName);
+            }
+        }
+
+        public void SuccessfulDrive(Drive drive) 
+        {
+            if (File.Exists(fileName))
+            {
+                XDocument xmlDocument = XDocument.Load(fileName);
+
+                xmlDocument.Element("Drives").Elements("Drive")
+                                                .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("State", drive.State);
+                xmlDocument.Element("Drives").Elements("Drive")
+                                                .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("Destination", drive.Destination.Address);
+                xmlDocument.Element("Drives").Elements("Drive")
+                                               .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
+                                               .SetElementValue("DestinationX", drive.Destination.X);
+                xmlDocument.Element("Drives").Elements("Drive")
+                                               .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
+                                               .SetElementValue("DestinationY", drive.Destination.Y);
+                xmlDocument.Element("Drives").Elements("Drive")
+                                              .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
+                                              .SetElementValue("Price", drive.Price);
 
                 xmlDocument.Save(fileName);
             }

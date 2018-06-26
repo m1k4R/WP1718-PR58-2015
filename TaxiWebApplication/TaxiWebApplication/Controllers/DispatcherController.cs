@@ -62,6 +62,9 @@ namespace TaxiWebApplication.Controllers
             Drive driveFound = Data.driveData.GetDriveById(drive.Id);
 
             Driver driver = Data.driverData.GetDriverById(driveFound.Driver.Id);
+            driver.Occupied = true;
+            Data.driverData.TakeDriver(driver);
+
             driveFound.Driver = driver;
 
             return Request.CreateResponse(HttpStatusCode.Created, driveFound);
@@ -75,6 +78,30 @@ namespace TaxiWebApplication.Controllers
 
             if (drives != null)
             {
+                foreach (Drive d in drives)
+                {
+                    if (d.Customer.Id != 0)
+                    {
+                        Customer customer = Data.customerData.GetCustomerById(d.Customer.Id);
+                        d.Customer = customer;
+                    }
+                    if (d.Dispatcher.Id != 0)
+                    {
+                        Dispatcher ds = Data.dispatcherData.GetDispatcherById(d.Dispatcher.Id);
+                        d.Dispatcher = ds;
+                    }
+                    if (d.Driver.Id != 0)
+                    {
+                        Driver dr = Data.driverData.GetDriverById(d.Driver.Id);
+                        d.Driver = dr;
+                    }
+                    if (d.Comment.Id != 0)
+                    {
+                        Comment comment = Data.commentData.GetCommentById(d.Comment.Id);
+                        d.Comment = comment;
+                    }
+                }
+
                 return Request.CreateResponse(HttpStatusCode.OK, drives);
             }
             else
@@ -165,9 +192,13 @@ namespace TaxiWebApplication.Controllers
 
             Drive driveFound = Data.driveData.GetDriveById(drive.Id);
             Driver driver = Data.driverData.GetDriverById(driveFound.Driver.Id);
+            driver.Occupied = true;
+            Data.driverData.TakeDriver(driver);
             driveFound.Driver = driver;
             Dispatcher dispatcher = Data.dispatcherData.GetDispatcherById(driveFound.Dispatcher.Id);
             driveFound.Dispatcher = dispatcher;
+            Customer customer = Data.customerData.GetCustomerById(driveFound.Customer.Id);
+            driveFound.Customer = customer;
 
             return Request.CreateResponse(HttpStatusCode.Created, driveFound);
         }

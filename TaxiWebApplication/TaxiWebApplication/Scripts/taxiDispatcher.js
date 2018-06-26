@@ -34,6 +34,7 @@
         $("#dispatcherCreateDriveDiv").hide();
         $("#dispatcherAllDrivesDiv").hide();
         $("#onHoldDrivesDispacher").hide();
+        // $("#accountDiv").hide();
 
         $("#addDriver").show();
     });
@@ -84,21 +85,23 @@
 
     function AddDriverValidate() {
 
-        if ($("#nameIdDriver").val()) {
+        if ($("#nameIdDriver").val().trim() != "") {
             isAddDriverValidate = true;
         }
         else {
+            $("#nameIdDriver").val("");
             $("#nameIdDriver").attr("placeholder", "Enter driver name").placeholder;
             isAddDriverValidate = false;
         }
-        if ($("#surnameIdDriver").val()) {
+        if ($("#surnameIdDriver").val().trim() != "") {
             isAddDriverValidate = true;
         }
         else {
+            $("#surnameIdDriver").val("");
             $("#surnameIdDriver").attr("placeholder", "Enter driver surname").placeholder;
             isAddDriverValidate = false;
         }
-        if ($("#usernameIdDriver").val()) {
+        if ($("#usernameIdDriver").val().trim() != "") {
             isAddDriverValidate = true;
             let username = $("#usernameIdDriver").val();
             if (username.length < 4) {
@@ -108,10 +111,11 @@
             }
         }
         else {
+            $("#usernameIdDriver").val("");
             $("#usernameIdDriver").attr("placeholder", "Enter driver username").placeholder;
             isAddDriverValidate = false;
         }
-        if ($("#passwordIdDriver").val()) {
+        if ($("#passwordIdDriver").val().trim() != "") {
             isAddDriverValidate = true;
             let password = $("#passwordIdDriver").val();
             if (password.length < 4) {
@@ -121,10 +125,11 @@
             }
         }
         else {
+            $("#passwordIdDriver").val("");
             $("#passwordIdDriver").attr("placeholder", "Enter driver password").placeholder;
             isAddDriverValidate = false;
         }
-        if ($("#jmbgIdDriver").val()) {
+        if ($("#jmbgIdDriver").val().trim() != "") {
             isAddDriverValidate = true;
             let jmbg = $("#jmbgIdDriver").val();
             if (isNaN(jmbg)) {  // vraca true ako nije broj
@@ -139,10 +144,11 @@
             }
         }
         else {
+            $("#jmbgIdDriver").val("");
             $("#jmbgIdDriver").attr("placeholder", "Enter driver jmbg").placeholder;
             isAddDriverValidate = false;
         }
-        if ($("#phoneIdDriver").val()) {
+        if ($("#phoneIdDriver").val().trim() != "") {
             isAddDriverValidate = true;
             let phone = $("#phoneIdDriver").val();
             if (isNaN(phone)) {  // vraca true ako nije broj
@@ -152,10 +158,11 @@
             }
         }
         else {
+            $("#phoneIdDriver").val("");
             $("#phoneIdDriver").attr("placeholder", "Enter driver phone number").placeholder;
             isAddDriverValidate = false;
         }
-        if ($("#emailIdDriver").val()) {
+        if ($("#emailIdDriver").val().trim() != "") {
             isAddDriverValidate = true;
             let email = $("#emailIdDriver").val();
             var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -166,10 +173,11 @@
             }
         }
         else {
+            $("#emailIdDriver").val("");
             $("#emailIdDriver").attr("placeholder", "Enter driver e-mail").placeholder;
             isAddDriverValidate = false;
         }
-        if ($("#carYearIdDriver").val()) {
+        if ($("#carYearIdDriver").val().trim() != "") {
             isAddDriverValidate = true;
             let carYear = $("#carYearIdDriver").val();
             if (isNaN(carYear)) {  // vraca true ako nije broj
@@ -179,10 +187,11 @@
             }
         }
         else {
+            $("#carYearIdDriver").val("");
             $("#carYearIdDriver").attr("placeholder", "Enter car year").placeholder;
             isAddDriverValidate = false;
         }
-        if ($("#regNumberIdDriver").val()) {
+        if ($("#regNumberIdDriver").val().trim() != "") {
             isAddDriverValidate = true;
             let reg = $("#regNumberIdDriver").val();
             if (isNaN(reg)) {  // vraca true ako nije broj
@@ -192,6 +201,7 @@
             }
         }
         else {
+            $("#regNumberIdDriver").val("");
             $("#regNumberIdDriver").attr("placeholder", "Enter registration number").placeholder;
             isAddDriverValidate = false;
         }
@@ -347,9 +357,11 @@
                     $("#unsuccessfulImgDispatcher").hide();
                     $("#acceptedImgDispatcher").hide();
                     $("#canceledImgDispatcher").hide();
-                    $("#pleaseWaitImgDispatcher").show();
-                    $("#dispatcherMessage").text("Please wait . . .");
+                    $("#pleaseWaitImgDispatcher").hide();
+                    $("#processImgDispatcher").show();
+                    $("#dispatcherMessage").text("");
                     $("#dispatcherMessage").show();
+                    $("#dispatcherStateMessage").css('color', '#339966');
                     $("#dispatcherStateMessage").text(drive.State);
                     $("#dispatcherStateMessage").show();
                 },
@@ -362,14 +374,15 @@
 
     function StartLocationValidate() {
 
-        if ($("#startAddressIdDispatcher").val()) {
+        if ($("#startAddressIdDispatcher").val().trim() != "") {
             isStartLocationValidate = true;
         }
         else {
+            $("#startAddressIdDispatcher").val("");
             $("#startAddressIdDispatcher").attr("placeholder", "Enter start address").placeholder;
             isStartLocationValidate = false;
         }
-        if ($("#startAddressXIdDispatcher").val()) {
+        if ($("#startAddressXIdDispatcher").val().trim() != "") {
             isStartLocationValidate = true;
             let x = $("#startAddressXIdDispatcher").val();
             if (isNaN(x)) {  // vraca true ako nije broj
@@ -379,10 +392,11 @@
             }
         }
         else {
+            $("#startAddressXIdDispatcher").val("");
             $("#startAddressXIdDispatcher").attr("placeholder", "Enter start x coordinate").placeholder;
             isStartLocationValidate = false;
         }
-        if ($("#startAddressYIdDispatcher").val()) {
+        if ($("#startAddressYIdDispatcher").val().trim() != "") {
             isStartLocationValidate = true;
             let y = $("#startAddressYIdDispatcher").val();
             if (isNaN(y)) {  // vraca true ako nije broj
@@ -392,6 +406,7 @@
             }
         }
         else {
+            $("#startAddressYIdDispatcher").val("");
             $("#startAddressYIdDispatcher").attr("placeholder", "Enter start y coordinate").placeholder;
             isStartLocationValidate = false;
         }
@@ -470,7 +485,7 @@
         let divId = $(this).attr('id');
         let id = divId.substring(24);
         displayDrive = id;      // id kliknutog diva == id prikazane voznje
-
+        $("#chooseDriverDispatcherProcessedClick").css('color', ' #ffcc00');
         $.ajax({
             url: "/api/Dispatcher/GetDriveById",
             method: "GET",
@@ -495,7 +510,7 @@
         let divId = $(this).attr('id');
         let id = divId.substring(26);
         displayDrive = id;      // id kliknutog diva == id prikazane voznje
-
+        $("#chooseDriverDispatcherProcessedClick").css('color', ' #ffcc00');
         $.ajax({
             url: "/api/Dispatcher/GetDriveById",
             method: "GET",
@@ -584,6 +599,7 @@
             $("#unsuccessfulImgDispatcher").hide();
             $("#acceptedImgDispatcher").hide();
             $("#canceledImgDispatcher").hide();
+            $("#processImgDispatcher").hide();
             $("#pleaseWaitImgDispatcher").show();
             $("#chooseDriverDispatcherProcessedClick").show();
             $("#dispatcherMessage").text("");
@@ -597,6 +613,7 @@
             $("#acceptedImgDispatcher").hide();
             $("#canceledImgDispatcher").hide();
             $("#pleaseWaitImgDispatcher").hide();
+            $("#processImgDispatcher").hide();
             $("#successfulImgDispatcher").show();
             $("#dispatcherMessage").text("");
             $("#dispatcherMessage").hide();
@@ -609,6 +626,7 @@
             $("#acceptedImgDispatcher").hide();
             $("#canceledImgDispatcher").hide();
             $("#pleaseWaitImgDispatcher").hide();
+            $("#processImgDispatcher").hide();
             $("#unsuccessfulImgDispatcher").show();
             $("#dispatcherMessage").text("");
             $("#dispatcherMessage").hide();
@@ -621,6 +639,7 @@
             $("#unsuccessfulImgDispatcher").hide();
             $("#canceledImgDispatcher").hide();
             $("#pleaseWaitImgDispatcher").hide();
+            $("#processImgDispatcher").hide();
             $("#acceptedImgDispatcher").show();
             $("#dispatcherMessage").text("");
             $("#dispatcherMessage").hide();
@@ -633,29 +652,28 @@
             $("#unsuccessfulImgDispatcher").hide();
             $("#acceptedImgDispatcher").hide();
             $("#pleaseWaitImgDispatcher").hide();
+            $("#processImgDispatcher").hide();
             $("#canceledImgDispatcher").show();
             $("#dispatcherMessage").text("");
             $("#dispatcherMessage").hide();
             $("#chooseDriverDispatcherProcessedClick").hide();
             $("#dispatcherProcessedDrive").hide();
         }
-        else {
+        else if (drive.State == "Processed" || drive.State == "Formated") {
             $("#successfulImgDispatcher").hide();
             $("#unsuccessfulImgDispatcher").hide();
             $("#acceptedImgDispatcher").hide();
             $("#canceledImgDispatcher").hide();
             $("#pleaseWaitImgDispatcher").hide();
+            $("#processImgDispatcher").show();
             $("#dispatcherMessage").text("");
-            $("#dispatcherMessage").hide();
+            $("#dispatcherMessage").show();
             $("#chooseDriverDispatcherProcessedClick").hide();
             $("#dispatcherProcessedDrive").hide();
+            $("#driverStateMessage").css('color', '#339966');
         }
         $("#dispatcherStateMessage").text(drive.State);
         $("#dispatcherStateMessage").show();
     }
-
-    $("#onHoldDrivesDispacher").click(function () {
-
-    });
 
 });

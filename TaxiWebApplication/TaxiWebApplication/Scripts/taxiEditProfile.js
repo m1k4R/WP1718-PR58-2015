@@ -129,21 +129,23 @@
 
     function UpdateValidate() {
 
-        if ($("#nameChangeId").val()) {
+        if ($("#nameChangeId").val().trim() != "") {
             isUpdateValidate = true;
         }
         else {
+            $("#nameChangeId").val("");
             $("#nameChangeId").attr("placeholder", "Enter your name").placeholder;
             isUpdateValidate = false;
         }
-        if ($("#surnameChangeId").val()) {
+        if ($("#surnameChangeId").val().trim() != "") {
             isUpdateValidate = true;
         }
         else {
+            $("#surnameChangeId").val("");
             $("#surnameChangeId").attr("placeholder", "Enter your surname").placeholder;
             isUpdateValidate = false;
         }
-        if ($("#usernameChangeId").val()) {
+        if ($("#usernameChangeId").val().trim() != "") {
             isUpdateValidate = true;
             let username = $("#usernameChangeId").val();
             if (username.length < 4) {
@@ -153,10 +155,11 @@
             }
         }
         else {
+            $("#usernameChangeId").val("");
             $("#usernameChangeId").attr("placeholder", "Enter your username").placeholder;
             isUpdateValidate = false;
         }
-        if ($("#passwordChangeId").val()) {
+        if ($("#passwordChangeId").val().trim() != "") {
             isUpdateValidate = true;
             let password = $("#passwordChangeId").val();
             if (password.length < 4) {
@@ -166,10 +169,11 @@
             }
         }
         else {
+            $("#passwordChangeId").val("");
             $("#passwordChangeId").attr("placeholder", "Enter your password").placeholder;
             isUpdateValidate = false;
         }
-        if ($("#jmbgChangeId").val()) {
+        if ($("#jmbgChangeId").val().trim() != "") {
             isUpdateValidate = true;
             let jmbg = $("#jmbgChangeId").val();
             if (isNaN(jmbg)) {  // vraca true ako nije broj
@@ -184,10 +188,11 @@
             }
         }
         else {
+            $("#jmbgChangeId").val("");
             $("#jmbgChangeId").attr("placeholder", "Enter your jmbg").placeholder;
             isUpdateValidate = false;
         }
-        if ($("#phoneChangeId").val()) {
+        if ($("#phoneChangeId").val().trim() != "") {
             isUpdateValidate = true;
             let phone = $("#phoneChangeId").val();
             if (isNaN(phone)) {  // vraca true ako nije broj
@@ -197,10 +202,11 @@
             }
         }
         else {
+            $("#phoneChangeId").val("");
             $("#phoneChangeId").attr("placeholder", "Enter your phone number").placeholder;
             isUpdateValidate = false;
         }
-        if ($("#emailChangeId").val()) {
+        if ($("#emailChangeId").val().trim() != "") {
             isUpdateValidate = true;
             let email = $("#emailChangeId").val();
             var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -211,6 +217,7 @@
             }
         }
         else {
+            $("#emailChangeId").val("");
             $("#emailChangeId").attr("placeholder", "Enter your e-mail").placeholder;
             isUpdateValidate = false;
         }
