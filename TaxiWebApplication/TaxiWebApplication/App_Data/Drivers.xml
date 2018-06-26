@@ -11,12 +11,73 @@
     <Phone>063174471</Phone>
     <Email>vill@gmail.com</Email>
     <Role>Driver</Role>
-    <Address>None</Address>
+    <Address>Bulevar Oslobodjenja 51</Address>
     <X>0</X>
     <Y>0</Y>
     <CarId>0</CarId>
     <YearOfCar>0</YearOfCar>
     <RegNumber>4000</RegNumber>
     <CarType>None</CarType>
+    <Occupied>false</Occupied>
+  </Driver>
+  <Driver>
+    <Id>8</Id>
+    <Username>patri</Username>
+    <Password>pson</Password>
+    <Name>Patrick</Name>
+    <Surname>Son</Surname>
+    <Gender>Male</Gender>
+    <Jmbg>1504997654711</Jmbg>
+    <Phone>064115</Phone>
+    <Email>pat@gmail.com</Email>
+    <Role>Driver</Role>
+    <Address>undefined</Address>
+    <X>0</X>
+    <Y>0</Y>
+    <CarId>5014</CarId>
+    <YearOfCar>0</YearOfCar>
+    <RegNumber>4444</RegNumber>
+    <CarType>None</CarType>
+    <Occupied>false</Occupied>
+  </Driver>
+  <Driver>
+    <Id>9</Id>
+    <Username>enaa</Username>
+    <Password>aena</Password>
+    <Name>Ena</Name>
+    <Surname>El</Surname>
+    <Gender>Female</Gender>
+    <Jmbg>1608478810214</Jmbg>
+    <Phone>063458177</Phone>
+    <Email>ena@gmail.com</Email>
+    <Role>Driver</Role>
+    <Address>undefined</Address>
+    <X>0</X>
+    <Y>0</Y>
+    <CarId>5015</CarId>
+    <YearOfCar>0</YearOfCar>
+    <RegNumber>4477</RegNumber>
+    <CarType>None</CarType>
+    <Occupied>false</Occupied>
+  </Driver>
+  <Driver>
+    <Id>10</Id>
+    <Username>ficko</Username>
+    <Password>ficko</Password>
+    <Name>Filip</Name>
+    <Surname>Misic</Surname>
+    <Gender>Male</Gender>
+    <Jmbg>2408991455121</Jmbg>
+    <Phone>064255</Phone>
+    <Email>fiki@gmail.com</Email>
+    <Role>Driver</Role>
+    <Address>Big </Address>
+    <X>12</X>
+    <Y>22</Y>
+    <CarId>4010</CarId>
+    <YearOfCar>1998</YearOfCar>
+    <RegNumber>4478</RegNumber>
+    <CarType>Car</CarType>
+    <Occupied>false</Occupied>
   </Driver>
 </Drivers>

@@ -27,12 +27,12 @@
     <DestinationX>0</DestinationX>
     <DestinationY>0</DestinationY>
     <CustomerId>6</CustomerId>
-    <DispatcherId>0</DispatcherId>
-    <DriverId>0</DriverId>
+    <DispatcherId>1</DispatcherId>
+    <DriverId>7</DriverId>
     <Car>None</Car>
     <Price>0</Price>
     <CommentId>0</CommentId>
-    <State>Created</State>
+    <State>Processed</State>
   </Drive>
   <Drive>
     <Id>1002</Id>
@@ -78,12 +78,12 @@
     <DestinationX>0</DestinationX>
     <DestinationY>0</DestinationY>
     <CustomerId>5</CustomerId>
-    <DispatcherId>0</DispatcherId>
-    <DriverId>0</DriverId>
+    <DispatcherId>1</DispatcherId>
+    <DriverId>7</DriverId>
     <Car>None</Car>
     <Price>0</Price>
     <CommentId>0</CommentId>
-    <State>Created</State>
+    <State>Processed</State>
   </Drive>
   <Drive>
     <Id>1005</Id>
@@ -147,7 +147,7 @@
     <DestinationY>0</DestinationY>
     <CustomerId>0</CustomerId>
     <DispatcherId>1</DispatcherId>
-    <DriverId>0</DriverId>
+    <DriverId>8</DriverId>
     <Car>Car</Car>
     <Price>0</Price>
     <CommentId>0</CommentId>
@@ -214,6 +214,23 @@
     <DestinationX>0</DestinationX>
     <DestinationY>0</DestinationY>
     <CustomerId>2</CustomerId>
+    <DispatcherId>0</DispatcherId>
+    <DriverId>0</DriverId>
+    <Car>Car</Car>
+    <Price>0</Price>
+    <CommentId>0</CommentId>
+    <State>Created</State>
+  </Drive>
+  <Drive>
+    <Id>1013</Id>
+    <DateTime>25-06-2018 23:53:50</DateTime>
+    <StartLocation>Zmaj Jovina</StartLocation>
+    <StartLocationX>18</StartLocationX>
+    <StartLocationY>63</StartLocationY>
+    <Destination>None</Destination>
+    <DestinationX>0</DestinationX>
+    <DestinationY>0</DestinationY>
+    <CustomerId>3</CustomerId>
     <DispatcherId>0</DispatcherId>
     <DriverId>0</DriverId>
     <Car>Car</Car>

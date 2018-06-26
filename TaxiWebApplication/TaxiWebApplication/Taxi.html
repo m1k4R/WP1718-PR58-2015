@@ -229,40 +229,36 @@
         <div class="customerCreateDriveDiv" id="dispatcherCreateDriveDiv">
             <table class="dispatcherCreateDriveTable">
                 <tr>
-                    <td>Your location:</td>
-                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td>Start location:</td>
+                    <td>&nbsp;&nbsp;</td>
                     <td><input type="text" name="address" id="startAddressIdDispatcher" /></td>
-                    <td rowspan="2"><img src="Images/s10.png" class="customerCreateDriveDivImg" /></td>
                 </tr>
                 <tr>
                     <td>X:</td>
-                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;</td>
                     <td><input type="text" name="x" id="startAddressXIdDispatcher" /></td>
                 </tr>
                 <tr>
                     <td>Y:</td>
-                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;</td>
                     <td><input type="text" name="y" id="startAddressYIdDispatcher" /></td>
-                    <td>
-                        <select width="10px" name="carCustomer" id="carIdDispatcher">
-                            <option value="None" selected>None</option>
-                            <option value="Car">Car</option>
-                            <option value="Van">Van</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="4">
-                        <center>
-                            <button class="createDriveCustomerClick" id="createDriveDispatcherClick">Create</button>&nbsp;&nbsp;
-                            <button class="cancelCreateDriveCustomerClick" id="cancelCreateDriveDispatcherClick">Cancel</button>
-                            <button class="createDriveCustomerClick" id="saveChangesDriveDispatcherClick">Save</button>
-                            <button class="cancelCreateDriveCustomerClick" id="cancelChangesDriveDispatcherClick">Cancel</button>
-                        </center>
-                    </td>
                 </tr>
             </table>
+            <img src="Images/s44.png" class="dispatcherCreateDriveDivImgDriver" />
+            <img src="Images/s10.png" class="dispatcherCreateDriveDivImgCar" />
+            <button class="chooseDriverDispatcherClick" id="chooseDriverDispatcherClick">Choose a driver</button>
+            <p class="freeDriverSelected" id="freeDriverSelected"></p>
+            <select width="10px" name="carCustomer" id="carIdDispatcher">
+                <option value="None" selected>None</option>
+                <option value="Car">Car</option>
+                <option value="Van">Van</option>
+            </select>
+            <button class="createDriveCustomerClick" id="createDriveDispatcherClick">Create</button>
+            <button class="cancelCreateDriveCustomerClick" id="cancelCreateDriveDispatcherClick">Cancel</button>
+            <button class="createDriveCustomerClick" id="saveChangesDriveDispatcherClick">Save</button>
+            <button class="cancelCreateDriveCustomerClick" id="cancelChangesDriveDispatcherClick">Cancel</button>
         </div>
+        <div class="freeDriversDivCreateDrive" id="freeDriversDivCreateDrive"></div>
         <div class="customerCurrentDriveDiv" id="dispatcherCurrentDriveDiv">
             <p>Start location:&nbsp;&nbsp;<small id="dispatcherCurrentDriveDivStartLocation"></small>&nbsp;<small id="dispatcherCurrentDriveDivStartLocationX"></small>&nbsp;<small id="dispatcherCurrentDriveDivStartLocationY"></small></p>
             <p>Destination:&nbsp;&nbsp;<small id="dispatcherCurrentDriveDivDestination"></small></p>
@@ -275,21 +271,22 @@
                 <p id="dispatcherDriverDivName"></p>
                 <p id="dispatcherDriverDivPhone"></p>
                 <p>&nbsp;</p>
+                <p>&nbsp;</p>
                 <p id="dispatcherDriverDivCar"></p>
             </div>
+            <button class="chooseDriverDispatcherProcessedClick" id="chooseDriverDispatcherProcessedClick">Choose a driver</button>
         </div>
         <div class="customerAllDrivesDiv" id="dispatcherAllDrivesDiv"></div>
         <div class="customerMapsDriveDiv" id="dispatcherMapsDriveDiv"></div>
         <div class="customerMapsDriveDivBlack" id="dispatcherMapsDriveDivBlack">
-            <img class="customerEditDriveImg" id="dispatcherEditDriveImg" src="Images/s40.png" />
             <img class="pleaseWaitImg" id="pleaseWaitImgDispatcher" src="Images/s57.gif" />
             <img class="pleaseWaitImg" id="successfulImgDispatcher" src="Images/s61.png" />
             <img class="pleaseWaitImg" id="unsuccessfulImgDispatcher" src="Images/s63.png" />
             <img class="pleaseWaitImg" id="acceptedImgDispatcher" src="Images/s67.png" />
             <img class="pleaseWaitImg" id="canceledImgDispatcher" src="Images/s68.png" />
             <p class="message" id="dispatcherMessage"></p>
-            <p class="state">State:&nbsp;<label class="messageState" id="dispatcherStateMessage">Created - On hold</label></p>
-            <button class="customerCancelDrive" id="dispatcherCancelDrive">Cancel</button>
+            <p class="state">State:&nbsp;<label class="messageState" id="dispatcherStateMessage"></label></p>
+            <button class="dispatcherProcessedDrive" id="dispatcherProcessedDrive">Confirm</button>
         </div>
         <div class="onHoldDrivesDispacher" id="onHoldDrivesDispacher"></div>
 

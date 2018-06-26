@@ -18,7 +18,14 @@ namespace TaxiWebApplication.Controllers
             {
                 driver.Id = Data.NewId();
                 driver.Role = Enums.Roles.Driver;
-                driver.Car = new Car { Id = Data.NewDriveId() + 4000 };
+                driver.Car = new Car
+                {
+                    Id = Data.NewId() + 4000,
+                    YearOfCar = driver.Car.YearOfCar,
+                    RegNumber = driver.Car.RegNumber,
+                    Type = driver.Car.Type
+                };
+                driver.Occupied = false;
 
                 Data.driverData.AddDriver(driver);
 
@@ -42,7 +49,6 @@ namespace TaxiWebApplication.Controllers
             drive.Price = 0;
             drive.DateTime = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss");
             drive.Customer = new Customer { Id = 0 };
-            drive.Driver = new Driver { Id = 0 };   // ovo izbaciti kada se doda driver iz .js
             drive.Comment = new Comment { Id = 0 };
             drive.Destination = new Location
             {
@@ -54,6 +60,9 @@ namespace TaxiWebApplication.Controllers
             Data.driveData.AddDrive(drive);
 
             Drive driveFound = Data.driveData.GetDriveById(drive.Id);
+
+            Driver driver = Data.driverData.GetDriverById(driveFound.Driver.Id);
+            driveFound.Driver = driver;
 
             return Request.CreateResponse(HttpStatusCode.Created, driveFound);
         }
@@ -98,13 +107,11 @@ namespace TaxiWebApplication.Controllers
                     Driver driver = Data.driverData.GetDriverById(driveFound.Driver.Id);
                     driveFound.Driver = driver;
                 }
-                /*
                 if (driveFound.Comment.Id != 0)
                 {
-                    Comment comment = Data.commentData.Get(driveFound.Customer.Id);
-                    driveFound.Customer = customer;
+                    Comment comment = Data.commentData.GetCommentById(driveFound.Comment.Id);
+                    driveFound.Comment = comment;
                 }
-                */
                 return Request.CreateResponse(HttpStatusCode.OK, driveFound);
             }
             else
@@ -121,6 +128,48 @@ namespace TaxiWebApplication.Controllers
             
             return Request.CreateResponse(HttpStatusCode.OK, drivesOnHold);
             
+        }
+
+        [HttpGet]
+        [Route("api/Dispatcher/GetFreeDrivers")]
+        public HttpResponseMessage GetFreeDrivers()
+        {
+            List<Driver> freeDrivers = Data.driverData.GetFreeDrivers();
+
+            return Request.CreateResponse(HttpStatusCode.OK, freeDrivers);
+
+        }
+
+        [HttpGet]
+        [Route("api/Dispatcher/GetDriverById")]
+        public HttpResponseMessage GetDriverById([FromUri]Driver driver)
+        {
+            Driver driverFound = Data.driverData.GetDriverById(driver.Id);
+
+            if (driverFound != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, driverFound);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+        }
+
+        [HttpPost]
+        [Route("api/Dispatcher/ProcessedDrive")]
+        public HttpResponseMessage ProcessedDrive([FromBody]Drive drive)
+        {
+            drive.State = Enums.State.Processed;
+            Data.driveData.DispatcherProcessedDrive(drive);
+
+            Drive driveFound = Data.driveData.GetDriveById(drive.Id);
+            Driver driver = Data.driverData.GetDriverById(driveFound.Driver.Id);
+            driveFound.Driver = driver;
+            Dispatcher dispatcher = Data.dispatcherData.GetDispatcherById(driveFound.Dispatcher.Id);
+            driveFound.Dispatcher = dispatcher;
+
+            return Request.CreateResponse(HttpStatusCode.Created, driveFound);
         }
     }
 }

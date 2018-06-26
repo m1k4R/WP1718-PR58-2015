@@ -77,13 +77,12 @@ namespace TaxiWebApplication.Controllers
                     Driver driver = Data.driverData.GetDriverById(driveFound.Driver.Id);
                     driveFound.Driver = driver;
                 }
-                /*
                 if (driveFound.Comment.Id != 0)
                 {
-                    Comment comment = Data.commentData.Get(driveFound.Customer.Id);
-                    driveFound.Customer = customer;
+                    Comment comment = Data.commentData.GetCommentById(driveFound.Comment.Id);
+                    driveFound.Comment = comment;
                 }
-                */
+
                 return Request.CreateResponse(HttpStatusCode.OK, driveFound);
             }
             else
@@ -123,6 +122,14 @@ namespace TaxiWebApplication.Controllers
             comment.CreatedDateTime = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss");
 
             Data.commentData.AddComment(comment);
+
+            Drive commentedDrive = Data.driveData.GetDriveById(comment.Drive.Id);
+
+            commentedDrive.Comment = new Comment
+            {
+                Id = comment.Id
+            };
+            Data.driveData.CustomerCommentDrive(commentedDrive);
 
             Comment commentFound = Data.commentData.GetCommentById(comment.Id);
 

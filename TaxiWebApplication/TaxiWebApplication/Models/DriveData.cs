@@ -432,5 +432,25 @@ namespace TaxiWebApplication.Models
                 xmlDocument.Save(fileName);
             }
         }
+
+        public void DispatcherProcessedDrive(Drive drive)
+        {
+            if (File.Exists(fileName))
+            {
+                XDocument xmlDocument = XDocument.Load(fileName);
+
+                xmlDocument.Element("Drives").Elements("Drive")
+                                                .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("DriverId", drive.Driver.Id);
+                xmlDocument.Element("Drives").Elements("Drive")
+                                                .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("DispatcherId", drive.Dispatcher.Id);
+                xmlDocument.Element("Drives").Elements("Drive")
+                                                .Where(x => x.Element("Id").Value == drive.Id.ToString()).FirstOrDefault()
+                                                .SetElementValue("State", drive.State);
+
+                xmlDocument.Save(fileName);
+            }
+        }
     }
 }

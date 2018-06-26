@@ -21,11 +21,8 @@
         $("#dispatcherDiv").hide();
         $("#driverDiv").hide();
 
-        $("#customerCreateDriveDiv").hide();
-        $("#customerCurrentDriveDiv").hide();
-        $("#customerDriverDiv").hide();
-        $("#customerMapsDriveDiv").hide();
-        $("#customerMapsDriveDivBlack").hide();
+        ClearDisplay();
+
         $("#customerCurrentDriveDivStartLocation").text("");
         $("#customerCurrentDriveDivStartLocationX").text("");
         $("#customerCurrentDriveDivStartLocationY").text("");
@@ -35,75 +32,22 @@
         $("#customerDriverDivCar").text("");
         $("#customerAllDrivesDiv").html("");
 
-        $("#nameId").val("");
-        $("#surnameId").val("");
-        $("#usernameId").val("");
-        $("#passwordId").val("");
-        $("#jmbgId").val("");
-        $("#phoneId").val("");
-        $("#emailId").val("");
-        $("#usernameIdLog").val("");
-        $("#passwordIdLog").val("");
-
-        $("#nameId").attr("placeholder", "").placeholder;
-        $("#surnameId").attr("placeholder", "").placeholder;
-        $("#usernameId").attr("placeholder", "").placeholder;
-        $("#passwordId").attr("placeholder", "").placeholder;
-        $("#jmbgId").attr("placeholder", "").placeholder;
-        $("#phoneId").attr("placeholder", "").placeholder;
-        $("#emailId").attr("placeholder", "").placeholder;
-        $("#usernameIdLog").attr("placeholder", "").placeholder;
-        $("#passwordIdLog").attr("placeholder", "").placeholder;
-
-        $("#accountDiv").hide();
+        ClearFields();
     }); 
-
-    //MyAccountButton.click
-
+    
     $("#imgX").click(function () {
-        $("#loginPage").hide();
-        $("#nameId").val("");
-        $("#surnameId").val("");
-        $("#usernameId").val("");
-        $("#passwordId").val("");
-        $("#jmbgId").val("");
-        $("#phoneId").val("");
-        $("#emailId").val("");
-        $("#usernameIdLog").val("");
-        $("#passwordIdLog").val("");
-
-        $("#nameId").attr("placeholder", "").placeholder;
-        $("#surnameId").attr("placeholder", "").placeholder;
-        $("#usernameId").attr("placeholder", "").placeholder;
-        $("#passwordId").attr("placeholder", "").placeholder;
-        $("#jmbgId").attr("placeholder", "").placeholder;
-        $("#phoneId").attr("placeholder", "").placeholder;
-        $("#emailId").attr("placeholder", "").placeholder;
-        $("#usernameIdLog").attr("placeholder", "").placeholder;
-        $("#passwordIdLog").attr("placeholder", "").placeholder;
+        ClearFields();
     });
 
     var isUserActive = false;
 
     $("#homeButton").click(function () {
-        $("#accountDiv").hide();
 
-        $("#driverChangeLocationDiv").hide();
-
-        $("#customerCreateDriveDiv").hide();
-        $("#customerCurrentDriveDiv").hide();
-        $("#customerDriverDiv").hide();
-        $("#customerMapsDriveDiv").hide();
-        $("#customerMapsDriveDivBlack").hide();
+        ClearDisplay();
+        
         $("#customerCreateDrive").show();
         $("#customerAllDrivesDiv").show();
-
-        $("#addDriver").hide();
-        $("#dispatcherCurrentDriveDiv").hide();
-        $("#dispatcherDriverDiv").hide();
-        $("#dispatcherMapsDriveDiv").hide();
-        $("#dispatcherMapsDriveDivBlack").hide();
-        $("#dispatcherCreateDriveDiv").hide();
+        
         $("#dispatcherCreateDrive").show();
         $("#dispatcherAllDrivesDiv").show();
         $("#onHoldDrivesDispacher").show();
@@ -151,25 +95,8 @@
         $("#loginPage").hide();
         $("#login").show();
         $("#register").hide();
-        $("#nameId").val("");
-        $("#surnameId").val("");
-        $("#usernameId").val("");
-        $("#passwordId").val("");
-        $("#jmbgId").val("");
-        $("#phoneId").val("");
-        $("#emailId").val("");
-        $("#usernameIdLog").val("");
-        $("#passwordIdLog").val("");
 
-        $("#nameId").attr("placeholder", "").placeholder;
-        $("#surnameId").attr("placeholder", "").placeholder;
-        $("#usernameId").attr("placeholder", "").placeholder;
-        $("#passwordId").attr("placeholder", "").placeholder;
-        $("#jmbgId").attr("placeholder", "").placeholder;
-        $("#phoneId").attr("placeholder", "").placeholder;
-        $("#emailId").attr("placeholder", "").placeholder;
-        $("#usernameIdLog").attr("placeholder", "").placeholder;
-        $("#passwordIdLog").attr("placeholder", "").placeholder;
+        ClearFields();
     });
 
     // Registration
@@ -196,7 +123,7 @@
                 success: function (data) {
                     sessionStorage.setItem("currentUser", JSON.stringify(data));
                     let user = JSON.parse(sessionStorage.getItem("currentUser"));
-                    alert("Uspjesno ste se registrovali");
+                    alert("Success registration");
                     isUserActive = true;
                     $("#loginPage").hide();
                     $("#homeText").hide();
@@ -204,6 +131,7 @@
                     $("#myAccountButton").show();
                     $("#loginButton").hide();
                     $("#logoutButton").show();
+
                     $("#dispatcherActionAddDriver").hide();
                     $("#dispatcherActionCreateDrive").hide();
                     $("#driverActionChangeLocation").hide();
@@ -213,7 +141,7 @@
                     $("#customerDiv").show();
                 },
                 error: function () {
-                    alert("Greska");
+                    alert("Error registration");
                 }
             });
         }
@@ -333,7 +261,7 @@
                 success: function (data) {
                     sessionStorage.setItem("currentUser", JSON.stringify(data));
                     let user = JSON.parse(sessionStorage.getItem("currentUser"));
-                    alert("Uspjesno ste se ulogovali");
+                    alert("Success loging");
                     isUserActive = true;
                     $("#loginPage").hide();
                     $("#homeText").hide();
@@ -346,23 +274,25 @@
                         $("#dispatcherActionCreateDrive").hide();
                         $("#driverActionChangeLocation").hide();
                         $("#customerActionCreateDrive").show();
-                        $("#customerDiv").show();
+                        //$("#customerDiv").show();
+                        $("#homeButton").click();
                     }
                     else if (user.Role == "Dispatcher") {
                         $("#dispatcherActionAddDriver").show();
                         $("#dispatcherActionCreateDrive").show();
                         $("#driverActionChangeLocation").hide();
                         $("#customerActionCreateDrive").hide();
-                        $("#dispatcherDiv").show();
+                        //$("#dispatcherDiv").show();
+                        $("#homeButton").click();
                     }
                     else if (user.Role == "Driver") {
                         $("#dispatcherActionAddDriver").hide();
                         $("#dispatcherActionCreateDrive").hide();
                         $("#driverActionChangeLocation").show();
                         $("#customerActionCreateDrive").hide();
-                        $("#driverDiv").show();
+                        //$("#driverDiv").show();
+                        $("#homeButton").click();
                     }
-
 
                     $("#userBox").show();
                     $("#imgTriangle").show();
@@ -398,20 +328,47 @@
         }
     }
 
-    //Dispatcher.js create driver
+    function ClearFields() {
 
-   
+        $("#nameId").val("");
+        $("#surnameId").val("");
+        $("#usernameId").val("");
+        $("#passwordId").val("");
+        $("#jmbgId").val("");
+        $("#phoneId").val("");
+        $("#emailId").val("");
+        $("#usernameIdLog").val("");
+        $("#passwordIdLog").val("");
 
-    // Change profile
-  
+        $("#nameId").attr("placeholder", "").placeholder;
+        $("#surnameId").attr("placeholder", "").placeholder;
+        $("#usernameId").attr("placeholder", "").placeholder;
+        $("#passwordId").attr("placeholder", "").placeholder;
+        $("#jmbgId").attr("placeholder", "").placeholder;
+        $("#phoneId").attr("placeholder", "").placeholder;
+        $("#emailId").attr("placeholder", "").placeholder;
+        $("#usernameIdLog").attr("placeholder", "").placeholder;
+        $("#passwordIdLog").attr("placeholder", "").placeholder;
+    }
+
+    function ClearDisplay() {
+        $("#accountDiv").hide();
+
+        $("#driverChangeLocationDiv").hide();
+
+        $("#customerCreateDriveDiv").hide();
+        $("#customerCurrentDriveDiv").hide();
+        $("#customerDriverDiv").hide();
+        $("#customerMapsDriveDiv").hide();
+        $("#customerMapsDriveDivBlack").hide();
+
+        $("#addDriver").hide();
+        $("#dispatcherCurrentDriveDiv").hide();
+        $("#dispatcherDriverDiv").hide();
+        $("#dispatcherMapsDriveDiv").hide();
+        $("#dispatcherMapsDriveDivBlack").hide();
+        $("#dispatcherCreateDriveDiv").hide();
+        $("#freeDriversDivCreateDrive").hide();
+    }
     
-
-    // Driver.js - change location
-    
-   
-
-    // Customer.js - create a drive
-
-   
-
 });

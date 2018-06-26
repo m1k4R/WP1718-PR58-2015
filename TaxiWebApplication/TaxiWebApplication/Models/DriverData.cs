@@ -56,7 +56,8 @@ namespace TaxiWebApplication.Models
                             new XElement("CarId", driver.Car.Id),
                             new XElement("YearOfCar", driver.Car.YearOfCar),
                             new XElement("RegNumber", driver.Car.RegNumber),
-                            new XElement("CarType", driver.Car.Type))
+                            new XElement("CarType", driver.Car.Type),
+                            new XElement("Occupied", driver.Occupied))
                     ));
 
                 xmlDocument.Save(fileName);
@@ -85,7 +86,8 @@ namespace TaxiWebApplication.Models
                                     new XElement("CarId", driver.Car.Id),
                                     new XElement("YearOfCar", driver.Car.YearOfCar),
                                     new XElement("RegNumber", driver.Car.RegNumber),
-                                    new XElement("CarType", driver.Car.Type)));
+                                    new XElement("CarType", driver.Car.Type),
+                                    new XElement("Occupied", driver.Occupied)));
 
                     xmlDocument.Save(fileName);
                 }
@@ -123,7 +125,8 @@ namespace TaxiWebApplication.Models
                         YearOfCar = int.Parse(driver.Element("YearOfCar").Value),
                         RegNumber = driver.Element("RegNumber").Value,
                         Type = (Cars)Enum.Parse(typeof(Cars), driver.Element("CarType").Value)
-                    }
+                    },
+                    Occupied = bool.Parse(driver.Element("Occupied").Value)
 
                 }).ToList();
 
@@ -185,7 +188,8 @@ namespace TaxiWebApplication.Models
                         YearOfCar = int.Parse(driverFind.Element("YearOfCar").Value),
                         RegNumber = driverFind.Element("RegNumber").Value,
                         Type = (Cars)Enum.Parse(typeof(Cars), driverFind.Element("CarType").Value)
-                    }
+                    },
+                    Occupied = bool.Parse(driverFind.Element("Occupied").Value)
 
                 }).ToList();
 
@@ -229,13 +233,57 @@ namespace TaxiWebApplication.Models
                         YearOfCar = int.Parse(driverFind.Element("YearOfCar").Value),
                         RegNumber = driverFind.Element("RegNumber").Value,
                         Type = (Cars)Enum.Parse(typeof(Cars), driverFind.Element("CarType").Value)
-                    }
+                    },
+                    Occupied = bool.Parse(driverFind.Element("Occupied").Value)
 
                 }).ToList();
 
                 Driver driver = drivers.First(x => x.Id == id);
 
                 return driver;
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public List<Driver> GetFreeDrivers()
+        {
+            if (File.Exists(fileName))
+            {
+                FileStream stream = new FileStream(fileName, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+                XDocument xmlDocument = XDocument.Load(stream);
+                List<Driver> drivers = xmlDocument.Root.Elements("Driver").Where(x => x.Element("Occupied").Value == "false").Select(driverFind => new Driver
+                {
+                    Id = int.Parse(driverFind.Element("Id").Value),
+                    Username = driverFind.Element("Username").Value,
+                    Password = driverFind.Element("Password").Value,
+                    Name = driverFind.Element("Name").Value,
+                    Surname = driverFind.Element("Surname").Value,
+                    Gender = (Genders)Enum.Parse(typeof(Genders), driverFind.Element("Gender").Value),
+                    Jmbg = driverFind.Element("Jmbg").Value,
+                    Phone = driverFind.Element("Phone").Value,
+                    Email = driverFind.Element("Email").Value,
+                    Role = (Roles)Enum.Parse(typeof(Roles), driverFind.Element("Role").Value),
+                    Location = new Location
+                    {
+                        Address = driverFind.Element("Address").Value,
+                        X = Double.Parse(driverFind.Element("X").Value),
+                        Y = Double.Parse(driverFind.Element("Y").Value)
+                    },
+                    Car = new Car
+                    {
+                        Id = int.Parse(driverFind.Element("CarId").Value),
+                        YearOfCar = int.Parse(driverFind.Element("YearOfCar").Value),
+                        RegNumber = driverFind.Element("RegNumber").Value,
+                        Type = (Cars)Enum.Parse(typeof(Cars), driverFind.Element("CarType").Value)
+                    },
+                    Occupied = bool.Parse(driverFind.Element("Occupied").Value)
+
+                }).ToList();
+
+                return drivers;
             }
             else
             {

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,5 +11,6 @@ namespace TaxiWebApplication.Models
     {
         public Location Location { get; set; }
         public Car Car { get; set; }
+        public bool Occupied { get; set; }
     }
 }

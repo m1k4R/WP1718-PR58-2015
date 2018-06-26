@@ -594,7 +594,8 @@ td {
 
 .onHoldDrivesDispacher {
     background-color: transparent;
-    border: solid 1px #ffcc00;
+    /*border: solid 1px #ffcc00;*/
+    border-color: transparent;
     color: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.2vw;
@@ -621,12 +622,146 @@ td {
 }
 
 .onHoldSingleDriveDispacher:hover {
-    background-color: rgba(255, 204, 0, 0.5);
+    /* background-color: rgba(255, 204, 0, 0.5); */
+    color: #ffcc00;
     cursor: pointer;
 }
 
 .onHoldSingleDriveDispacher p {
     padding: 1%;
+}
+
+.dispatcherCreateDriveTable {
+    background-color: transparent;
+    border-color: transparent;
+    position: fixed;
+    float: left;
+    top: 17%;
+    right: 35%;
+    left: 34%;
+    bottom: 65%;
+}
+
+.dispatcherCreateDriveDivImgDriver {
+    height: 11%;
+    width: 8%;
+    float: right;
+    position: fixed;
+    top: 17.5%;
+    right: 23%;
+    left: 69%;
+    bottom: 71.5%;
+}
+
+.dispatcherCreateDriveDivImgCar {
+    height: 10%;
+    width: 5%;
+    float: right;
+    position: fixed;
+    top: 18%;
+    right: 31%;
+    left: 63%;
+    bottom: 72%;
+}
+
+.chooseDriverDispatcherClick {
+    background-color: transparent;
+    border-color: transparent;
+    color: #ffcc00;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1vw;
+    font-weight: bold;
+    text-align: center;
+    width: 10vw;
+    height: 3vh;
+    cursor: pointer;
+    position: fixed;
+    top: 30%;
+    right: 22%;
+    left: 68%;
+    bottom: 64%;
+}
+
+.freeDriverSelected {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1vw;
+    font-weight: bold;
+    position: fixed;
+    top: 30%;
+    left: 70%;
+}
+
+#carIdDispatcher {
+    width: 5vw;
+    height: 3vh;
+    position: fixed;
+    top: 30%;
+    left: 63%;
+}
+
+.freeDriversDivCreateDrive {
+    display: none;
+    position: fixed;
+    text-align: center;
+    width: 13vw;
+    top: 42%;
+    left: 65%;
+    right: 19%;
+    z-index: 10;
+}
+
+.freeDriversDivCreateDrive div {
+    display: block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1vw;
+    font-weight: normal;
+    border-bottom: solid 1px #ffcc00;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+}
+
+.freeDriversDivCreateDrive div:hover {
+    color: #ffcc00;
+    cursor: pointer;
+}
+
+.freeDriversDivCreateDrive div p {
+    padding: 2%;
+}
+
+.chooseDriverDispatcherProcessedClick {
+    background-color: transparent;
+    border-color: transparent;
+    color: #ffcc00;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    width: 10vw;
+    height: 6vh;
+    cursor: pointer;
+    position: fixed;
+    top: 22%;
+    right: 24%;
+    left: 66%;
+    bottom: 72%;
+}
+
+.dispatcherProcessedDrive {
+    background-color: #009933;
+    border-color: #009933;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    width: 10vw;
+    height: 6vh;
+    cursor: pointer;
+    position: fixed;
+    top: 86%;
+    right: 39%;
+    left: 51%;
+    bottom: 8%;
 }
 
 .driverDiv {
