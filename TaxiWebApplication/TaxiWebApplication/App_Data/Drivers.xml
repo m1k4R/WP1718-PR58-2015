@@ -38,7 +38,7 @@
     <YearOfCar>0</YearOfCar>
     <RegNumber>4444</RegNumber>
     <CarType>None</CarType>
-    <Occupied>false</Occupied>
+    <Occupied>true</Occupied>
   </Driver>
   <Driver>
     <Id>9</Id>
@@ -58,7 +58,7 @@
     <YearOfCar>0</YearOfCar>
     <RegNumber>4477</RegNumber>
     <CarType>None</CarType>
-    <Occupied>false</Occupied>
+    <Occupied>true</Occupied>
   </Driver>
   <Driver>
     <Id>10</Id>

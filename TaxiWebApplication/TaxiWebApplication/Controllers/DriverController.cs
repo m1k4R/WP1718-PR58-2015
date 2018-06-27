@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -80,6 +81,35 @@ namespace TaxiWebApplication.Controllers
             {
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
+        }
+
+        [HttpPost]
+        [Route("api/Driver/GetFilteredDrives")]
+        public HttpResponseMessage GetFilteredDrives([FromBody]JToken jToken)
+        {
+            string driverId = jToken.Value<string>("driverId");
+            int id = int.Parse(driverId);
+            string filter = jToken.Value<string>("filter");
+            string sort = jToken.Value<string>("sort");
+            string fromDate = jToken.Value<string>("fromDate");
+            string toDate = jToken.Value<string>("toDate");
+            string fromGrade = jToken.Value<string>("fromGrade");
+            string toGrade = jToken.Value<string>("toGrade");
+            string fromPrice = jToken.Value<string>("fromPrice");
+            string toPrice = jToken.Value<string>("toPrice");
+            List<Drive> drives = Data.driveData.GetDrivesForDriver(id);
+            List<Drive> filteredDrives = Filters.FilterDrives(drives, filter, sort, fromDate, toDate, fromGrade, toGrade, fromPrice, toPrice, "", "", "", "");
+
+
+            if (drives != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, filteredDrives);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+
         }
 
         [HttpGet]

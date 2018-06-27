@@ -30,7 +30,7 @@
     <Description>Katastrofa</Description>
     <UserId>7</UserId>
     <DriveId>1004</DriveId>
-    <Grade>0</Grade>
+    <Grade>4</Grade>
   </Comment>
   <Comment>
     <Id>10004</Id>
@@ -38,7 +38,7 @@
     <Description>bla</Description>
     <UserId>7</UserId>
     <DriveId>1005</DriveId>
-    <Grade>0</Grade>
+    <Grade>3</Grade>
   </Comment>
   <Comment>
     <Id>10005</Id>
@@ -46,7 +46,7 @@
     <Description>ou</Description>
     <UserId>7</UserId>
     <DriveId>1009</DriveId>
-    <Grade>0</Grade>
+    <Grade>3</Grade>
   </Comment>
   <Comment>
     <Id>10006</Id>
@@ -54,7 +54,7 @@
     <Description>Neveze</Description>
     <UserId>7</UserId>
     <DriveId>1010</DriveId>
-    <Grade>0</Grade>
+    <Grade>5</Grade>
   </Comment>
   <Comment>
     <Id>10007</Id>
@@ -79,5 +79,13 @@
     <UserId>5</UserId>
     <DriveId>1015</DriveId>
     <Grade>5</Grade>
+  </Comment>
+  <Comment>
+    <Id>10010</Id>
+    <DateTime>27-06-2018 21:20:13</DateTime>
+    <Description>ok</Description>
+    <UserId>3</UserId>
+    <DriveId>1019</DriveId>
+    <Grade>3</Grade>
   </Comment>
 </Comments>

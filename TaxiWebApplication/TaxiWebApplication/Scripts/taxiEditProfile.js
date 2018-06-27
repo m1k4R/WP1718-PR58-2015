@@ -1,5 +1,9 @@
 ﻿$(document).ready(function () {
 
+    $("#userViewProfileAction").click(function () {
+        $("#myAccountButton").click();
+    });
+
     $("#myAccountButton").click(function () {
         $("#userBox").show();
         $("#imgTriangle").show();

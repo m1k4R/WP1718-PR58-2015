@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -201,6 +202,110 @@ namespace TaxiWebApplication.Controllers
             driveFound.Customer = customer;
 
             return Request.CreateResponse(HttpStatusCode.Created, driveFound);
+        }
+
+        [HttpGet]
+        [Route("api/Dispatcher/GetAllDrives")]
+        public HttpResponseMessage GetAllDrives()
+        {
+            IEnumerable<Drive> drives = Data.driveData.RetriveAllDrives();
+
+            if (drives != null)
+            {
+                foreach (Drive d in drives)
+                {
+                    if (d.Customer.Id != 0)
+                    {
+                        Customer customer = Data.customerData.GetCustomerById(d.Customer.Id);
+                        d.Customer = customer;
+                    }
+                    if (d.Dispatcher.Id != 0)
+                    {
+                        Dispatcher dispatcher = Data.dispatcherData.GetDispatcherById(d.Dispatcher.Id);
+                        d.Dispatcher = dispatcher;
+                    }
+                    if (d.Driver.Id != 0)
+                    {
+                        Driver driver = Data.driverData.GetDriverById(d.Driver.Id);
+                        d.Driver = driver;
+                    }
+                    if (d.Comment.Id != 0)
+                    {
+                        Comment comment = Data.commentData.GetCommentById(d.Comment.Id);
+                        d.Comment = comment;
+                    }
+                }
+
+                return Request.CreateResponse(HttpStatusCode.OK, drives);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+        }
+
+        [HttpPost]
+        [Route("api/Dispatcher/GetFilteredDrives")]
+        public HttpResponseMessage GetFilteredDrives([FromBody]JToken jToken)
+        {
+            string dispatcherId = jToken.Value<string>("dispatcherId");
+            int id = int.Parse(dispatcherId);
+            string filter = jToken.Value<string>("filter");
+            string sort = jToken.Value<string>("sort");
+            string fromDate = jToken.Value<string>("fromDate");
+            string toDate = jToken.Value<string>("toDate");
+            string fromGrade = jToken.Value<string>("fromGrade");
+            string toGrade = jToken.Value<string>("toGrade");
+            string fromPrice = jToken.Value<string>("fromPrice");
+            string toPrice = jToken.Value<string>("toPrice");
+            string role = jToken.Value<string>("role");
+            string searchName = jToken.Value<string>("searchName");
+            string searchSurname = jToken.Value<string>("searchSurname");
+            List<Drive> drives = Data.driveData.GetDrivesForDispatcher(id);
+            List<Drive> filteredDrives = Filters.FilterDrives(drives, filter, sort, fromDate, toDate, fromGrade, toGrade, fromPrice, toPrice, role, searchName, searchSurname, "Dispatcher");
+
+
+            if (drives != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, filteredDrives);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+
+        }
+
+        [HttpPost]
+        [Route("api/Dispatcher/GetFilteredSystemDrives")]
+        public HttpResponseMessage GetFilteredSystemDrives([FromBody]JToken jToken)
+        {
+            string dispatcherId = jToken.Value<string>("dispatcherId");
+            int id = int.Parse(dispatcherId);
+            string filter = jToken.Value<string>("filter");
+            string sort = jToken.Value<string>("sort");
+            string fromDate = jToken.Value<string>("fromDate");
+            string toDate = jToken.Value<string>("toDate");
+            string fromGrade = jToken.Value<string>("fromGrade");
+            string toGrade = jToken.Value<string>("toGrade");
+            string fromPrice = jToken.Value<string>("fromPrice");
+            string toPrice = jToken.Value<string>("toPrice");
+            string role = jToken.Value<string>("role");
+            string searchName = jToken.Value<string>("searchName");
+            string searchSurname = jToken.Value<string>("searchSurname");
+            List<Drive> drives = Data.driveData.RetriveAllDrives().ToList();
+            List<Drive> filteredDrives = Filters.FilterDrives(drives, filter, sort, fromDate, toDate, fromGrade, toGrade, fromPrice, toPrice, role, searchName, searchSurname, "Dispatcher");
+
+
+            if (drives != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, filteredDrives);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
+
         }
     }
 }

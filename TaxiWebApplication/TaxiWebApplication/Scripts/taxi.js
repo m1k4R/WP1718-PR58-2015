@@ -1,4 +1,17 @@
-﻿$(document).ready(function () {
+﻿/*function Refresh() {
+    if (sessionStorage.getItem("currentUser")) {
+
+        $("#dispatcherDivRefresh").click();
+        $("#driverDivRefresh").click();
+        $("#customerDivRefresh").click();
+    }
+    setInterval(Refresh, 20000);
+}
+*/
+$(document).ready(function () {
+
+    //Refresh();
+
     $("#loginButton").click(function () {
         $("#loginPage").show();
     }); 
@@ -44,6 +57,7 @@
     $("#homeButton").click(function () {
 
         ClearDisplay();
+        $("#resetButtonDriver").click();
 
         $("#driverMapsDriveDiv").show();
         $("#driverMapsDriveDivBlack").show();
@@ -57,6 +71,7 @@
         $("#dispatcherCreateDrive").show();
         $("#dispatcherAllDrivesDiv").show();
         $("#onHoldDrivesDispacher").show();
+        $("#dispatcherAllDrives").show();
 
         $("#userMenu").hide();
         $("#imgTriangle").animate({
@@ -385,12 +400,15 @@
         $("#driverYesDrive").hide();
         $("#driverNoDrive").hide();
         $("#driverMessage").hide();
+        $("#searchDriverDiv").hide();
 
         $("#customerCreateDriveDiv").hide();
         $("#customerCurrentDriveDiv").hide();
         $("#customerDriverDiv").hide();
         $("#customerMapsDriveDiv").hide();
         $("#customerMapsDriveDivBlack").hide();
+        $("#searchCustomerDiv").hide();
+        filtersOn = false;
 
         $("#addDriver").hide();
         $("#dispatcherCurrentDriveDiv").hide();
@@ -399,6 +417,10 @@
         $("#dispatcherMapsDriveDivBlack").hide();
         $("#dispatcherCreateDriveDiv").hide();
         $("#freeDriversDivCreateDrive").hide();
+        $("#dispatcherAllSystemDrivesDiv").hide();
+        $("#dispatcherMyDrives").hide();
+        $("#searchDispatcherDiv").hide();
+        displaySystemDrives = false;
     }
     
 });

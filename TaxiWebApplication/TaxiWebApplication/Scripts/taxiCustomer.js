@@ -1,4 +1,5 @@
-﻿$(document).ready(function () {
+﻿var filtersOn;
+$(document).ready(function () {
 
     $("#customerActionCreateDrive").click(function () {
         $("#accountDiv").hide();
@@ -63,8 +64,6 @@
                     alert("Success");
                     $("#cancelCreateDriveCustomerClick").click();
                     $("#customerCurrentDriveDivStartLocation").text(drive.StartLocation.Address);
-                    $("#customerCurrentDriveDivStartLocationX").text(drive.StartLocation.X);
-                    $("#customerCurrentDriveDivStartLocationY").text(drive.StartLocation.Y);
                     $("#customerCurrentDriveDivDestination").text(drive.Destination.Address);
                     $("#customerDriverDivName").text(drive.Driver.Name);
                     $("#customerDriverDivPhone").text(drive.Driver.Phone);
@@ -139,12 +138,73 @@
         }
 
     }
+
+    $("#searchCustomer").click(function () {
+        $("#searchCustomerDiv").slideToggle();
+    });
+
+    $("#resetButtonCustomer").click(function () {
+        $("input[type='text'], textarea").val("");
+        $("input[type='number'], textarea").val("");
+        $("input[type='date'], textarea").val("");
+        $("select").each(function () {
+            this.selectedIndex = 0;
+        });
+    });
+    
+    $("#searchButtonCustomer").click(function () {
+        filtersOn = true;
+        displayDrive = 0; // nisam sigurna za ovo
+        let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
+        let filters;
+        filters = {
+            customerId: currentUser.Id,
+            filter: $("#filterCustomer option:selected").text(),
+            sort: $("#sortCustomer option:selected").text(),
+            fromDate: $("#fromDate").val(),
+            toDate: $("#toDate").val(),
+            fromGrade: $("#fromGrade option:selected").text(),
+            toGrade: $("#toGrade option:selected").text(),
+            fromPrice: $("#fromPrice").val(),
+            toPrice: $("#toPrice").val(),
+        };
+
+        $.ajax({
+            url: "/api/Customer/GetFilteredDrives",
+            type: "POST",
+            contentType: 'application/json; charset=utf-8',
+            dataType: "json",
+            data: JSON.stringify(filters),
+            success: function (data) {
+                let drivesList = JSON.parse(JSON.stringify(data));
+                if (drivesList != null) {
+                    $("#customerAllDrivesDiv").html("");
+                    for (let i = 0; i < drivesList.length; i++) {
+                        $("#customerAllDrivesDiv").append("<div class=\"customerSingleDriveDiv\" id=\"customerSingleDriveDiv" + drivesList[i].Id + "\"><p>" +
+                            drivesList[i].StartLocation.Address.slice(0, drivesList[i].StartLocation.Address.indexOf(",")) + "</p ><p>" +
+                            drivesList[i].DateTime + "</p><p>" +
+                            drivesList[i].State + "</p> </div >");
+
+                        if (drivesList[i].Id == displayDrive) {
+                            ShowChanges(drivesList[i]);
+                        }
+                    }
+                }
+                $("#searchCustomerDiv").fadeOut();
+            },
+            error: function () {
+                alert("Error filter drive list");
+            }
+        });
+    });
+    
     
     $("#customerDivRefresh").click(function () {
+        if (!filtersOn) {
             let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
             $.ajax({
                 url: "/api/Customer/GetDrives",
-                method: "POST",
+                method: "GET",
                 dataType: "json",
                 data: {
                     Id: currentUser.Id
@@ -155,7 +215,7 @@
                         $("#customerAllDrivesDiv").html("");
                         for (let i = 0; i < drivesList.length; i++) {
                             $("#customerAllDrivesDiv").append("<div class=\"customerSingleDriveDiv\" id=\"customerSingleDriveDiv" + drivesList[i].Id + "\"><p>" +
-                                drivesList[i].StartLocation.Address + "</p ><p>" +
+                                drivesList[i].StartLocation.Address.slice(0, drivesList[i].StartLocation.Address.indexOf(","))  + "</p ><p>" +
                                 drivesList[i].DateTime + "</p><p>" +
                                 drivesList[i].State + "</p> </div >");
 
@@ -169,8 +229,9 @@
                     alert("Error drive list");
                 }
             });
+        }
     });
-
+    
     var displayDrive;
 
     $("body").delegate('.customerSingleDriveDiv', 'click', function () {
@@ -393,13 +454,19 @@
         $("#customerCreateDrive").hide();
         $("#customerCreateDriveDiv").hide();
         $("#customerCurrentDriveDivStartLocation").text(drive.StartLocation.Address);
-        $("#customerCurrentDriveDivStartLocationX").text(drive.StartLocation.X);
-        $("#customerCurrentDriveDivStartLocationY").text(drive.StartLocation.Y);
         if (drive.Destination.Address == "None") {
             $("#customerCurrentDriveDivDestination").text("");
         }
         else {
             $("#customerCurrentDriveDivDestination").text(drive.Destination.Address);
+        }
+        if (drive.State == "Successful") {
+            $("#customerCurrentDriveDivPrice").text(drive.Price);
+            $("#customerCurrentDriveDivDate").text(drive.DateTime);
+        }
+        else {
+            $("#customerCurrentDriveDivPrice").text("");
+            $("#customerCurrentDriveDivDate").text("");
         }
         if (drive.Driver.Id == 0) {
             $("#customerDriverDivName").text("");
@@ -442,8 +509,8 @@
             $("#pleaseWaitImg").hide();
             $("#processImg").hide();
             $("#successfulImg").show();
-            $("#customerMessage").text("");
-            $("#customerMessage").hide();
+            $("#customerMessage").text(drive.Customer.Username + ": " + drive.Comment.Description + " (" + drive.Comment.Grade + ")  [" + drive.Comment.CreatedDateTime + "]");
+            $("#customerMessage").show();
             $("#customerEditDriveImg").hide();
             if (drive.Comment.Id == 0) {
                 $("#customerCommentDriveImg").show();
@@ -462,8 +529,8 @@
             $("#pleaseWaitImg").hide();
             $("#processImg").hide();
             $("#unsuccessfulImg").show();
-            $("#customerMessage").text("");
-            $("#customerMessage").hide();
+            $("#customerMessage").text(drive.Driver.Username + ": " + drive.Comment.Description + " (" + drive.Comment.Grade + ")  [" + drive.Comment.CreatedDateTime + "]");
+            $("#customerMessage").show();
             $("#customerEditDriveImg").hide();
             $("#customerCommentDriveImg").hide();
             $("#customerCancelDrive").hide();
@@ -490,8 +557,8 @@
             $("#pleaseWaitImg").hide();
             $("#processImg").hide();
             $("#canceledImg").show();
-            $("#customerMessage").text("");
-            $("#customerMessage").hide();
+            $("#customerMessage").text(drive.Customer.Username + ": " + drive.Comment.Description + " (" + drive.Comment.Grade + ")  [" + drive.Comment.CreatedDateTime + "]");
+            $("#customerMessage").show();
             $("#customerEditDriveImg").hide();
             $("#customerCommentDriveImg").hide();
             $("#customerCancelDrive").hide();
@@ -504,11 +571,11 @@
             $("#pleaseWaitImg").hide();
             $("#processImg").show();
             $("#customerMessage").text("");
-            $("#customerMessage").show();
+            $("#customerMessage").hide();
             $("#customerEditDriveImg").hide();
             $("#customerCommentDriveImg").hide();
             $("#customerCancelDrive").hide();
-            $("#driverStateMessage").css('color', '#339966');
+            $("#customerStateMessage").css('color', '#339966');
         }
         $("#customerStateMessage").text(drive.State);
         $("#customerStateMessage").show();

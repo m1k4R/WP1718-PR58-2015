@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Net;
@@ -35,9 +36,9 @@ namespace TaxiWebApplication.Controllers
             return Request.CreateResponse(HttpStatusCode.Created, driveFound);
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("api/Customer/GetDrives")]
-        public HttpResponseMessage GetDrives([FromBody]Customer customer)
+        public HttpResponseMessage GetDrives([FromUri]Customer customer)
         {
             List<Drive> drives = Data.driveData.GetDrivesForCustomer(customer.Id);
 
@@ -73,9 +74,37 @@ namespace TaxiWebApplication.Controllers
             {
                 return Request.CreateResponse(HttpStatusCode.InternalServerError);
             }
+        }
 
+        [HttpPost]
+        [Route("api/Customer/GetFilteredDrives")]
+        public HttpResponseMessage GetFilteredDrives([FromBody]JToken jToken) 
+        {
+            string customerId = jToken.Value<string>("customerId");    
+            int id = int.Parse(customerId);
+            string filter = jToken.Value<string>("filter");
+            string sort = jToken.Value<string>("sort");
+            string fromDate = jToken.Value<string>("fromDate");
+            string toDate = jToken.Value<string>("toDate");
+            string fromGrade = jToken.Value<string>("fromGrade");
+            string toGrade = jToken.Value<string>("toGrade");
+            string fromPrice = jToken.Value<string>("fromPrice");
+            string toPrice = jToken.Value<string>("toPrice");
+            List<Drive> drives = Data.driveData.GetDrivesForCustomer(id);
+            List<Drive> filteredDrives = Filters.FilterDrives(drives, filter, sort, fromDate, toDate, fromGrade, toGrade, fromPrice, toPrice, "", "", "", "");
+            
+
+            if (drives != null)
+            {
+                return Request.CreateResponse(HttpStatusCode.OK, filteredDrives);
+            }
+            else
+            {
+                return Request.CreateResponse(HttpStatusCode.InternalServerError);
+            }
             
         }
+        
 
         [HttpGet]
         [Route("api/Customer/GetDriveById")]
