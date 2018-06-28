@@ -11,9 +11,9 @@
     <Phone>063174471</Phone>
     <Email>vill@gmail.com</Email>
     <Role>Driver</Role>
-    <Address>Bulevar Oslobodjenja 51</Address>
-    <X>23</X>
-    <Y>18</Y>
+    <Address>Sentandrejski put 10, Novi Sad 21000</Address>
+    <X>45.2688377</X>
+    <Y>19.832221</Y>
     <CarId>0</CarId>
     <YearOfCar>0</YearOfCar>
     <RegNumber>4000</RegNumber>
@@ -38,7 +38,7 @@
     <YearOfCar>0</YearOfCar>
     <RegNumber>4444</RegNumber>
     <CarType>None</CarType>
-    <Occupied>true</Occupied>
+    <Occupied>false</Occupied>
   </Driver>
   <Driver>
     <Id>9</Id>
@@ -71,9 +71,9 @@
     <Phone>064255</Phone>
     <Email>fiki@gmail.com</Email>
     <Role>Driver</Role>
-    <Address>Big </Address>
-    <X>12</X>
-    <Y>22</Y>
+    <Address>Bulevar Jase Tomica 3, Novi Sad 21000</Address>
+    <X>45.2634</X>
+    <Y>19.8268763</Y>
     <CarId>4010</CarId>
     <YearOfCar>1998</YearOfCar>
     <RegNumber>4478</RegNumber>

@@ -126,6 +126,7 @@
             <p id="dispatcherActionCreateDrive">Create a drive</p>
             <p id="driverActionChangeLocation">Change location</p>
             <p id="customerActionCreateDrive">Create a drive</p>
+            <p id="noneActionCreateDrive">&nbsp;</p>
         </div>
     </div>
 
@@ -291,6 +292,11 @@
             <p class="message" id="dispatcherMessage"></p>
             <p class="state">State:&nbsp;<label class="messageState" id="dispatcherStateMessage"></label></p>
             <button class="dispatcherProcessedDrive" id="dispatcherProcessedDrive">Confirm</button>
+            <img src="Images/s34.png" class="dispatcherInfoImgCustomer" />
+            <div class="dispatcherInfo">
+                <p class="dispatcherInfoCustomerName" id="dispatcherInfoCustomerName"></p>
+                <p class="dispatcherInfoCustomerPhone" id="dispatcherInfoCustomerPhone"></p>
+            </div>
         </div>
         <div class="onHoldDrivesDispacher" id="onHoldDrivesDispacher"></div>
         <p class="dispatcherAllDrives" id="dispatcherAllDrives">All drives</p>
@@ -395,6 +401,7 @@
             <hr />
             <table>
                 <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td> <button id="searchButtonDispatcher">Search</button></td>
                     <td> <button id="resetButtonDispatcher">Reset</button></td>
                 </tr>
@@ -405,7 +412,7 @@
     <!--***************Customer******************-->
 
     <div class="customerDiv" id="customerDiv">
-        <p class="customerCreateDrive" id="customerCreateDrive">Create a drive</p><button id="customerDivRefresh">Refresh</button><button id="customerDivShow">Show</button>
+        <p class="customerCreateDrive" id="customerCreateDrive">Create a drive</p><button id="customerDivRefresh">Refresh</button>
         <div class="customerCreateDriveDiv" id="customerCreateDriveDiv">
             <table class="customerCreateDriveTable">
                 <tr>
@@ -499,6 +506,9 @@
                         </select>
                     </td>
                 </tr>
+            </table>
+            <hr />
+            <table>
                 <tr>
                     <th colspan="2">Date</th>
                 </tr>
@@ -550,6 +560,7 @@
             <hr />
             <table>
                 <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td> <button id="searchButtonCustomer">Search</button></td>
                     <td> <button id="resetButtonCustomer">Reset</button></td>
                 </tr>
@@ -560,7 +571,18 @@
         <div class="commentDiv" id="commentDiv">
             <p class="comment">Comment</p>
             <textarea class="enterComment" id="enterComment">Enter your comment here . . .</textarea>
-            <input type="text" class="gradeComment" id="gradeComment" />
+            <!--<input type="text" class="gradeComment" id="gradeComment" />-->
+            <p class="gradeComment">
+                Grade:&nbsp;&nbsp;&nbsp;
+                <select name="commentGrade" id="commentGrade">
+                    <option value="0" selected>0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select>
+            </p>
             <button class="loginClick" id="customerSendComment">Send</button>
             <button class="loginClick" id="customerSendCommentSuccess">Send</button>
         </div>
@@ -569,7 +591,7 @@
     <!--*************************Driver***************************-->
 
     <div class="driverDiv" id="driverDiv">
-        <p class="driverChangeLocation" id="driverChangeLocation">Change location</p><button id="driverDivRefresh">Refresh</button><button id="driverDivShow">Show</button>
+        <p class="driverChangeLocation" id="driverChangeLocation">Change location</p><button id="driverDivRefresh">Refresh</button>
         <div class="customerCreateDriveDiv" id="driverChangeLocationDiv">
             <table class="customerCreateDriveTable">
                 <tr>
@@ -642,22 +664,23 @@
                 <table class="chooseDestinationDriveTable">
                     <tr>
                         <td>Destination:</td>
-                        <td>&nbsp;&nbsp;&nbsp;</td>
                         <td><input type="text" name="address" id="driverDestination" /></td>
                     </tr>
                     <tr>
                         <td>X:</td>
-                        <td>&nbsp;&nbsp;&nbsp;</td>
                         <td><input type="text" name="x" id="driverDestinationX" /></td>
                     </tr>
                     <tr>
                         <td>Y:</td>
-                        <td>&nbsp;&nbsp;&nbsp;</td>
                         <td><input type="text" name="y" id="driverDestinationY" /></td>
                     </tr>
+                    <tr>
+                        <td>Price:</td>
+                        <td><input type="number" id="driverPrice" /></td>
+                    </tr>
                 </table>
-                <input type="number" class="gradeComment" id="driverPrice" />
                 <button class="loginClick" id="driverSendDestinationPrice">Send</button>
+                <div class="chooseDestinationMap" id="chooseDestinationMap"></div>
             </div>
         </div>
         <p class="searchCustomer" id="searchDriver">Search</p>
@@ -684,6 +707,9 @@
                         </select>
                     </td>
                 </tr>
+            </table>
+            <hr />
+            <table>
                 <tr>
                     <th colspan="2">Date</th>
                 </tr>
@@ -735,6 +761,7 @@
             <hr />
             <table>
                 <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                     <td> <button id="searchButtonDriver">Search</button></td>
                     <td> <button id="resetButtonDriver">Reset</button></td>
                 </tr>

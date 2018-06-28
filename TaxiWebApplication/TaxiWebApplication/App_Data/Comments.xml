@@ -2,90 +2,50 @@
 <Comments>
   <Comment>
     <Id>10000</Id>
-    <DateTime>24-06-2018 22:21:52</DateTime>
-    <Description>No comment</Description>
+    <DateTime>28-06-2018 03:01:16</DateTime>
+    <Description>Odlicna voznja</Description>
     <UserId>3</UserId>
     <DriveId>1000</DriveId>
-    <Grade>1</Grade>
+    <Grade>5</Grade>
   </Comment>
   <Comment>
     <Id>10001</Id>
-    <DateTime>24-06-2018 22:33:49</DateTime>
-    <Description>No comment</Description>
-    <UserId>3</UserId>
-    <DriveId>1000</DriveId>
-    <Grade>1</Grade>
+    <DateTime>28-06-2018 03:09:50</DateTime>
+    <Description>Guzva u saobracaju, musterija odustao</Description>
+    <UserId>7</UserId>
+    <DriveId>1002</DriveId>
+    <Grade>0</Grade>
   </Comment>
   <Comment>
     <Id>10002</Id>
-    <DateTime>24-06-2018 22:49:22</DateTime>
-    <Description>Enter your comment here . . .</Description>
-    <UserId>3</UserId>
-    <DriveId>1000</DriveId>
+    <DateTime>28-06-2018 03:15:20</DateTime>
+    <Description>Kvar na autu</Description>
+    <UserId>8</UserId>
+    <DriveId>1003</DriveId>
     <Grade>0</Grade>
   </Comment>
   <Comment>
     <Id>10003</Id>
-    <DateTime>26-06-2018 17:25:59</DateTime>
-    <Description>Katastrofa</Description>
-    <UserId>7</UserId>
+    <DateTime>28-06-2018 03:15:54</DateTime>
+    <Description>Dobra</Description>
+    <UserId>2</UserId>
     <DriveId>1004</DriveId>
     <Grade>4</Grade>
   </Comment>
   <Comment>
     <Id>10004</Id>
-    <DateTime>26-06-2018 18:16:59</DateTime>
-    <Description>bla</Description>
-    <UserId>7</UserId>
-    <DriveId>1005</DriveId>
-    <Grade>3</Grade>
-  </Comment>
-  <Comment>
-    <Id>10005</Id>
-    <DateTime>26-06-2018 19:00:25</DateTime>
-    <Description>ou</Description>
-    <UserId>7</UserId>
-    <DriveId>1009</DriveId>
-    <Grade>3</Grade>
-  </Comment>
-  <Comment>
-    <Id>10006</Id>
-    <DateTime>26-06-2018 19:05:23</DateTime>
-    <Description>Neveze</Description>
-    <UserId>7</UserId>
-    <DriveId>1010</DriveId>
-    <Grade>5</Grade>
-  </Comment>
-  <Comment>
-    <Id>10007</Id>
-    <DateTime>26-06-2018 19:05:58</DateTime>
-    <Description>Voznja je bila neuspjesna zbog kvara na automobilu</Description>
-    <UserId>7</UserId>
-    <DriveId>1013</DriveId>
+    <DateTime>28-06-2018 03:17:39</DateTime>
+    <Description>iskrslo mi nesto</Description>
+    <UserId>4</UserId>
+    <DriveId>1006</DriveId>
     <Grade>0</Grade>
   </Comment>
   <Comment>
-    <Id>10008</Id>
-    <DateTime>26-06-2018 19:43:23</DateTime>
-    <Description>Odlicno</Description>
-    <UserId>3</UserId>
-    <DriveId>1014</DriveId>
-    <Grade>5</Grade>
-  </Comment>
-  <Comment>
-    <Id>10009</Id>
-    <DateTime>26-06-2018 19:49:24</DateTime>
-    <Description>Super je voznjica</Description>
-    <UserId>5</UserId>
-    <DriveId>1015</DriveId>
-    <Grade>5</Grade>
-  </Comment>
-  <Comment>
-    <Id>10010</Id>
-    <DateTime>27-06-2018 21:20:13</DateTime>
-    <Description>ok</Description>
-    <UserId>3</UserId>
-    <DriveId>1019</DriveId>
-    <Grade>3</Grade>
+    <Id>10005</Id>
+    <DateTime>28-06-2018 03:22:57</DateTime>
+    <Description>musterija se nije pojavila</Description>
+    <UserId>10</UserId>
+    <DriveId>1001</DriveId>
+    <Grade>0</Grade>
   </Comment>
 </Comments>

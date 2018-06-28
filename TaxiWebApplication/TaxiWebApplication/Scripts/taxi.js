@@ -1,11 +1,18 @@
 ﻿/*function Refresh() {
     if (sessionStorage.getItem("currentUser")) {
+        let currentUser = JSON.parse(sessionStorage.getItem("currentUser"));
 
-        $("#dispatcherDivRefresh").click();
-        $("#driverDivRefresh").click();
-        $("#customerDivRefresh").click();
+        if (currentUser.Role == "Customer") {
+            $("#customerDivRefresh").click();
+        }
+        else if (currentUser.Role == "Dispatcher") {
+            $("#dispatcherDivRefresh").click();
+        }
+        else if (currentUser.Role == "Driver") {
+            $("#driverDivRefresh").click();
+        }
     }
-    setInterval(Refresh, 20000);
+    setInterval(Refresh, 10000);
 }
 */
 $(document).ready(function () {
@@ -46,6 +53,7 @@ $(document).ready(function () {
         $("#customerAllDrivesDiv").html("");
 
         ClearFields();
+        $("#resetButtonDriver").click();
     }); 
     
     $("#imgX").click(function () {
@@ -72,6 +80,7 @@ $(document).ready(function () {
         $("#dispatcherAllDrivesDiv").show();
         $("#onHoldDrivesDispacher").show();
         $("#dispatcherAllDrives").show();
+        $("#searchDispatcher").show();
 
         $("#userMenu").hide();
         $("#imgTriangle").animate({
@@ -96,9 +105,9 @@ $(document).ready(function () {
     $("#imgTriangle").click(function () {
         if (pos === 46) {
             $("#imgTriangle").animate({
-                top: '73vh'
+                top: '64.5vh'
             });
-            pos = 73;
+            pos = 60;
         }
         else {
             $("#imgTriangle").animate({
@@ -157,6 +166,7 @@ $(document).ready(function () {
                     $("#dispatcherActionCreateDrive").hide();
                     $("#driverActionChangeLocation").hide();
                     $("#customerActionCreateDrive").show();
+                    $("#noneActionCreateDrive").show();
                     $("#userBox").show();
                     $("#imgTriangle").show();
                     $("#customerDiv").show();
@@ -302,7 +312,7 @@ $(document).ready(function () {
                         $("#dispatcherActionCreateDrive").hide();
                         $("#driverActionChangeLocation").hide();
                         $("#customerActionCreateDrive").show();
-                        //$("#customerDiv").show();
+                        $("#noneActionCreateDrive").show();
                         $("#homeButton").click();
                     }
                     else if (user.Role == "Dispatcher") {
@@ -310,7 +320,7 @@ $(document).ready(function () {
                         $("#dispatcherActionCreateDrive").show();
                         $("#driverActionChangeLocation").hide();
                         $("#customerActionCreateDrive").hide();
-                        //$("#dispatcherDiv").show();
+                        $("#noneActionCreateDrive").hide();
                         $("#homeButton").click();
                     }
                     else if (user.Role == "Driver") {
@@ -318,7 +328,7 @@ $(document).ready(function () {
                         $("#dispatcherActionCreateDrive").hide();
                         $("#driverActionChangeLocation").show();
                         $("#customerActionCreateDrive").hide();
-                        //$("#driverDiv").show();
+                        $("#noneActionCreateDrive").show();
                         $("#homeButton").click();
                     }
 

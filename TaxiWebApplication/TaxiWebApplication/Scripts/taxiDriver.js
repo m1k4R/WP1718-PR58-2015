@@ -321,6 +321,7 @@
     $("#driverNoDrive").click(function () {
         $("#enterCommentDriver").val("");
         $("#destinationPriceDivDriver").hide();
+        $("#commentDivDriver").show();
         $("#commentDivBlackDriver").show();
     });
 
@@ -411,12 +412,12 @@
         
         $("#driverChangeLocationDiv").hide();
         $("#onHoldDrivesDriver").hide();
-        $("#driverCurrentDriveDivStartLocation").text(drive.StartLocation.Address);
+        $("#driverCurrentDriveDivStartLocation").text(drive.StartLocation.Address.slice(0, drive.StartLocation.Address.indexOf(",")));
         if (drive.Destination.Address == "None") {
             $("#driverCurrentDriveDivDestination").text("");
         }
         else {
-            $("#driverCurrentDriveDivDestination").text(drive.Destination.Address);
+            $("#driverCurrentDriveDivDestination").text(drive.Destination.Address.slice(0, drive.Destination.Address.indexOf(",")));
         }
         if (drive.State == "Successful") {
             $("#driverCurrentDriveDivPrice").text(drive.Price);

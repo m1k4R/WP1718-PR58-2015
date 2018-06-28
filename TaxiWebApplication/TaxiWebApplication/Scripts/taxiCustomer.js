@@ -63,10 +63,10 @@ $(document).ready(function () {
                     displayDrive = drive.Id;
                     alert("Success");
                     $("#cancelCreateDriveCustomerClick").click();
-                    $("#customerCurrentDriveDivStartLocation").text(drive.StartLocation.Address);
-                    $("#customerCurrentDriveDivDestination").text(drive.Destination.Address);
-                    $("#customerDriverDivName").text(drive.Driver.Name);
-                    $("#customerDriverDivPhone").text(drive.Driver.Phone);
+                    $("#customerCurrentDriveDivStartLocation").text(drive.StartLocation.Address.slice(0, drive.StartLocation.Address.indexOf(",")));
+                    $("#customerCurrentDriveDivDestination").text("");
+                    $("#customerDriverDivName").text("");
+                    $("#customerDriverDivPhone").text("");
                     $("#customerDriverDivCar").text(drive.Car);
                     $("#customerCurrentDriveDiv").show();
                     $("#customerDriverDiv").show();
@@ -361,7 +361,11 @@ $(document).ready(function () {
 
     $("#customerCancelDrive").click(function () {
         $("#enterComment").val("");
-        $("#gradeComment").val("");
+        //$("#gradeComment").val("");
+        //$("select[name=commentGrade]").val("");
+        $("select").each(function () {
+            this.selectedIndex = 0;
+        });
         $("#commentDivBlack").show();
         $("#customerSendCommentSuccess").hide();
         $("#customerSendComment").show();
@@ -378,7 +382,7 @@ $(document).ready(function () {
                 dataType: "json",
                 data: {
                     Description: $("#enterComment").val(),
-                    Grade: $("#gradeComment").val(),
+                    Grade: $("select[name=commentGrade]").val(),
                     User: {
                         Id: currentUser.Id
                     },
@@ -407,7 +411,8 @@ $(document).ready(function () {
 
     $("#customerCommentDriveImg").click(function () {
         $("#enterComment").val("");
-        $("#gradeComment").val("");
+        //$("#gradeComment").val("");
+        $("select[name=commentGrade]").val("0");
         $("#commentDivBlack").show();
         $("#customerSendCommentSuccess").show();
         $("#customerSendComment").hide();
@@ -424,7 +429,7 @@ $(document).ready(function () {
                 dataType: "json",
                 data: {
                     Description: $("#enterComment").val(),
-                    Grade: $("#gradeComment").val(),
+                    Grade: $("select[name=commentGrade]").val(),
                     User: {
                         Id: currentUser.Id
                     },
@@ -453,12 +458,12 @@ $(document).ready(function () {
 
         $("#customerCreateDrive").hide();
         $("#customerCreateDriveDiv").hide();
-        $("#customerCurrentDriveDivStartLocation").text(drive.StartLocation.Address);
+        $("#customerCurrentDriveDivStartLocation").text(drive.StartLocation.Address.slice(0, drive.StartLocation.Address.indexOf(",")));
         if (drive.Destination.Address == "None") {
             $("#customerCurrentDriveDivDestination").text("");
         }
         else {
-            $("#customerCurrentDriveDivDestination").text(drive.Destination.Address);
+            $("#customerCurrentDriveDivDestination").text(drive.Destination.Address.slice(0, drive.Destination.Address.indexOf(",")));
         }
         if (drive.State == "Successful") {
             $("#customerCurrentDriveDivPrice").text(drive.Price);

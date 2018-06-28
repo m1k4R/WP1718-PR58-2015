@@ -3,35 +3,45 @@ var myLng;
 var markers = [];
 
 function initMap() {
-    var map = new google.maps.Map(document.getElementById('customerMapsDriveDiv'), {
+    var mapCustomer = new google.maps.Map(document.getElementById('customerMapsDriveDiv'), {
         zoom: 14,
         center: { lat: 45.2671, lng: 19.8335 }
     });
 
-    map.addListener('click', function (e) {
-        placeMarkerAndPanTo(e.latLng, map);
+    mapCustomer.addListener('click', function (e) {
+        placeMarkerAndPanTo(e.latLng, mapCustomer);
         geocodeLatLng();
     });
 
- /*   var map2 = new google.maps.Map(document.getElementById('mapDestination'), {
+    var mapDispatcher = new google.maps.Map(document.getElementById('dispatcherMapsDriveDiv'), {
         zoom: 14,
         center: { lat: 45.2671, lng: 19.8335 }
     });
 
-    map2.addListener('click', function (e) {
-        placeMarkerAndPanTo(e.latLng, map2);
+    mapDispatcher.addListener('click', function (e) {
+        placeMarkerAndPanTo(e.latLng, mapDispatcher);
+        geocodeLatLngDispatcher();
+    });
+
+    var mapDriver = new google.maps.Map(document.getElementById('driverMapsDriveDiv'), {
+        zoom: 14,
+        center: { lat: 45.2671, lng: 19.8335 }
+    });
+
+    mapDriver.addListener('click', function (e) {
+        placeMarkerAndPanTo(e.latLng, mapDriver);
+        geocodeLatLngDriver();
+    }); 
+
+    var mapDestination = new google.maps.Map(document.getElementById('chooseDestinationMap'), {
+        zoom: 14,
+        center: { lat: 45.2671, lng: 19.8335 }
+    });
+
+    mapDestination.addListener('click', function (e) {
+        placeMarkerAndPanTo(e.latLng, mapDestination);
         geocodeLatLngDestination();
     });
-
-    var map3 = new google.maps.Map(document.getElementById('mapDriver'), {
-        zoom: 14,
-        center: { lat: 45.2671, lng: 19.8335 }
-    });
-
-    map3.addListener('click', function (e) {
-        placeMarkerAndPanTo(e.latLng, map3);
-        geocodeLatLngDriver();
-    }); */
 }
 
 function geocodeLatLng() {
@@ -60,7 +70,7 @@ function geocodeLatLng() {
     });
 }
 
-function geocodeLatLngDestination() {
+function geocodeLatLngDispatcher() {
     $.ajax({
         type: 'GET',
         url: 'https://nominatim.openstreetmap.org/reverse',
@@ -72,12 +82,12 @@ function geocodeLatLngDestination() {
         dataType: 'json',
         success: function (data) {
             let adresa = data.address.road + ' ' + data.address.house_number + ', ' + data.address.city + ' ' + data.address.postcode;
-            $('#driveDestinationAddress').attr('readonly', true);
-            $('#driveDestinationAddressX').attr('readonly', true);
-            $('#driveDestinationAddressY').attr('readonly', true);
-            $('#driveDestinationAddress').val(adresa);
-            $('#driveDestinationAddressX').val(data.lat);
-            $('#driveDestinationAddressY').val(data.lon);
+            $('#startAddressIdDispatcher').attr('readonly', true);
+            $('#startAddressXIdDispatcher').attr('readonly', true);
+            $('#startAddressYIdDispatcher').attr('readonly', true);
+            $('#startAddressIdDispatcher').val(adresa);
+            $('#startAddressXIdDispatcher').val(data.lat);
+            $('#startAddressYIdDispatcher').val(data.lon);
 
         },
         error: function () {
@@ -98,12 +108,38 @@ function geocodeLatLngDriver() {
         dataType: 'json',
         success: function (data) {
             let adresa = data.address.road + ' ' + data.address.house_number + ', ' + data.address.city + ' ' + data.address.postcode;
-            $('#driverLocation').attr('readonly', true);
-            $('#driverLocationX').attr('readonly', true);
-            $('#driverLocationY').attr('readonly', true);
-            $('#driverLocation').val(adresa);
-            $('#driverLocationX').val(data.lat);
-            $('#driverLocationY').val(data.lon);
+            $('#changeAddressIdDriver').attr('readonly', true);
+            $('#changeXIdDriver').attr('readonly', true);
+            $('#changeYIdDriver').attr('readonly', true);
+            $('#changeAddressIdDriver').val(adresa);
+            $('#changeXIdDriver').val(data.lat);
+            $('#changeYIdDriver').val(data.lon);
+
+        },
+        error: function () {
+            alert("Error while getting address.");
+        }
+    });
+}
+
+function geocodeLatLngDestination() {
+    $.ajax({
+        type: 'GET',
+        url: 'https://nominatim.openstreetmap.org/reverse',
+        data: {
+            format: 'jsonv2',
+            lat: myLat,
+            lon: myLng
+        },
+        dataType: 'json',
+        success: function (data) {
+            let adresa = data.address.road + ' ' + data.address.house_number + ', ' + data.address.city + ' ' + data.address.postcode;
+            $('#driverDestination').attr('readonly', true);
+            $('#driverDestinationX').attr('readonly', true);
+            $('#driverDestinationY').attr('readonly', true);
+            $('#driverDestination').val(adresa);
+            $('#driverDestinationX').val(data.lat);
+            $('#driverDestinationY').val(data.lon);
 
         },
         error: function () {

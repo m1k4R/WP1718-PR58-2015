@@ -722,10 +722,12 @@ td {
     position: fixed;
     text-align: center;
     width: 13vw;
+    height: 52%;
     top: 42%;
     left: 65%;
     right: 19%;
     z-index: 10;
+    overflow-y: scroll;
 }
 
 .freeDriversDivCreateDrive div {
@@ -794,6 +796,27 @@ td {
     bottom: 84%;
     cursor: pointer;
 }
+
+.dispatcherInfoImgCustomer {
+    position: fixed;
+    height: 8%;
+    width: 4%;
+    left: 34%;
+    bottom: 11%;
+}
+
+.dispatcherInfoCustomerName {
+    position: fixed;
+    left: 39%;
+    bottom: 14%;
+}
+
+.dispatcherInfoCustomerPhone {
+    position: fixed;
+    left: 39%;
+    bottom: 11%;
+}
+
 
 .driverDiv {
     background-color: rgba(0, 0, 0, 0.8);
@@ -972,12 +995,23 @@ td {
 
 .chooseDestinationDriveTable {
     background-color: transparent;
-   /* border: solid 1px #ffcc00;*/
-   border-color: transparent;
+    border-color: transparent;
+    text-align: center;
+    font-weight: normal;
     position: fixed;
     float: right;
     top: 35%;
-    left: 32%;
+    left: 30%;
+}
+
+.chooseDestinationMap {
+    width: 17vw;
+    height: 24vh;
+    position: fixed !important;
+    top: 35.5% !important;
+    right: 50% !important;
+    left: 52% !important;
+    bottom: 39.5% !important;
 }
 
 .customerDiv {
@@ -1395,6 +1429,7 @@ td {
 }
 
 .gradeComment {
+    color: white;
     position: fixed;
     top: 58%;
     left: 43%;

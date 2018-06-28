@@ -39,6 +39,7 @@ $(document).ready(function () {
         $("#dispatcherCreateDriveDiv").hide();
         $("#dispatcherAllDrivesDiv").hide();
         $("#onHoldDrivesDispacher").hide();
+        $("#searchDispatcher").hide();
 
         $("#addDriver").show();
     });
@@ -242,6 +243,7 @@ $(document).ready(function () {
         $("#dispatcherAllDrives").show();
         $("#dispatcherAllSystemDrivesDiv").hide();
         $("#dispatcherMyDrives").hide();
+        $("#searchDispatcher").show();
 
         $("#startAddressIdDispatcher").val("");
         $("#startAddressXIdDispatcher").val("");
@@ -277,7 +279,7 @@ $(document).ready(function () {
                         $("#freeDriversDivCreateDrive").append("<div class=\"freeDriversSingleDivCreateDrive\" id=\"freeDriversSingleDivCreateDrive" + freeDrivers[i].Id + "\"><p>" +
                             freeDrivers[i].Name + " " + freeDrivers[i].Surname + "</p ><p>" +
                             freeDrivers[i].Phone + "</p><p>" +
-                            freeDrivers[i].Location.Address + "</p><p>" +
+                            freeDrivers[i].Location.Address.slice(0, freeDrivers[i].Location.Address.indexOf(",")) + "</p><p>" +
                             freeDrivers[i].Car.Type + "</p></div > ");
                     }
                 }
@@ -349,8 +351,8 @@ $(document).ready(function () {
                     //alert("Success");
                     selectedDriver = 0;
                     $("#cancelCreateDriveDispatcherClick").click();
-                    $("#dispatcherCurrentDriveDivStartLocation").text(drive.StartLocation.Address);
-                    $("#dispatcherCurrentDriveDivDestination").text(drive.Destination.Address);
+                    $("#dispatcherCurrentDriveDivStartLocation").text(drive.StartLocation.Address.slice(0, drive.StartLocation.Address.indexOf(",")));
+                    $("#dispatcherCurrentDriveDivDestination").text(drive.Destination.Address.slice(0, drive.Destination.Address.indexOf(",")));
                     $("#dispatcherDriverDivName").text(drive.Driver.Name);
                     $("#dispatcherDriverDivPhone").text(drive.Driver.Phone);
                     $("#dispatcherDriverDivCar").text(drive.Car);
@@ -502,7 +504,7 @@ $(document).ready(function () {
                             if (drivesList[i].Id == displayDrive) {
                                 ShowChanges(drivesList[i]);
                             }
-                            $("#searchDispatcherDiv").fadeOut();
+                            $("#searchDispatcherDiv").slideUp();
                         }
                     }
                 },
@@ -531,7 +533,7 @@ $(document).ready(function () {
                             if (drivesList[i].Id == displayDrive) {
                                 ShowChanges(drivesList[i]);
                             }
-                            $("#searchDispatcherDiv").fadeOut();
+                            $("#searchDispatcherDiv").slideUp();
                         }
                     }
                 },
@@ -735,12 +737,12 @@ $(document).ready(function () {
         }
         $("#dispatcherCreateDrive").hide();
         $("#dispatcherCreateDriveDiv").hide();
-        $("#dispatcherCurrentDriveDivStartLocation").text(drive.StartLocation.Address);
+        $("#dispatcherCurrentDriveDivStartLocation").text(drive.StartLocation.Address.slice(0, drive.StartLocation.Address.indexOf(",")));
         if (drive.Destination.Address == "None") {
             $("#dispatcherCurrentDriveDivDestination").text("");
         }
         else {
-            $("#dispatcherCurrentDriveDivDestination").text(drive.Destination.Address);
+            $("#dispatcherCurrentDriveDivDestination").text(drive.Destination.Address.slice(0, drive.Destination.Address.indexOf(",")));
         }
         if (drive.State == "Successful") {
             $("#dispatcherCurrentDriveDivPrice").text(drive.Price);
@@ -764,6 +766,19 @@ $(document).ready(function () {
         $("#dispatcherMapsDriveDiv").show();
         $("#dispatcherMapsDriveDivBlack").show();
 
+        if (drive.Customer.Name != null && drive.Customer.Phone != null) {
+            $("#dispatcherInfoImgCustomer").show();
+            $("#dispatcherInfoCustomerName").show();
+            $("#dispatcherInfoCustomerName").text(drive.Customer.Name + " " + drive.Customer.Surname);
+            $("#dispatcherInfoCustomerPhone").show();
+            $("#dispatcherInfoCustomerPhone").text(drive.Customer.Phone);
+        }
+        else {
+            $("#dispatcherInfoImgCustomer").hide();
+            $("#dispatcherInfoCustomerName").hide();
+            $("#dispatcherInfoCustomerPhone").hide();
+        }
+        
         if (drive.State == "Created") {
             $("#successfulImgDispatcher").hide();
             $("#unsuccessfulImgDispatcher").hide();

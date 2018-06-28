@@ -2,180 +2,44 @@
 <Drives>
   <Drive>
     <Id>1000</Id>
-    <DateTime>22-06-2018 00:00:00</DateTime>
-    <StartLocation>Ulica cara Lazara</StartLocation>
-    <StartLocationX>50</StartLocationX>
-    <StartLocationY>18</StartLocationY>
-    <Destination>None</Destination>
-    <DestinationX>0</DestinationX>
-    <DestinationY>0</DestinationY>
+    <DateTime>28-06-2018 02:55:16</DateTime>
+    <StartLocation>Berislava Berica 2, Novi Sad 21000</StartLocation>
+    <StartLocationX>45.2642926</StartLocationX>
+    <StartLocationY>19.8357911</StartLocationY>
+    <Destination>Pere Popadica 26, Novi Sad 21138</Destination>
+    <DestinationX>45.2753594</DestinationX>
+    <DestinationY>19.8311409</DestinationY>
     <CustomerId>3</CustomerId>
     <DispatcherId>0</DispatcherId>
-    <DriverId>0</DriverId>
-    <Car>Car</Car>
-    <Price>0</Price>
-    <CommentId>0</CommentId>
-    <State>Canceled</State>
+    <DriverId>7</DriverId>
+    <Car>None</Car>
+    <Price>400</Price>
+    <CommentId>10000</CommentId>
+    <State>Successful</State>
   </Drive>
   <Drive>
     <Id>1001</Id>
-    <DateTime>22-06-2018 14:00:00</DateTime>
-    <StartLocation>Zeljeznicka 58</StartLocation>
-    <StartLocationX>26</StartLocationX>
-    <StartLocationY>47</StartLocationY>
+    <DateTime>28-06-2018 03:01:49</DateTime>
+    <StartLocation>Bulevar Jase Tomica undefined, Novi Sad 21101</StartLocation>
+    <StartLocationX>45.2647562</StartLocationX>
+    <StartLocationY>19.827873052474</StartLocationY>
     <Destination>None</Destination>
     <DestinationX>0</DestinationX>
     <DestinationY>0</DestinationY>
-    <CustomerId>6</CustomerId>
+    <CustomerId>3</CustomerId>
     <DispatcherId>1</DispatcherId>
-    <DriverId>7</DriverId>
-    <Car>None</Car>
-    <Price>0</Price>
-    <CommentId>0</CommentId>
-    <State>Unsuccessful</State>
-  </Drive>
-  <Drive>
-    <Id>1002</Id>
-    <DateTime>22-06-2018 19:35:15</DateTime>
-    <StartLocation>Bulevar Oslobodjenja </StartLocation>
-    <StartLocationX>17</StartLocationX>
-    <StartLocationY>3</StartLocationY>
-    <Destination>Ftn</Destination>
-    <DestinationX>33</DestinationX>
-    <DestinationY>23</DestinationY>
-    <CustomerId>2</CustomerId>
-    <DispatcherId>0</DispatcherId>
-    <DriverId>7</DriverId>
-    <Car>None</Car>
-    <Price>350</Price>
-    <CommentId>0</CommentId>
-    <State>Successful</State>
-  </Drive>
-  <Drive>
-    <Id>1003</Id>
-    <DateTime>23-06-2018 12:30:15</DateTime>
-    <StartLocation>MyLocation</StartLocation>
-    <StartLocationX>13</StartLocationX>
-    <StartLocationY>23</StartLocationY>
-    <Destination>None</Destination>
-    <DestinationX>0</DestinationX>
-    <DestinationY>0</DestinationY>
-    <CustomerId>3</CustomerId>
-    <DispatcherId>0</DispatcherId>
-    <DriverId>7</DriverId>
-    <Car>None</Car>
-    <Price>0</Price>
-    <CommentId>0</CommentId>
-    <State>Successful</State>
-  </Drive>
-  <Drive>
-    <Id>1004</Id>
-    <DateTime>24-06-2018 02:34:35</DateTime>
-    <StartLocation>Nevesinje</StartLocation>
-    <StartLocationX>33</StartLocationX>
-    <StartLocationY>12</StartLocationY>
-    <Destination>None</Destination>
-    <DestinationX>0</DestinationX>
-    <DestinationY>0</DestinationY>
-    <CustomerId>5</CustomerId>
-    <DispatcherId>1</DispatcherId>
-    <DriverId>7</DriverId>
-    <Car>None</Car>
-    <Price>0</Price>
-    <CommentId>10003</CommentId>
-    <State>Unsuccessful</State>
-  </Drive>
-  <Drive>
-    <Id>1005</Id>
-    <DateTime>22-06-2018 00:00:00</DateTime>
-    <StartLocation>Zeljeznicka 3</StartLocation>
-    <StartLocationX>51</StartLocationX>
-    <StartLocationY>26</StartLocationY>
-    <Destination>None</Destination>
-    <DestinationX>0</DestinationX>
-    <DestinationY>0</DestinationY>
-    <CustomerId>3</CustomerId>
-    <DispatcherId>0</DispatcherId>
-    <DriverId>7</DriverId>
-    <Car>None</Car>
-    <Price>0</Price>
-    <CommentId>10004</CommentId>
-    <State>Unsuccessful</State>
-  </Drive>
-  <Drive>
-    <Id>1006</Id>
-    <DateTime>22-06-2018 00:00:00</DateTime>
-    <StartLocation>BulevarKraljaPetra1</StartLocation>
-    <StartLocationX>51</StartLocationX>
-    <StartLocationY>26</StartLocationY>
-    <Destination>None</Destination>
-    <DestinationX>0</DestinationX>
-    <DestinationY>0</DestinationY>
-    <CustomerId>3</CustomerId>
-    <DispatcherId>0</DispatcherId>
-    <DriverId>7</DriverId>
-    <Car>None</Car>
-    <Price>0</Price>
-    <CommentId>0</CommentId>
-    <State>Canceled</State>
-  </Drive>
-  <Drive>
-    <Id>1007</Id>
-    <DateTime>22-06-2018 00:00:00</DateTime>
-    <StartLocation>BulevarKraljaPetra1</StartLocation>
-    <StartLocationX>51</StartLocationX>
-    <StartLocationY>26</StartLocationY>
-    <Destination>None</Destination>
-    <DestinationX>0</DestinationX>
-    <DestinationY>0</DestinationY>
-    <CustomerId>3</CustomerId>
-    <DispatcherId>0</DispatcherId>
-    <DriverId>7</DriverId>
-    <Car>None</Car>
-    <Price>0</Price>
-    <CommentId>0</CommentId>
-    <State>Unsuccessful</State>
-  </Drive>
-  <Drive>
-    <Id>1008</Id>
-    <DateTime>25-06-2018 01:26:28</DateTime>
-    <StartLocation>Strazilovska</StartLocation>
-    <StartLocationX>18</StartLocationX>
-    <StartLocationY>93</StartLocationY>
-    <Destination>None</Destination>
-    <DestinationX>0</DestinationX>
-    <DestinationY>0</DestinationY>
-    <CustomerId>0</CustomerId>
-    <DispatcherId>1</DispatcherId>
-    <DriverId>8</DriverId>
+    <DriverId>10</DriverId>
     <Car>Car</Car>
-    <Price>0</Price>
-    <CommentId>0</CommentId>
-    <State>Formated</State>
-  </Drive>
-  <Drive>
-    <Id>1009</Id>
-    <DateTime>25-06-2018 02:05:59</DateTime>
-    <StartLocation>Ftn</StartLocation>
-    <StartLocationX>23</StartLocationX>
-    <StartLocationY>22</StartLocationY>
-    <Destination>None</Destination>
-    <DestinationX>0</DestinationX>
-    <DestinationY>0</DestinationY>
-    <CustomerId>5</CustomerId>
-    <DispatcherId>0</DispatcherId>
-    <DriverId>7</DriverId>
-    <Car>None</Car>
     <Price>0</Price>
     <CommentId>10005</CommentId>
     <State>Unsuccessful</State>
   </Drive>
   <Drive>
-    <Id>1010</Id>
-    <DateTime>25-06-2018 02:06:29</DateTime>
-    <StartLocation>ftn</StartLocation>
-    <StartLocationX>23</StartLocationX>
-    <StartLocationY>22</StartLocationY>
+    <Id>1002</Id>
+    <DateTime>28-06-2018 03:02:13</DateTime>
+    <StartLocation>Kisacka 12, Novi Sad 21000</StartLocation>
+    <StartLocationX>45.2615643</StartLocationX>
+    <StartLocationY>19.8414698</StartLocationY>
     <Destination>None</Destination>
     <DestinationX>0</DestinationX>
     <DestinationY>0</DestinationY>
@@ -184,160 +48,126 @@
     <DriverId>7</DriverId>
     <Car>None</Car>
     <Price>0</Price>
-    <CommentId>10006</CommentId>
+    <CommentId>10001</CommentId>
     <State>Unsuccessful</State>
   </Drive>
   <Drive>
-    <Id>1011</Id>
-    <DateTime>25-06-2018 02:09:21</DateTime>
-    <StartLocation>Futoska</StartLocation>
-    <StartLocationX>18</StartLocationX>
-    <StartLocationY>7</StartLocationY>
-    <Destination>Nepoznata</Destination>
-    <DestinationX>5</DestinationX>
-    <DestinationY>5</DestinationY>
-    <CustomerId>2</CustomerId>
-    <DispatcherId>1</DispatcherId>
-    <DriverId>7</DriverId>
-    <Car>None</Car>
-    <Price>150</Price>
-    <CommentId>0</CommentId>
-    <State>Successful</State>
-  </Drive>
-  <Drive>
-    <Id>1012</Id>
-    <DateTime>25-06-2018 02:09:55</DateTime>
-    <StartLocation>Futoska</StartLocation>
-    <StartLocationX>18</StartLocationX>
-    <StartLocationY>3</StartLocationY>
+    <Id>1003</Id>
+    <DateTime>28-06-2018 03:10:46</DateTime>
+    <StartLocation>Zlatne Grede 25, Novi Sad 21101</StartLocation>
+    <StartLocationX>45.2592063</StartLocationX>
+    <StartLocationY>19.8478625</StartLocationY>
     <Destination>None</Destination>
     <DestinationX>0</DestinationX>
     <DestinationY>0</DestinationY>
-    <CustomerId>2</CustomerId>
-    <DispatcherId>1</DispatcherId>
+    <CustomerId>5</CustomerId>
+    <DispatcherId>0</DispatcherId>
     <DriverId>8</DriverId>
     <Car>Car</Car>
     <Price>0</Price>
-    <CommentId>0</CommentId>
-    <State>Processed</State>
-  </Drive>
-  <Drive>
-    <Id>1013</Id>
-    <DateTime>25-06-2018 23:53:50</DateTime>
-    <StartLocation>Zmaj Jovina</StartLocation>
-    <StartLocationX>18</StartLocationX>
-    <StartLocationY>63</StartLocationY>
-    <Destination>None</Destination>
-    <DestinationX>0</DestinationX>
-    <DestinationY>0</DestinationY>
-    <CustomerId>3</CustomerId>
-    <DispatcherId>0</DispatcherId>
-    <DriverId>7</DriverId>
-    <Car>Car</Car>
-    <Price>0</Price>
-    <CommentId>10007</CommentId>
+    <CommentId>10002</CommentId>
     <State>Unsuccessful</State>
   </Drive>
   <Drive>
-    <Id>1014</Id>
-    <DateTime>26-06-2018 19:41:26</DateTime>
-    <StartLocation>Strazilovska</StartLocation>
-    <StartLocationX>15</StartLocationX>
-    <StartLocationY>15</StartLocationY>
-    <Destination>Bulevar Kralja Petra 1</Destination>
-    <DestinationX>51</DestinationX>
-    <DestinationY>50</DestinationY>
-    <CustomerId>3</CustomerId>
+    <Id>1004</Id>
+    <DateTime>28-06-2018 03:11:32</DateTime>
+    <StartLocation>Radnicka 20б, Novi Sad 21000</StartLocation>
+    <StartLocationX>45.249063</StartLocationX>
+    <StartLocationY>19.8509823</StartLocationY>
+    <Destination>Bulevar Cara Lazara undefined, Novi Sad 21102</Destination>
+    <DestinationX>45.2419062</DestinationX>
+    <DestinationY>19.8348364</DestinationY>
+    <CustomerId>2</CustomerId>
     <DispatcherId>0</DispatcherId>
-    <DriverId>7</DriverId>
-    <Car>Car</Car>
-    <Price>250</Price>
-    <CommentId>10008</CommentId>
-    <State>Successful</State>
-  </Drive>
-  <Drive>
-    <Id>1015</Id>
-    <DateTime>26-06-2018 19:47:21</DateTime>
-    <StartLocation>Ulica bb</StartLocation>
-    <StartLocationX>13</StartLocationX>
-    <StartLocationY>22</StartLocationY>
-    <Destination>Bulevar Oslobodjenja</Destination>
-    <DestinationX>13</DestinationX>
-    <DestinationY>22</DestinationY>
-    <CustomerId>5</CustomerId>
-    <DispatcherId>0</DispatcherId>
-    <DriverId>7</DriverId>
+    <DriverId>8</DriverId>
     <Car>None</Car>
-    <Price>500</Price>
-    <CommentId>10009</CommentId>
+    <Price>350</Price>
+    <CommentId>10003</CommentId>
     <State>Successful</State>
   </Drive>
   <Drive>
-    <Id>1016</Id>
-    <DateTime>27-06-2018 18:49:03</DateTime>
-    <StartLocation>Bulevar</StartLocation>
-    <StartLocationX>23</StartLocationX>
-    <StartLocationY>33</StartLocationY>
+    <Id>1005</Id>
+    <DateTime>28-06-2018 03:16:20</DateTime>
+    <StartLocation>Bulevar oslobodjenja undefined, Novi Sad 21101</StartLocation>
+    <StartLocationX>45.2450262</StartLocationX>
+    <StartLocationY>19.840236935316</StartLocationY>
     <Destination>None</Destination>
     <DestinationX>0</DestinationX>
     <DestinationY>0</DestinationY>
+    <CustomerId>2</CustomerId>
+    <DispatcherId>0</DispatcherId>
+    <DriverId>0</DriverId>
+    <Car>None</Car>
+    <Price>0</Price>
+    <CommentId>0</CommentId>
+    <State>Created</State>
+  </Drive>
+  <Drive>
+    <Id>1006</Id>
+    <DateTime>28-06-2018 03:17:09</DateTime>
+    <StartLocation>Aranj Janosa 9, Novi Sad 21102</StartLocation>
+    <StartLocationX>45.2404573</StartLocationX>
+    <StartLocationY>19.8238316</StartLocationY>
+    <Destination>None</Destination>
+    <DestinationX>0</DestinationX>
+    <DestinationY>0</DestinationY>
+    <CustomerId>4</CustomerId>
+    <DispatcherId>0</DispatcherId>
+    <DriverId>0</DriverId>
+    <Car>None</Car>
+    <Price>0</Price>
+    <CommentId>10004</CommentId>
+    <State>Canceled</State>
+  </Drive>
+  <Drive>
+    <Id>1007</Id>
+    <DateTime>28-06-2018 03:17:53</DateTime>
+    <StartLocation>Ilariona Ruvarca 24, Novi Sad 21000</StartLocation>
+    <StartLocationX>45.2427853</StartLocationX>
+    <StartLocationY>19.8023141</StartLocationY>
+    <Destination>Heroja Pinkija 11, Novi Sad 21102</Destination>
+    <DestinationX>45.2373284</DestinationX>
+    <DestinationY>19.8228612</DestinationY>
+    <CustomerId>4</CustomerId>
+    <DispatcherId>0</DispatcherId>
+    <DriverId>8</DriverId>
+    <Car>None</Car>
+    <Price>600</Price>
+    <CommentId>0</CommentId>
+    <State>Successful</State>
+  </Drive>
+  <Drive>
+    <Id>1008</Id>
+    <DateTime>28-06-2018 03:18:11</DateTime>
+    <StartLocation>Sokolska 12, Novi Sad 21000</StartLocation>
+    <StartLocationX>45.2311861</StartLocationX>
+    <StartLocationY>19.7970928</StartLocationY>
+    <Destination>None</Destination>
+    <DestinationX>0</DestinationX>
+    <DestinationY>0</DestinationY>
+    <CustomerId>6</CustomerId>
+    <DispatcherId>0</DispatcherId>
+    <DriverId>0</DriverId>
+    <Car>None</Car>
+    <Price>0</Price>
+    <CommentId>0</CommentId>
+    <State>Created</State>
+  </Drive>
+  <Drive>
+    <Id>1009</Id>
+    <DateTime>28-06-2018 03:21:09</DateTime>
+    <StartLocation>Bulevar Jase Tomica undefined, Novi Sad 21101</StartLocation>
+    <StartLocationX>45.2637801</StartLocationX>
+    <StartLocationY>19.8270172</StartLocationY>
+    <Destination>Bolmanska 8, Novi Sad 21102</Destination>
+    <DestinationX>45.2331629</DestinationX>
+    <DestinationY>19.8171114</DestinationY>
     <CustomerId>0</CustomerId>
     <DispatcherId>1</DispatcherId>
-    <DriverId>9</DriverId>
+    <DriverId>10</DriverId>
     <Car>None</Car>
-    <Price>0</Price>
+    <Price>700</Price>
     <CommentId>0</CommentId>
-    <State>Formated</State>
-  </Drive>
-  <Drive>
-    <Id>1017</Id>
-    <DateTime>27-06-2018 20:26:52</DateTime>
-    <StartLocation>Bulevar Kralja Petra</StartLocation>
-    <StartLocationX>51</StartLocationX>
-    <StartLocationY>21</StartLocationY>
-    <Destination>None</Destination>
-    <DestinationX>0</DestinationX>
-    <DestinationY>0</DestinationY>
-    <CustomerId>3</CustomerId>
-    <DispatcherId>0</DispatcherId>
-    <DriverId>0</DriverId>
-    <Car>None</Car>
-    <Price>0</Price>
-    <CommentId>0</CommentId>
-    <State>Created</State>
-  </Drive>
-  <Drive>
-    <Id>1018</Id>
-    <DateTime>27-06-2018 21:06:05</DateTime>
-    <StartLocation>Bulevar Jase Tomica ББ, Novi Sad 21000</StartLocation>
-    <StartLocationX>45.2649908</StartLocationX>
-    <StartLocationY>19.8316440508735</StartLocationY>
-    <Destination>None</Destination>
-    <DestinationX>0</DestinationX>
-    <DestinationY>0</DestinationY>
-    <CustomerId>3</CustomerId>
-    <DispatcherId>0</DispatcherId>
-    <DriverId>0</DriverId>
-    <Car>None</Car>
-    <Price>0</Price>
-    <CommentId>0</CommentId>
-    <State>Created</State>
-  </Drive>
-  <Drive>
-    <Id>1019</Id>
-    <DateTime>27-06-2018 21:11:28</DateTime>
-    <StartLocation>Sentandrejski put 3, Novi Sad 21138</StartLocation>
-    <StartLocationX>45.2708352</StartLocationX>
-    <StartLocationY>19.8303732</StartLocationY>
-    <Destination>None</Destination>
-    <DestinationX>0</DestinationX>
-    <DestinationY>0</DestinationY>
-    <CustomerId>3</CustomerId>
-    <DispatcherId>0</DispatcherId>
-    <DriverId>0</DriverId>
-    <Car>None</Car>
-    <Price>0</Price>
-    <CommentId>10010</CommentId>
-    <State>Canceled</State>
+    <State>Successful</State>
   </Drive>
 </Drives>
